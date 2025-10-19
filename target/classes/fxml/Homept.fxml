@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" styleClass="background-home" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="419.1148986816406" minHeight="10.0" prefHeight="327.2756042480469" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="563.6265563964844" minHeight="10.0" prefHeight="522.7243957519531" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="150.0" prefWidth="200.0" styleClass="home-primary-box" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <ImageView fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../Icone/ChatGPT%20Image%2023%20set%202025,%2016_50_27.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="50.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <HBox prefHeight="80.0" prefWidth="317.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ez">
+                                 <font>
+                                    <Font size="50.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="#e4605e" strokeType="OUTSIDE" strokeWidth="0.0" text="Gym">
+                                 <font>
+                                    <Font size="50.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="150.0" prefWidth="45.0" HBox.hgrow="ALWAYS" />
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0">
+                     <children>
+                        <Region prefHeight="27.0" prefWidth="450.0" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="450.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Benvenuto coach,">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Text>
+                              <Label text=" Franco !">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personal trainer certificato">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="247.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="227.0" styleClass="home-secondary-button" text="Controlla i tuoi appuntamenti" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icone/team.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" right="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="89.0" layoutY="220.0" prefHeight="70.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Richieste in attesa">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" prefWidth="200.0" text="7">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Clienti attivi">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" prefWidth="200.0" text="20">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Schede attive">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" prefWidth="200.0" text="15">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Diete attive">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" prefWidth="300.0" text="15">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="533.0" prefWidth="1150.0" GridPane.rowIndex="1">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutX="292.0" layoutY="209.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="1090.0" styleClass="home-pt-slider-box" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0">
+                           <children>
+                              <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="60.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Separator>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="10.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Icone/notes.png" />
+                                 </image>
+                              </ImageView>
+                              <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Richieste attive">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="485.0" prefWidth="1090.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="28.0" layoutY="14.0" prefHeight="353.0" prefWidth="1050.0" styleClass="viewport" stylesheets="@../values/LoginStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="547.0" prefWidth="1090.0">
+                                       <children>
+                                          <VBox layoutX="39.0" layoutY="64.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="200.0" />
+                                                      <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <children>
+                                                            <Label text="Mario Rossi" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="30.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label text="BMI: 24.5 |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Peso: 74 Kg |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Obiettivo:  Perdere peso" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label text="Richiesta: 2 giorni fa" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-primary-button" text="Visualizza dati">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea scheda">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="TOP_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="red-vbox">
+                                                               <children>
+                                                                  <Label text="Scheda + dieta" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="25.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </VBox.margin>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Separator maxWidth="1.7976931348623157E308" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Separator>
+                                                <HBox prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="200.0" />
+                                                      <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <Label text="Matteo bianchi" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="30.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label text="BMI: 24.5 |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Peso: 74 Kg |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Obiettivo:  Perdere peso" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label text="Richiesta: 2 giorni fa" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-primary-button" text="Visualizza dati">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea scheda">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox alignment="TOP_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="red-vbox">
+                                                               <children>
+                                                                  <Label text="Scheda" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="25.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </VBox.margin>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Separator prefWidth="200.0">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Separator>
+                                                <HBox prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="200.0" />
+                                                      <VBox prefHeight="200.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <Label text="Francesco Verdi" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="30.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label text="BMI: 24.5 |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Peso: 74 Kg |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Label text="Obiettivo:  Perdere peso" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../Icone/calendar.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="Richiesta: 2 giorni fa" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-primary-button" text="Visualizza dati">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea scheda">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
+                                                                     <HBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="red-vbox">
+                                                               <children>
+                                                                  <Label text="Dieta" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="25.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" right="20.0" />
+                                                               </VBox.margin>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children></AnchorPane>
+                                 </content>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

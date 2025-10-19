@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" styleClass="background-request" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <VBox layoutX="580.0" layoutY="255.0" prefHeight="200.0" prefWidth="100.0" styleClass="home-pt-slider-box" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="100.0">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icone/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="54.0" prefWidth="750.0">
+                     <children>
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.5" text="Benvenuto nella tua scheda di allenmento">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta qui i tuoi progressi e i tuoi allenamenti settimanali">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <StackPane prefHeight="681.0" prefWidth="750.0">
+                     <children>
+                        <VBox prefHeight="663.0" prefWidth="720.0">
+                           <children>
+                              <AnchorPane prefHeight="641.0" prefWidth="720.0">
+                                 <children>
+                                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="20.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <AnchorPane prefHeight="1054.0" prefWidth="720.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" layoutX="240.0" layoutY="131.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <VBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="680.0" style="-fx-border-color: white; -fx-border-radius: 10;">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="702.0">
+                                                               <children>
+                                                                  <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.5" text="Piano di allenamento -">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Label text="Tonificazione" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets top="5.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Durata: ">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Text>
+                                                                  <Label text="6 settimane |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Creato da:">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Text>
+                                                                  <Label text="Coach Marco |" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Inizio:">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Text>
+                                                                  <Label text="01/01/2001" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="16.0" />
+                                                                     </font>
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets left="30.0" right="30.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </VBox>
+                                                      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                  <Label text="4" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="20.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settimana corrente">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Text>
+                                                               </children>
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </VBox>
+                                                            <HBox prefHeight="100.0" prefWidth="55.0" HBox.hgrow="ALWAYS" />
+                                                            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                  <Label text="3" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="20.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Allenamenti settimanali">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Text>
+                                                               </children>
+                                                            </VBox>
+                                                            <HBox prefHeight="100.0" prefWidth="55.0" HBox.hgrow="ALWAYS" />
+                                                            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                                                               <children>
+                                                                  <Label text="10" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="20.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Allenamenti effettuati">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Text>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <VBox prefHeight="122.0" prefWidth="684.0">
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Note del coach">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <TextArea editable="false" prefHeight="101.0" prefWidth="684.0" style="-fx-background-radius: 10;" text="Concentrati sulla corretta esecuzione degli esercizi. Mantieni sempre il controllo del movimento e respira correttamente. Se senti dolore (non fatica), interrompi l'esercizio. Ricorda di idratarti bene durante l'allenamento!" wrapText="true">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </TextArea>
+                                                         </children>
+                                                      </VBox>
+                                                      <TitledPane alignment="CENTER_RIGHT" animated="false" expanded="false" styleClass="titlede-pane" text="Primo giorno" textFill="WHITE">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                        </content>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </TitledPane>
+                                                      <TitledPane alignment="CENTER_RIGHT" animated="false" expanded="false" styleClass="titlede-pane" text="Secondo giorno" textFill="WHITE">
+                                                         <content>
+                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                         </content>
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" top="20.0" />
+                                                         </VBox.margin>
+                                                      </TitledPane>
+                                                      <VBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Fai una domanda al coach">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="10.0" top="20.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <TextArea prefHeight="101.0" prefWidth="684.0" promptText="Chiedi quello che vuoi" style="-fx-background-radius: 10;" wrapText="true">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </TextArea>
+                                                      <Region prefHeight="90.0" prefWidth="704.0" />
+                                                      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" styleClass="completed-button" text="Allenamento di oggi completato" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <HBox prefHeight="70.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
+                                                            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" styleClass="toggle-button" text="Richiedi una nuova scheda" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

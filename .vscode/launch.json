@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "it.uniroma2.dicii.EzGym.Main",
+            "projectName": "Progetto-ISPW"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "it.uniroma2.dicii.foodmood.Main",
+            "vmArgs": "--module-path /Users/gabrielemonti/Programmi/java/javafx-sdk-25/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

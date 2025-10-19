@@ -1,0 +1,6 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.referencedLibraries": [
+        "/Users/gabrielemonti/Programmi/java/javafx-sdk-25/lib/*.jar"
+    ]
+}

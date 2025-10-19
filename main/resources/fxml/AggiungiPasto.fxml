@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="720.0" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.EzGym.AggiungiPastoController">
+   <children>
+      <TitledPane fx:id="mealNumber" animated="false" collapsible="true" expanded="true" maxWidth="1.7976931348623157E308" prefHeight="257.0" prefWidth="720.0" textFill="WHITE" VBox.vgrow="ALWAYS">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="700.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" layoutX="59.5" layoutY="59.5" prefHeight="40.0" prefWidth="330.0" AnchorPane.leftAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome del pasto:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Region prefHeight="40.0" prefWidth="12.0" />
+                        <TextField fx:id="nomePastoField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" layoutX="24.5" layoutY="99.5" prefHeight="40.0" prefWidth="331.0" AnchorPane.leftAnchor="-5.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimento:" wrappingWidth="74.74459838867188">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Region prefHeight="40.0" prefWidth="57.0" />
+                        <TextField fx:id="alimentoField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" layoutY="29.5" prefHeight="40.0" prefWidth="343.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantità:" wrappingWidth="119.70703125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="quantitaField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="331.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Unità di misura:" wrappingWidth="131.06539916992188">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="unitaMisuraField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="44.0" layoutY="115.0" prefHeight="40.0" prefWidth="331.0" AnchorPane.leftAnchor="-5.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alternative:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Region prefHeight="40.0" prefWidth="56.0" />
+                        <TextField fx:id="alimentoField1" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Button fx:id="eliminaPastoBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="add-button" text="Elimina pasto">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="aggiungiAlimentoBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-border-width: 4;" styleClass="toggle-button" text="+ Aggiungi Alimento">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </content>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TitledPane>
+      <VBox fx:id="tableContainer" alignment="CENTER" managed="${mealNumber.expanded}" prefWidth="100.0" visible="${mealNumber.expanded}" VBox.vgrow="NEVER">
+         <children>
+            <!-- TableView per mostrare gli alimenti aggiunti -->
+            <TableView fx:id="alimentiTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="650.0" styleClass="table-view" VBox.vgrow="NEVER">
+               <columns>
+                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Nome pasto" />
+                  <TableColumn fx:id="alimentoColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Alimento" />
+                  <TableColumn fx:id="quantitaColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Quantità" />
+                  <TableColumn fx:id="unitaMisuraColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Unità di misura" />
+                  <TableColumn fx:id="azioniColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" text="Alternative" />
+               </columns>
+               <VBox.margin>
+                  <Insets left="35.0" right="35.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>
