@@ -40,29 +40,17 @@ public class Exercise {
 
     // Setters
     public void setName(String name){
-        if(name == null || name.trim().isEmpty()){
-            throw new IllegalArgumentException("Il nome dell'esercizio non deve essere nullo");
-        }
         this.name = name;
     }
 
     public void setSets(int sets){
-        if(sets <= 0){
-            throw new IllegalArgumentException("Il numero di serie deve essere positivo");
-        }
         this.sets = sets;
     }
 
     public void setReps(int reps){
-        if(reps <= 0){
-            throw new IllegalArgumentException("Il numero di ripetizioni deve essere positivo");
-        }
         this.reps = reps;
     }
     public void setRestTime(int restTime){
-        if(restTime < 0){
-            throw new IllegalArgumentException("Il tempo di riposo non puo' essere negativo");
-        }
         this.restTime = restTime;
     }
     public void setNotes(String notes){
@@ -70,16 +58,7 @@ public class Exercise {
     }
 
     public void setType(ExerciseType type){
-        if(type == null){
-            throw new IllegalArgumentException("Il tipo di esercizio non deve essere nullo");
-        }
         this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s: %dx%d (recupero: %ds)", 
-                    name, sets, reps, restTime);
     }
 
 }

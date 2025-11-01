@@ -34,9 +34,6 @@ public class Macronutrients {
     }
 
    public Macronutrients multiply(double factor) {
-        if (factor < 0) {
-            throw new IllegalArgumentException("Il fattore moltiplicativo non può essere negativo");
-        }
         return new Macronutrients(
             this.proteins * factor,
             this.carbohydrates * factor,

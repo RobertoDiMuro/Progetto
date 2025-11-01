@@ -25,9 +25,6 @@ public class DailyMealPlan {
     }
 
     public void setDay(String day) {
-        if(day == null || day.trim().isEmpty()) {
-            throw new IllegalArgumentException("il giorno non può essere nullo o vuoto");
-        }
         this.day = day;
     }
     public void setNotes(String notes) {
@@ -35,16 +32,10 @@ public class DailyMealPlan {
     }
 
     public void addMeal(Meal meal) {
-        if (meal == null) {
-            throw new IllegalArgumentException("Il pasto non deve essere nullo");
-        }
         this.meals.add(meal);
     }
 
     public void removeMeal(Meal meal) {
-        if (meal == null) {
-            throw new IllegalArgumentException("Il pasto non deve essere nullo");
-        }
         this.meals.remove(meal);
     }
     

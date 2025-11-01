@@ -25,24 +25,15 @@ public class Meal {
     }
 
     public void setType(MealType type) {
-        if(type == null) {
-            throw new IllegalArgumentException("il tipo di pasto non può essere nullo");
-        }
         this.type = type;
     }
     public void setNotes(String notes) {
         this.notes = notes != null ? notes : "";
     }
     public void addPortion(Food portions){
-        if(portions == null){
-            throw new IllegalArgumentException("La porzione non deve essere nulla");
-        }
         this.portions.add(portions);
     }
     public void removePortion(Food portion) {
-        if (portion == null) {
-            throw new IllegalArgumentException("La porzione non deve essere nulla");
-        }
         this.portions.remove(portion);
     }
     

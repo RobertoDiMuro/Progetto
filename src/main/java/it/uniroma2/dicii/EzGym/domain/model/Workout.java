@@ -61,9 +61,6 @@ public class Workout {
 
     // Setters
     public void setTarget(Target target){
-        if(target == null){
-            throw new IllegalArgumentException("L'obiettivo non deve essere nullo");
-        }
         this.target = target;
     }
     public void setNotes(String notes){
@@ -71,26 +68,14 @@ public class Workout {
     }
 
     public void setStatus(WorkoutStatus status){
-        if(status == null){
-            throw new IllegalArgumentException("Lo stato dell'allenamento non deve essere nullo");
-        }
         this.status = status;
     }
 
     public void addSession(WorkoutSession session){
-        if(session == null){
-            throw new IllegalArgumentException("La sessione non deve essere nulla");
-        }
-        if(this.status != WorkoutStatus.ACTIVE){
-            throw new IllegalStateException("Non è possibile aggiungere sessioni ad un allenamento non attivo");
-        }
         this.sessions.add(session);
     }
 
     public void removeSession(WorkoutSession session){
-        if(this.status != WorkoutStatus.ACTIVE){
-            throw new IllegalStateException("Non è possibile rimuovere sessioni da un allenamento non attivo");
-        }
         this.sessions.remove(session);
     }
      public void skip() {

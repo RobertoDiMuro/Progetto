@@ -71,47 +71,26 @@ public class Diet {
     }
 
     public void setTarget(Target target) {
-        if(target == null) {
-            throw new IllegalArgumentException("l'obiettivo non può essere nullo");
-        }
         this.target = target;
     }
     public void setTargetCalories(double targetCalories) {
-        if(targetCalories <= 0) {
-            throw new IllegalArgumentException("le calorie target devono essere maggiori di zero");
-        }
         this.targetCalories = targetCalories;
     }
     public void setTargetMacros(Macronutrients targetMacros) {
-        if(targetMacros == null) {
-            throw new IllegalArgumentException("i macronutrienti target non possono essere nulli");
-        }
         this.targetMacros = targetMacros;
     }
     public void setNotes(String notes) {
         this.notes = notes != null ? notes : "";
     }
     public void setStatus(DietStatus status) {
-        if(status == null) {
-            throw new IllegalArgumentException("lo stato della dieta non può essere nullo");
-        }
         this.status = status;
     }
 
     public void addDailyPlan(DailyMealPlan plan){
-        if (plan == null) {
-            throw new IllegalArgumentException("Il piano giornaliero non deve essere nullo");
-        }
-        if (this.status != DietStatus.ACTIVE) {
-            throw new IllegalStateException("Non è possibile aggiungere piani ad una dieta non attiva");
-        }
         this.dailyPlans.add(plan);
     }
     
     public void removeDailyPlan(DailyMealPlan plan) {
-        if (this.status != DietStatus.ACTIVE) {
-            throw new IllegalStateException("Non è possibile rimuovere piani da una dieta non attiva");
-        }
         this.dailyPlans.remove(plan);
     }
 

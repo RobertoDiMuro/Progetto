@@ -32,37 +32,22 @@ public class Food {
     }
 
     public void setName(String name) {
-        if(name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("il nome del cibo non può essere vuoto");
-        }
         this.name = name;
     }
     public void setCategory(String category) {
-        if(category == null || category.trim().isEmpty()) {
-            throw new IllegalArgumentException("la categoria del cibo non può essere vuota");
-        }
         this.category = category;
     }
     public void setNotes(String notes) {
         this.notes = notes == null ? notes : "";
     }
     public void setMacronutrientsPer100g(Macronutrients macronutrientsPer100g) {
-        if(macronutrientsPer100g == null) {
-            throw new IllegalArgumentException("i macronutrienti non possono essere nulli");
-        }
         this.macronutrientsPer100g = macronutrientsPer100g;
     }
     public void setGrams(double grams) {
-        if(grams <= 0) {
-            throw new IllegalArgumentException("i grammi devono essere maggiori di zero");
-        }
         this.grams = grams;
     }
 
     public Macronutrients calculateMacronutrients(double grams) {
-        if (grams < 0) {
-            throw new IllegalArgumentException("I grammi non possono essere negativi");
-        }
         return macronutrientsPer100g.multiply(grams / 100.0);
     }
 
