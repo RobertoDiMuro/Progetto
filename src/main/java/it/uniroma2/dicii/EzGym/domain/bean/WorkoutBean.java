@@ -1,10 +1,10 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import it.uniroma2.dicii.EzGym.domain.model.Target;
-import it.uniroma2.dicii.EzGym.domain.model.WorkoutStatus;
+import it.uniroma2.dicii.ezgym.domain.model.Target;
+import it.uniroma2.dicii.ezgym.domain.model.WorkoutStatus;
 
 public class WorkoutBean {
     

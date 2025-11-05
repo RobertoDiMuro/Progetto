@@ -1,6 +1,6 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
-import it.uniroma2.dicii.EzGym.domain.model.ExerciseType;
+import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
 
 public class ExerciseBean {
 

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym.validator;
+package it.uniroma2.dicii.ezgym.validator;
 
 import java.util.regex.Pattern;
 

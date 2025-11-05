@@ -1,6 +1,6 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
-import it.uniroma2.dicii.EzGym.domain.model.Macronutrients;
+import it.uniroma2.dicii.ezgym.domain.model.Macronutrients;
 
 public class FoodBean {
     

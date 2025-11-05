@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym.domain.model;
+package it.uniroma2.dicii.ezgym.domain.model;
 
 public abstract class User {
     private String name;

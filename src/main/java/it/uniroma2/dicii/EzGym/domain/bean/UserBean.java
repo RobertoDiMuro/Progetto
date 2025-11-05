@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
 import java.util.regex.Pattern;
 

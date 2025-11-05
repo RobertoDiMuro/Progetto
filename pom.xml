@@ -4,10 +4,10 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>it.uniroma2.dicii.EzGym</groupId>
+  <groupId>it.uniroma2.dicii.ezgym</groupId>
   <artifactId>Progetto</artifactId>
   <version>1.0.0</version>
-  <name>EzGym</name>
+  <name>ezgym</name>
 
   <properties>
     <maven.compiler.source>23</maven.compiler.source>
@@ -62,7 +62,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
         <configuration>
-          <mainClass>it.uniroma2.dicii.EzGym.Main</mainClass>
+          <mainClass>it.uniroma2.dicii.ezgym.Main</mainClass>
           <options>
             <option>--enable-native-access=javafx.graphics</option>
           </options>

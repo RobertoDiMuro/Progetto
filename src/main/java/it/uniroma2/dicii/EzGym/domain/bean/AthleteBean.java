@@ -1,8 +1,8 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
-import it.uniroma2.dicii.EzGym.domain.model.ActivityLevel;
-import it.uniroma2.dicii.EzGym.domain.model.Target;
-import it.uniroma2.dicii.EzGym.domain.model.WorkoutDay;
+import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
+import it.uniroma2.dicii.ezgym.domain.model.Target;
+import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
 
 public class AthleteBean extends UserBean {
     

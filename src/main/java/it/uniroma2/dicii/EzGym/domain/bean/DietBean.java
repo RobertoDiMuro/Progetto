@@ -1,11 +1,11 @@
-package it.uniroma2.dicii.EzGym.domain.bean;
+package it.uniroma2.dicii.ezgym.domain.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import it.uniroma2.dicii.EzGym.domain.model.DietStatus;
-import it.uniroma2.dicii.EzGym.domain.model.Macronutrients;
-import it.uniroma2.dicii.EzGym.domain.model.Target;
+import it.uniroma2.dicii.ezgym.domain.model.DietStatus;
+import it.uniroma2.dicii.ezgym.domain.model.Macronutrients;
+import it.uniroma2.dicii.ezgym.domain.model.Target;
 
 public class DietBean {
     

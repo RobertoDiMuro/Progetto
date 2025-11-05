@@ -227,7 +227,7 @@
                      </VBox.margin>
                   </HBox>
                   <Region prefHeight="80.0" prefWidth="455.0" />
-                  <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Comincia il tuo percorso con EzGym !">
+                  <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Comincia il tuo percorso con ezgym !">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym;
+package it.uniroma2.dicii.ezgym;
 
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
@@ -18,7 +18,7 @@ public class Main extends Application {
         
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         
-        primaryStage.setTitle("EzGym - Login");
+        primaryStage.setTitle("ezgym - Login");
         
         primaryStage.setResizable(true); 
         primaryStage.setMaximized(false); 
@@ -47,7 +47,7 @@ public class Main extends Application {
         
         primaryStage.show();
         
-        System.out.println("=== EzGym - Applicazione Avviata ===");
+        System.out.println("=== ezgym - Applicazione Avviata ===");
         System.out.println("Risoluzione schermo: " + screenBounds.getWidth() + "x" + screenBounds.getHeight());
         System.out.println("Dimensioni finestra: " + windowWidth + "x" + windowHeight);
         System.out.println("Posizione finestra: X=" + primaryStage.getX() + ", Y=" + primaryStage.getY());
@@ -73,7 +73,7 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        System.out.println("\n=== EzGym - Applicazione Chiusa ===");
+        System.out.println("\n=== ezgym - Applicazione Chiusa ===");
         
     }
 }

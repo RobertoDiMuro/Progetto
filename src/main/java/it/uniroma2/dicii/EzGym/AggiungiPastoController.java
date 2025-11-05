@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym;
+package it.uniroma2.dicii.ezgym;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

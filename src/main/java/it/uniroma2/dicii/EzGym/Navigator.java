@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym;
+package it.uniroma2.dicii.ezgym;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,13 +58,13 @@ public class Navigator {
         String fileName = fxml.substring(fxml.lastIndexOf("/") + 1, fxml.lastIndexOf("."));
         
         String title = switch (fileName) {
-            case "Login" -> "EzGym - Login";
-            case "Registrazione" -> "EzGym - Registrazione";
-            case "Home" -> "EzGym - Home";
-            case "Scheda" -> "EzGym - Scheda Allenamento";
-            case "WorkoutRequest" -> "EzGym - Richiedi Scheda";
-            case "Dieta" -> "EzGym - Dieta Personalizzata";
-            default -> "EzGym - " + fileName;
+            case "Login" -> "ezgym - Login";
+            case "Registrazione" -> "ezgym - Registrazione";
+            case "Home" -> "ezgym - Home";
+            case "Scheda" -> "ezgym - Scheda Allenamento";
+            case "WorkoutRequest" -> "ezgym - Richiedi Scheda";
+            case "Dieta" -> "ezgym - Dieta Personalizzata";
+            default -> "ezgym - " + fileName;
         };
         
         stage.setTitle(title);

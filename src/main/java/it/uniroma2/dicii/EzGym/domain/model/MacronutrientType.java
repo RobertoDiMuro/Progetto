@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym.domain.model;
+package it.uniroma2.dicii.ezgym.domain.model;
 
 public enum MacronutrientType {
     PROTEINS("proteine", 4.0),

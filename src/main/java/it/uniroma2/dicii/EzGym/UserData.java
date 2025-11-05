@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.EzGym;
+package it.uniroma2.dicii.ezgym;
 
 public class UserData {
     private static UserData instance;
