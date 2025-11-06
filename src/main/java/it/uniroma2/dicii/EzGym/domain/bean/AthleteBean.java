@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ezgym.domain.bean;
 import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
 import it.uniroma2.dicii.ezgym.domain.model.Target;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
- //gyy
+ 
 public class AthleteBean extends UserBean {
     
     private String gender;
