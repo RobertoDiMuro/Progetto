@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.domain.bean;
+package it.uniroma2.dicii.ezgym.bean;
 
 import java.util.ArrayList;
 import java.util.List;
