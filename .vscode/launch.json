@@ -5,15 +5,15 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "it.uniroma2.dicii.EzGym.Main",
+            "mainClass": "it.uniroma2.dicii.ezgym.Main",
             "projectName": "Progetto-ISPW"
         },
         {
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "mainClass": "it.uniroma2.dicii.foodmood.Main",
-            "vmArgs": "--module-path /Users/gabrielemonti/Programmi/java/javafx-sdk-25/lib --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "it.uniroma2.dicii.ezgym.Main",
+            "vmArgs": "--module-path /Users/robertodimuro/Programmi/java/javafx-sdk-25/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
