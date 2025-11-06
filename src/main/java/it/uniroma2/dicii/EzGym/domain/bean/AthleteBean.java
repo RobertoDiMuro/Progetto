@@ -14,7 +14,9 @@ public class AthleteBean extends UserBean {
     private ActivityLevel activityLevel;
     private WorkoutDay workoutDay;
 
-    public AthleteBean(){}
+    public AthleteBean(){
+        // Costruttore vuoto
+    }
 
     public String getGender(){
         return gender;
