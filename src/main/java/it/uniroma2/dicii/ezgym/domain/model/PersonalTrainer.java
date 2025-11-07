@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ezgym.domain.model;
 public class PersonalTrainer extends User {
     private double activeUsers;
 
-    public PersonalTrainer(String name, String surname, String email, String password, double activeUsers, UserRole role) {
+    public PersonalTrainer(String name, String surname, String email, String password, double activeUsers) {
         super(name, surname, email, password);
         this.activeUsers = activeUsers;
     }
