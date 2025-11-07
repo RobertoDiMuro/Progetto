@@ -7,18 +7,13 @@ import java.util.List;
 public class DailyMealPlan {
     private String day;
     private List<Meal> meals;
-    private String notes;
 
-    public DailyMealPlan(String day, List<Meal> meals, String notes) {
+    public DailyMealPlan(String day, List<Meal> meals) {
         this.day = day;
         this.meals = new ArrayList<>(meals);
-        this.notes = "";
     }
     public String getDay() {
         return day;
-    }
-    public String getNotes() {
-        return notes;
     }
     public List<Meal> getMeals() {
         return Collections.unmodifiableList(meals);
@@ -26,9 +21,6 @@ public class DailyMealPlan {
 
     public void setDay(String day) {
         this.day = day;
-    }
-    public void setNotes(String notes) {
-        this.notes = notes != null ? notes : "";
     }
 
     public void addMeal(Meal meal) {

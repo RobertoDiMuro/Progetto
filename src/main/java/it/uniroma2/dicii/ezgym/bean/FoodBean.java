@@ -10,7 +10,9 @@ public class FoodBean {
     private double grams;
     private String notes;
 
-    public FoodBean(){}
+    public FoodBean(){
+        // Costruttore vuoto
+    }
 
     public String getName(){
         return name;

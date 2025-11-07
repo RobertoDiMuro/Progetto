@@ -4,7 +4,9 @@ public class PersonalTrainerBean extends UserBean {
 
     private double activeUsers;
 
-    public PersonalTrainerBean(){}
+    public PersonalTrainerBean(){
+        // Costruttore vuoto
+    }
 
     public double getActiveUsers(){
         return activeUsers;

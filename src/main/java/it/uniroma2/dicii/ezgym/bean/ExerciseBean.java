@@ -11,7 +11,9 @@ public class ExerciseBean {
     private String notes;
     private ExerciseType type;
 
-    public ExerciseBean() {}
+    public ExerciseBean() {
+        // Costruttore vuoto
+    }
 
     public String getName() {
         return name;

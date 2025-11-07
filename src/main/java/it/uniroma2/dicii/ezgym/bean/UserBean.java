@@ -15,7 +15,9 @@ public class UserBean {
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&._-])[A-Za-z\\d@$!%*?&._-]{8,}$");
 
-    public UserBean(){}
+    public UserBean(){
+        // Costruttore vuoto
+    }
 
     public String getName(){
         return name;

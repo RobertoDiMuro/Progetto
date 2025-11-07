@@ -7,7 +7,9 @@ public class MacronutrientsBean {
     private  double fats;
     private  double fibers;
 
-    public MacronutrientsBean(){}
+    public MacronutrientsBean(){
+        // Costruttore vuoto
+    }
 
     public double getProteins(){
         return proteins;

@@ -11,7 +11,7 @@ public class Athlete extends User {
 
     
     public Athlete() {
-        // costruttore vuoto JavaBean
+        // costruttore vuoto 
     }
 
     public Athlete( String gender, int age, String name, String surname, String email, String password, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
