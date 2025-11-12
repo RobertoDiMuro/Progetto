@@ -7,5 +7,5 @@ public interface PersonalTrainerDao {
     boolean insert(PersonalTrainer personalTrainer);
     PersonalTrainer get();
     void update(PersonalTrainer personalTrainer);
-    boolean delete(PersonalTrainer personalTrainer);
+    void delete();
 }

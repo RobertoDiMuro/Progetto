@@ -5,7 +5,7 @@ import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 
 public class ExerciseDemoDao extends BaseMultyEntityDemoDao<Exercise, String> implements ExerciseDao{
 
-    public static ExerciseDemoDao instance;
+    private static ExerciseDemoDao instance;
 
     public static ExerciseDemoDao getInstance(){
         if(instance == null){

@@ -5,7 +5,7 @@ import it.uniroma2.dicii.ezgym.domain.model.Food;
 
 public class FoodDemoDao extends BaseMultyEntityDemoDao<Food, String> implements FoodDao {
 
-    public static FoodDemoDao instance;
+    private static FoodDemoDao instance;
 
     public static FoodDemoDao getInstance(){
         if(instance == null){

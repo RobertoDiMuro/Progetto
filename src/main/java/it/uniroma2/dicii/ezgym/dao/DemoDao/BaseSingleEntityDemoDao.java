@@ -20,13 +20,9 @@ public abstract class BaseSingleEntityDemoDao<T> {
         this.entity = newEntity;
     }
 
-   public boolean delete(T entity) {
-        if(entity != null){
-            entity = null;
-            return true;
-        }
-        return false;
-    }
+   public void delete(){
+        this.entity = null;
+   }
 
     public boolean isPresent() {
         return this.entity != null;

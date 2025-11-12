@@ -5,7 +5,7 @@ import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 
 public class PersonalTrainerDemoDao extends BaseSingleEntityDemoDao<PersonalTrainer> implements PersonalTrainerDao {
 
-    public static PersonalTrainerDemoDao instance;
+    private static PersonalTrainerDemoDao instance;
 
     public static PersonalTrainerDemoDao getInstance(){
         if(instance == null){
