@@ -1,5 +1,7 @@
 package it.uniroma2.dicii.ezgym.domain.model;
 
+import java.util.UUID;
+
 public class Athlete extends User {
     private String gender;
     private int age;
@@ -14,8 +16,8 @@ public class Athlete extends User {
         // costruttore vuoto 
     }
 
-    public Athlete(String gender, int age, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
-        super();
+    public Athlete( String gender, int age, UUID id, String name, String surname, String email, String password, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
+        super(id, name, surname, email, password);
         this.gender = gender;
         this.age = age;
         this.weight = weight;

@@ -1,9 +1,11 @@
 package it.uniroma2.dicii.ezgym.bean;
 
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class UserBean {
     
+    private UUID id;
     private String name;
     private String surname;
     private String email;
@@ -17,6 +19,14 @@ public class UserBean {
 
     public UserBean(){
         // Costruttore vuoto
+    }
+
+    public UUID getId(){
+        return id;
+    }
+    
+    public void setId(UUID id){
+        this.id = id;
     }
 
     public String getName(){

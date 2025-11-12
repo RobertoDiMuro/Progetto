@@ -1,6 +1,9 @@
 package it.uniroma2.dicii.ezgym.domain.model;
 
+import java.util.UUID;
+
 public abstract class User {
+    private UUID id;
     private String name;
     private String surname;
     private String email;
@@ -8,13 +11,17 @@ public abstract class User {
 
     protected User() {}
     
-    protected User(String name, String surname, String email, String password) {
+    protected User(UUID id, String name, String surname, String email, String password) {
+        this.id = UUID.randomUUID();
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
     }
 
+    public UUID getID(){
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -28,6 +35,9 @@ public abstract class User {
         return password;
     }
 
+    public void setID(UUID id){
+        this.id = id;
+    }
     public void setName(String name){
         this.name = name;
     }
