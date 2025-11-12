@@ -15,7 +15,7 @@ public final class InterfaceSetup {
             System.out.println("Scegli la mdodalità grafica:");
             System.out.println("1. Modalità CLI");
             System.out.println("2. Modalità GUI");
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("Inserisci il numero corrispondente alla modalità desiderata:");
 
             InterfaceMode interfaceMode = null;
@@ -35,7 +35,7 @@ public final class InterfaceSetup {
                 }
                 
             }
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("Modalità selezionata: " + interfaceMode);
                 
             return interfaceMode;

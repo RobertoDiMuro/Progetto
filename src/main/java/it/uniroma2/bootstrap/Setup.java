@@ -14,14 +14,14 @@ public final class Setup {
             System.out.println("=============================");
             System.out.println("     Benvenuto in EzGym!     ");
             System.out.println("=============================");
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("  Avvio dell'applicazione... ");
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("Scegli la mdodalità di utilizzo:");
             System.out.println("1. Modalità Database");
             System.out.println("2. Modalità Demo)");
             System.out.println("3. Modalità Filesystem");
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("Inserisci il numero corrispondente alla modalità desiderata:");
 
             Mode mode = null;
@@ -43,7 +43,7 @@ public final class Setup {
                         System.out.println("Input non valido. Per favore, inserisci 1, 2 o 3:");
                 }
             }
-            System.out.println("                             ");
+            System.out.println();
             System.out.println("Modalità selezionata: " + mode);
 
             return mode;
