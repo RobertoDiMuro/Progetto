@@ -11,5 +11,5 @@ public interface AthleteDao {
     Athlete findBy(UUID id);
     List<Athlete> findAll();
     void update(UUID id, Athlete athlete);
-    boolean delete(Athlete athlete, UUID id); 
+    boolean delete(UUID id); 
 }

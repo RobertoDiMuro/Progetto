@@ -10,5 +10,5 @@ public interface DailyMealPlanDao {
     DailyMealPlan findBy(String day);
     List<DailyMealPlan> findAll();
     void update(String day, DailyMealPlan meals);
-    boolean delete(DailyMealPlan melas, String day);
+    boolean delete(String day);
 }

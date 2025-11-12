@@ -11,5 +11,5 @@ public interface DietDao {
     Diet findBy(String email);
     List<Diet> findAll();
     void update(String email, Diet diet);
-    boolean delete(Diet diet, String email); 
+    boolean delete(String email); 
 }

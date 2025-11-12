@@ -12,5 +12,5 @@ public interface MealDao {
     Meal findBy(MealType type);
     List<Meal> findAll();
     void update(MealType type, Meal meal);
-    boolean delete(Meal meal , MealType type);
+    boolean delete(MealType type);
 }

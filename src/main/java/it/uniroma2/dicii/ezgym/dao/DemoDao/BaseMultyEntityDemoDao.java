@@ -29,7 +29,7 @@ public abstract class BaseMultyEntityDemoDao<T, I> {
         demoMemory.put(id, entity);
     }
 
-    public boolean delete(T entity, I id) {
+    public boolean delete(I id) {
         if(demoMemory.containsKey(id)){
             demoMemory.remove(id);
             return true;

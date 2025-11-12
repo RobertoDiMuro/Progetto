@@ -10,5 +10,5 @@ public interface ExerciseDao {
     Exercise findBy(String name);
     List<Exercise> findAll();
     void update(String name, Exercise exercise);
-    boolean delete(Exercise exercise, String name);
+    boolean delete(String name);
 }

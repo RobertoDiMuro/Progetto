@@ -11,6 +11,6 @@ public interface WorkoutDao {
     Workout findBy(String email);
     List<Workout> findAll();
     void update(String email, Workout workout);
-    boolean delete(Workout workout, String email); 
+    boolean delete(String email); 
 
 }
