@@ -21,8 +21,8 @@ public abstract class BaseSingleEntityDemoDao<T> {
     }
 
    public boolean delete(T entity) {
-        if(this.entity != null){
-            this.entity = null;
+        if(entity != null){
+            entity = null;
             return true;
         }
         return false;
