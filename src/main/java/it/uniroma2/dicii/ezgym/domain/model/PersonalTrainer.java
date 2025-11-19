@@ -5,8 +5,8 @@ import java.util.UUID;
 public class PersonalTrainer extends User {
     private double activeUsers;
 
-    public PersonalTrainer(UUID id, String name, String surname, String email, String password, double activeUsers) {
-        super(id, name, surname, email, password);
+    public PersonalTrainer(UUID id, String name, String surname, String email, String password, Role role, double activeUsers) {
+        super(id, name, surname, email, password, role);
         this.activeUsers = activeUsers;
     }
 

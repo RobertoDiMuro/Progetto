@@ -16,8 +16,8 @@ public class Athlete extends User {
         // costruttore vuoto 
     }
 
-    public Athlete( String gender, int age, UUID id, String name, String surname, String email, String password, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
-        super(id, name, surname, email, password);
+    public Athlete( String gender, int age, UUID id, String name, String surname, String email, String password, Role role, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
+        super(id, name, surname, email, password, role);
         this.gender = gender;
         this.age = age;
         this.weight = weight;

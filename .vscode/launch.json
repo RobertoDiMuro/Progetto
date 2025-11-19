@@ -5,6 +5,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "it.uniroma2.bootstrap.Main",
+            "projectName": "Progetto-ISPW"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "it.uniroma2.dicii.ezgym.Main",
             "projectName": "Progetto-ISPW"
         },

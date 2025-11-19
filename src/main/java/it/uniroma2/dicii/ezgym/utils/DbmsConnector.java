@@ -1,4 +1,4 @@
-package utils;
+package it.uniroma2.dicii.ezgym.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

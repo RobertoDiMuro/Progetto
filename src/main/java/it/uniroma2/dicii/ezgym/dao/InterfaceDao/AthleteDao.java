@@ -8,7 +8,7 @@ import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 public interface AthleteDao {
     
     boolean insert(Athlete athlete, UUID id);
-    Athlete findBy(UUID id);
+    Athlete findBy(String email);
     List<Athlete> findAll();
     void update(UUID id, Athlete athlete);
     boolean delete(UUID id); 

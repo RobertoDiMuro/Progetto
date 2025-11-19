@@ -11,10 +11,9 @@ import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.FoodDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.MealDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
-import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 
 public abstract class DaoFactory {
     
@@ -34,25 +33,38 @@ public abstract class DaoFactory {
 
    public abstract WorkoutSessionDao createWorkoutSessionDao();
 
+   public abstract DailyMealPlanDao createDailyMealPlanDao();
+
+   public abstract UserDao createUserDao();
+
+
+
    private static DaoFactory instance;
 
-//    public static synchronized DaoFactory getInstance(Mode mode){
-//         if(instance == null){
-//           switch (mode) {
-//             case DATABASE:
-//                 instance = new DaoDbmsFactory();
-//                 break;
-//             case DEMO:
-//                 instance = new DaoDemoFactory();
-//                 break;
-//             case FILESYSTEM:
-//                 instance = new DaoFilesystemFactory();
-//                 break;
-//             default:
-//                 instance = new DaoDemoFactory();
-//                 break;
-//           }
-//         }
-//         return instance;
-//     }
+   public static synchronized DaoFactory init(Mode mode){
+        if(instance == null){
+          switch (mode) {
+            // case DATABASE:
+            //     instance = new DaoDbmsFactory();
+            //     break;
+            case DEMO:
+                instance = new DaoDemoFactory();
+                break;
+            // case FILESYSTEM:
+            //     instance = new DaoFilesystemFactory();
+            //     break;
+            default:
+                instance = new DaoDemoFactory();
+                break;
+          }
+        }
+        return instance;
+    }
+
+    public static synchronized DaoFactory getInstance(){
+         if(instance == null){
+               throw new IllegalStateException("DaoFactory is not initialized, call init(Mode) method first.");
+         }
+         return instance;
+    }
  }

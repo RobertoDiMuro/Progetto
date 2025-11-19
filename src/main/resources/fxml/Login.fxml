@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.view.GuiLoginView">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -105,7 +105,7 @@
                               <Insets />
                            </HBox.margin>
                         </StackPane>
-                        <TextField fx:id="usernameField" prefHeight="40.0" prefWidth="455.0" promptText="Username o e-mail" styleClass="login-text-field">
+                        <TextField fx:id="emailField" prefHeight="40.0" prefWidth="455.0" promptText="E-mail" styleClass="login-text-field">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -136,8 +136,11 @@
                                     <Font size="18.0" />
                                  </font>
                               </PasswordField>
-                              <TextField fx:id="passwordTextField" styleClass="login-text-field" visible="false" />
-                              <ImageView fx:id="passwordVisibilityIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <TextField fx:id="passwordTextField" styleClass="login-text-field" visible="false">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextField>
+                              <ImageView fx:id="passwordVisibilityIcon" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#onClikSetVisibility" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icone/hidden.png" />
                                  </image>
@@ -153,7 +156,7 @@
                      </VBox.margin>
                   </HBox>
                   <Region prefHeight="61.0" prefWidth="455.0" />
-                  <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="455.0" styleClass="primary-button" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onClickLogin" prefHeight="40.0" prefWidth="455.0" styleClass="primary-button" text="Login" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>

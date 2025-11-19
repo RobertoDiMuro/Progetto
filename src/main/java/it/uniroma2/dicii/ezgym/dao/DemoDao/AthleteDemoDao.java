@@ -16,5 +16,15 @@ public class AthleteDemoDao extends BaseMultyEntityDemoDao<Athlete, UUID> implem
         return instance;
     }
 
+    @Override
+    public Athlete findBy(String email) {
+        for(Athlete athlete : demoMemory.values()){
+            if(athlete.getEmail().equals(email)){
+                return athlete;
+            }
+        }
+        return null;
+    }
+
    
 }

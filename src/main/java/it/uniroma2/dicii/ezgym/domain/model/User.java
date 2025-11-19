@@ -8,18 +8,20 @@ public abstract class User {
     private String surname;
     private String email;
     private String password;
+    private Role role;
 
     protected User() {}
     
-    protected User(UUID id, String name, String surname, String email, String password) {
+    protected User(UUID id, String name, String surname, String email, String password, Role role) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
-    public UUID getID(){
+    public UUID getId(){
         return id;
     }
     public String getName() {
@@ -33,6 +35,9 @@ public abstract class User {
     }
     public String getPassword() {
         return password;
+    }
+    public Role getRole() {
+        return role;
     }
 
     public void setID(UUID id){
@@ -49,6 +54,9 @@ public abstract class User {
     }
     public void setPassword(String password){
         this.password = password;
+    }
+    public void setRole(Role role){
+        this.role = role;
     }
 
 

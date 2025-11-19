@@ -19,6 +19,7 @@
   </properties>
 
   <dependencies>
+    <!-- JavaFX dependencies -->
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-base</artifactId>
@@ -43,6 +44,13 @@
       <version>${javafx.version}</version>
       <classifier>mac-aarch64</classifier>
     </dependency>
+
+    <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>0.4</version>
+    </dependency>
+
   </dependencies>
 
   <build>
