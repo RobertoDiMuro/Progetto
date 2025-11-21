@@ -10,5 +10,5 @@ public interface FoodDao {
     Food findBy(String name);
     List<Food> findAll();
     void update(String name, Food food);
-    boolean delete(String name);
+    void delete(String name);
 }

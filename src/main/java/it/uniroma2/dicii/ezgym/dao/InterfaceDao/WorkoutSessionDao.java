@@ -10,5 +10,5 @@ public interface WorkoutSessionDao {
     WorkoutSession findBy(String sessionName);
     List<WorkoutSession> findAll();
     void update(String sessionName, WorkoutSession session);
-    boolean delete(String sessionName); 
+    void delete(String sessionName); 
 }

@@ -11,5 +11,5 @@ public interface AthleteDao {
     Athlete findBy(String email);
     List<Athlete> findAll();
     void update(UUID id, Athlete athlete);
-    boolean delete(UUID id); 
+    void delete(UUID id); 
 }

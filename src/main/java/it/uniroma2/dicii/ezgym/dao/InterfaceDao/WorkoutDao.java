@@ -7,10 +7,10 @@ import it.uniroma2.dicii.ezgym.domain.model.Workout;
 
 public interface WorkoutDao {
     
-    boolean insert(Workout workout, String email);
-    Workout findBy(String email);
+    boolean insert(Workout workout, String requestByAthleteName);
+    Workout findBy(String requestByAthleteName);
     List<Workout> findAll();
-    void update(String email, Workout workout);
-    boolean delete(String email); 
+    void update(String requestByAthleteName, Workout workout);
+    void delete(String requestByAthleteName); 
 
 }

@@ -6,13 +6,16 @@ import java.io.InputStreamReader;
 
 public final class InputReader {
 
-    private static final BufferedReader instance = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader instance = null;
 
     private InputReader(){
         //
     }
 
     public static BufferedReader getInstance(){
+        if(instance == null){
+            return new BufferedReader(new InputStreamReader(System.in));
+        }
         return instance;
     }
 

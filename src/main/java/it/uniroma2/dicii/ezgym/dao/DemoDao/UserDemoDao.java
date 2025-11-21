@@ -1,6 +1,7 @@
 package it.uniroma2.dicii.ezgym.dao.DemoDao;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -8,12 +9,13 @@ import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
+import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
 import it.uniroma2.dicii.ezgym.utils.PasswordUtils;
 
 public class UserDemoDao implements UserDao{
 
     private static UserDemoDao instance = null;
-    protected final Map<UUID, User> demoMemory = new HashMap<>();
+    private final Map<UUID, User> userTable = InMemoryDb.getInstance().getTable(User.class);
 
     static {
         Athlete athlete = new Athlete(
@@ -32,7 +34,7 @@ public class UserDemoDao implements UserDao{
             null             
         );
 
-        getInstance().insert(athlete);
+        getInstance().insert(athlete, athlete.getId());
 }
 
     public static UserDemoDao getInstance() {
@@ -43,18 +45,27 @@ public class UserDemoDao implements UserDao{
     }
 
     @Override
-    public void insert(User user){
-        demoMemory.put(user.getId(), user);
+    public boolean insert(User user, UUID id){
+        if(userTable.containsKey(id)){
+            return false;
+        }
+        userTable.put(id, user);
+        return true;
     }
     
     @Override
     public User findById(UUID id){
-        return demoMemory.get(id);
+        for(User user : userTable.values()){
+            if(user.getId().equals(id)){
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override
     public User findByEmail(String email){
-        for(User user : demoMemory.values()){
+        for(User user : userTable.values()){
             if(user.getEmail().equals(email)){
                 return user;
             }
@@ -63,12 +74,17 @@ public class UserDemoDao implements UserDao{
     }
 
     @Override
+    public List<User> findAll(){
+        return new ArrayList<>(userTable.values());
+    }
+
+    @Override
     public void update(UUID id, User user){
-        demoMemory.put(id, user);
+        userTable.put(id, user);
     }
 
     @Override
     public void delete(UUID id){
-        demoMemory.remove(id);
+        userTable.remove(id);
     }
 }
