@@ -9,29 +9,34 @@ import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
-import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
+import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 import it.uniroma2.dicii.ezgym.utils.PasswordUtils;
 
 public class UserDemoDao implements UserDao{
 
     private static UserDemoDao instance = null;
-    private final Map<UUID, User> userTable = InMemoryDb.getInstance().getTable(User.class);
+    private final Map<UUID, User> userTable;
+
+    private UserDemoDao() {
+        this.userTable = DemoMemory.getInstance().getUsers();
+    }
 
     static {
         Athlete athlete = new Athlete(
-            "M",                        
-            25,                      
+            "",                        
+            0,                      
             UUID.randomUUID(),
             "Roberto",
             "Di Muro",
             "roby.dimuro@gmail.com",
             PasswordUtils.hashPassword("ovxn2!Bt"),
             Role.ATHLETE,
-            75.0,                      
-            180.0,                     
+            0,                      
+            0,                     
             null,                      
             null,                 
-            null             
+            null,
+            false             
         );
 
         getInstance().insert(athlete, athlete.getId());
@@ -45,12 +50,8 @@ public class UserDemoDao implements UserDao{
     }
 
     @Override
-    public boolean insert(User user, UUID id){
-        if(userTable.containsKey(id)){
-            return false;
-        }
+    public void insert(User user, UUID id){
         userTable.put(id, user);
-        return true;
     }
     
     @Override
@@ -74,13 +75,19 @@ public class UserDemoDao implements UserDao{
     }
 
     @Override
-    public List<User> findAll(){
-        return new ArrayList<>(userTable.values());
+    public int countAthletes(){
+        int count = 0;
+        for(User user : userTable.values()){
+            if(user.getRole() == Role.ATHLETE){
+                count++;
+            }
+        }
+        return count;
     }
 
     @Override
-    public void update(UUID id, User user){
-        userTable.put(id, user);
+    public List<User> findAll(){
+        return new ArrayList<>(userTable.values());
     }
 
     @Override

@@ -2,107 +2,52 @@ package it.uniroma2.dicii.ezgym.bean;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import it.uniroma2.dicii.ezgym.domain.model.Target;
-import it.uniroma2.dicii.ezgym.domain.model.WorkoutStatus;
+import java.util.UUID;
 
 public class WorkoutBean {
     
-    private  String requestByAthleteName;
-    private  String requestByAthleteSurname;
-    private  String createdByTrainerName;
-    private  String createdByTrainerSurname;
-
-    private Target target;
-    private String notes;
-    private List<WorkoutBean> sessions;
-    private WorkoutStatus status;
+    private int workoutId;
+    private UUID athleteId;
+    private int repeteWeeks;
+    private List<WorkoutSessionBean> sessions;
 
     public WorkoutBean(){
         this.sessions = new ArrayList<>();
-        this.status = WorkoutStatus.ACTIVE;
     }
 
-    public String getRequestByAthleteName(){
-        return requestByAthleteName;
+    public int getWorkoutId(){
+        return workoutId;
     }
-
-    public void setRequestByAthleteName(String requestByAthleteName) {
-        if (requestByAthleteName == null || requestByAthleteName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Il nome dell'atleta non può essere vuoto.");
+    public void setWorkoutId(int workoutId){
+        if(workoutId < 0){
+            throw new IllegalArgumentException("L'id della scheda non può essere negativo.");
         }
-        this.requestByAthleteName = requestByAthleteName.trim();
+        this.workoutId = workoutId;
     }
 
-    public String getRequestByAthleteSurname(){
-        return requestByAthleteSurname;
+    public UUID getAthleteId(){
+        return athleteId;
+    }
+    public void setAthleteId(UUID athleteId){
+        this.athleteId = athleteId;
     }
 
-    public void setRequestByAthleteSurname(String requestByAthleteSurname) {
-        if (requestByAthleteSurname == null || requestByAthleteSurname.trim().isEmpty()) {
-            throw new IllegalArgumentException("Il cognome dell'atleta non può essere vuoto.");
+    public int getRepeteWeeks(){
+        return repeteWeeks;
+    }
+    public void setRepeteWeeks(int repeteWeeks){
+        if(repeteWeeks < 0){
+            throw new IllegalArgumentException("Il numero delle settimane deve essre positivo");
         }
-        this.requestByAthleteSurname = requestByAthleteSurname.trim();
+        this.repeteWeeks = repeteWeeks;
     }
 
-    public String getCreatedByTrainerName(){
-        return createdByTrainerName;
-    }
-
-    public void setCreatedByTrainerName(String createdByTrainerName) {
-        if (createdByTrainerName == null || createdByTrainerName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Il nome del trainer non può essere vuoto.");
-        }
-        this.createdByTrainerName = createdByTrainerName.trim();
-    }
-
-    public String getCreatedByTrainerSurname(){
-        return createdByTrainerSurname;
-    }
-
-    public void setCreatedByTrainerSurname(String createdByTrainerSurname) {
-        if (createdByTrainerSurname == null || createdByTrainerSurname.trim().isEmpty()) {
-            throw new IllegalArgumentException("Il cognome del trainer non può essere vuoto.");
-        }
-        this.createdByTrainerSurname = createdByTrainerSurname.trim();
-    }
-
-    public Target getTarget(){
-        return target;
-    }
-
-    public void setTarget(Target target) {
-        if (target == null) {
-            throw new IllegalArgumentException("Il target non può essere nullo.");
-        }
-        this.target = target;
-    }
-
-    public String getNotes(){
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes != null ? notes : "Nessuna nota aggiuntiva";
-    }
-    public List<WorkoutBean> getsSession(){
+    public List<WorkoutSessionBean> getsSessions(){
         return sessions;
     }
 
-    public void setSessions(List<WorkoutBean> sessions) {
+    public void setSessions(List<WorkoutSessionBean> sessions) {
         this.sessions = (sessions != null) ? new ArrayList<>(sessions) : new ArrayList<>();
     }
-
-    public WorkoutStatus getStatus(){
-        return status;
-    }
-
-    public void setStatus(WorkoutStatus status) {
-        if (status == null) {
-            throw new IllegalArgumentException("Lo stato non può essere nullo.");
-        }
-        this.status = status;
-    }
-    
 
 }

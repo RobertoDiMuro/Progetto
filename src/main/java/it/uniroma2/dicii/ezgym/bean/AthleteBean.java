@@ -13,6 +13,7 @@ public class AthleteBean extends UserBean {
     private Target target;
     private ActivityLevel activityLevel;
     private WorkoutDay workoutDay;
+    private boolean isWorkoutRequested;
 
     public AthleteBean(){
         // Costruttore vuoto
@@ -84,7 +85,7 @@ public class AthleteBean extends UserBean {
         this.activityLevel = activityLevel;
     }
 
-    public WorkoutDay geWorkoutDay(){
+    public WorkoutDay getWorkoutDay(){
         return workoutDay;
     }
 
@@ -95,4 +96,11 @@ public class AthleteBean extends UserBean {
         this.workoutDay = workoutDay;
     }
 
+    public boolean getIsWorkoutRequested() {
+        return isWorkoutRequested;
+    }
+
+    public void setIsWorkoutRequested(boolean isWorkoutRequested){
+        this.isWorkoutRequested = isWorkoutRequested;
+    }
 }

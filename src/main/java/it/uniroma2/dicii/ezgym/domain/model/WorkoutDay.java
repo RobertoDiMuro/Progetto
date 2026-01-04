@@ -1,9 +1,9 @@
 package it.uniroma2.dicii.ezgym.domain.model;
 
 public enum WorkoutDay {
-    TWO_TIMES,
-    THREE_TIMES,
-    FOUR_TIMES,
-    FIVE_TIMES,
-    SIX_TIMES;
+    Due_volte,
+    Tre_volte,
+    Quattro_volte,
+    Cinque_volte,
+    Sei_volte;
 }

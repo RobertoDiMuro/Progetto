@@ -6,12 +6,16 @@ import java.util.Map;
 
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
-import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
+import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class ExerciseDemoDao implements ExerciseDao{
 
     private static ExerciseDemoDao instance;
-    private final Map<String, Exercise> exerciseTable = InMemoryDb.getInstance().getTable(Exercise.class);
+    private final Map<String, Exercise> exerciseTable;
+
+    private ExerciseDemoDao() {
+        this.exerciseTable = DemoMemory.getInstance().getExercises();
+    }
 
     public static ExerciseDemoDao getInstance(){
         if(instance == null){
@@ -21,32 +25,29 @@ public class ExerciseDemoDao implements ExerciseDao{
     }
     
     @Override
-    public boolean insert(Exercise exercise, String name){
-        if(exerciseTable.containsKey(name)){
-            return false;
-        }
-        exerciseTable.put(name, exercise);
-        return true;
+    public Exercise findByFocus(String focus){
+        return null;
+    }
+
+    @Override
+    public void insert(Exercise exercise, String focus){
+        // exerciseTable.put(exercise);
     }
 
     @Override
     public Exercise findBy(String name){
-        for(Exercise exercise : exerciseTable.values()){
-            if(exercise.getName().equals(name)){
-                return exercise;
-            }
-        }
+        // for(Exercise exercise : exerciseTable.values()){
+        //     if(exercise.getName().equals(name)){
+        //         return exercise;
+        //     }
+        // }
         return null;
     }
 
     @Override 
     public List<Exercise> findAll(){
-        return new ArrayList<>(exerciseTable.values());
-    }
-
-    @Override
-    public void update(String name, Exercise exercise){
-        exerciseTable.put(name, exercise);
+        // return new ArrayList<>(exerciseTable.values());
+        return null;
     }
 
     @Override

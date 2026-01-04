@@ -13,7 +13,7 @@ public abstract class User {
     protected User() {}
     
     protected User(UUID id, String name, String surname, String email, String password, Role role) {
-        this.id = UUID.randomUUID();
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -40,7 +40,7 @@ public abstract class User {
         return role;
     }
 
-    public void setID(UUID id){
+    public void setId(UUID id){
         this.id = id;
     }
     public void setName(String name){

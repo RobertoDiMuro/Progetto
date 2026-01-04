@@ -1,120 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="695.0" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.AggiungiEsercizioController">
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="695.0" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.view.GuiAddExerciseView">
    <children>
-      <AnchorPane prefHeight="334.0" prefWidth="720.0" VBox.vgrow="ALWAYS">
+      <StackPane alignment="TOP_CENTER" prefHeight="594.0" prefWidth="695.0">
          <children>
-            <TitledPane fx:id="exerciseNumber" animated="false" maxWidth="1.7976931348623157E308" prefHeight="233.0" prefWidth="695.0" text="  Esercizio 1" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TitledPane fx:id="exerciseNumber" animated="false" maxWidth="1.7976931348623157E308" prefHeight="303.0" prefWidth="695.0" text="  Esercizio 1" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="700.0">
                      <children>
-                        <HBox layoutX="-5.0" layoutY="8.0" prefHeight="100.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox layoutX="34.5" layoutY="29.5" prefHeight="250.0" prefWidth="652.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
-                              <VBox alignment="TOP_RIGHT" prefHeight="132.0" prefWidth="323.0">
+                              <VBox prefHeight="153.0" prefWidth="211.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                       <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome esercizio:   ">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField fx:id="nameTextField" prefHeight="40.0" prefWidth="190.0" promptText="Nome" styleClass="spinner">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </TextField>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="359.0">
-                                       <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero serie:     ">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <Spinner fx:id="setNumberSpinner" editable="true" prefWidth="190.0">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Spinner>
-                                       </children>
+                                    <ComboBox fx:id="exerciseChooseBox" prefHeight="40.0" prefWidth="213.0" promptText="Scegli esercizio" styleClass="spinner" />
+                                    <TextField fx:id="restTimeField" prefHeight="40.0" prefWidth="213.0" promptText="Tempo di recupero (sec)" styleClass="spinner">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="359.0">
-                                       <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Recupero (sec)  ">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField fx:id="restField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </TextField>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </HBox>
+                                    </TextField>
                                  </children>
                               </VBox>
-                              <HBox prefHeight="100.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
-                              <VBox alignment="TOP_RIGHT" prefHeight="132.0" prefWidth="325.0">
+                              <VBox prefHeight="200.0" prefWidth="213.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
-                                       <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ripetizioni:           ">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <Spinner fx:id="repsNumberSpinner" editable="true" prefWidth="190.0">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Spinner>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="359.0">
-                                       <children>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Note (opzionale)  ">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField fx:id="noteField" prefHeight="40.0" prefWidth="190.0" styleClass="spinner">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </TextField>
-                                       </children>
+                                    <TextField fx:id="repsField" prefHeight="40.0" prefWidth="213.0" promptText="Ripetizioni" styleClass="spinner">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <ComboBox fx:id="typeBox" prefHeight="40.0" prefWidth="213.0" promptText="Tipo" styleClass="spinner">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
-                                    </HBox>
+                                    </ComboBox>
                                  </children>
                                  <HBox.margin>
-                                    <Insets />
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="213.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <TextField fx:id="setsField" prefHeight="40.0" prefWidth="213.0" promptText="Serie" styleClass="spinner">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="notesField" prefHeight="40.0" prefWidth="213.0" promptText="Note (facoltativo)" styleClass="spinner">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Button fx:id="addButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="211.5" styleClass="primary-button" text="Aggiungi Esercizio">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
                                  </HBox.margin>
                               </VBox>
                            </children>
@@ -123,7 +89,16 @@
                   </AnchorPane>
                </content>
             </TitledPane>
+            <Label fx:id="errorLabel" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="10.0" />
+               </StackPane.margin>
+            </Label>
          </children>
-      </AnchorPane>
+      </StackPane>
+      <AnchorPane prefHeight="0.0" prefWidth="695.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

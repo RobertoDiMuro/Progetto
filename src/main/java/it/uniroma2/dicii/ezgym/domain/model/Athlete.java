@@ -10,13 +10,14 @@ public class Athlete extends User {
     private Target target;
     private ActivityLevel activityLevel;
     private WorkoutDay workoutDay;
+    private boolean isWorkoutRequested;
 
     
     public Athlete() {
         // costruttore vuoto 
     }
 
-    public Athlete( String gender, int age, UUID id, String name, String surname, String email, String password, Role role, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay) {
+    public Athlete( String gender, int age, UUID id, String name, String surname, String email, String password, Role role, double weight, double height, Target target, ActivityLevel activityLevel, WorkoutDay workoutDay, Boolean isWorkoutRequested) {
         super(id, name, surname, email, password, role);
         this.gender = gender;
         this.age = age;
@@ -25,9 +26,9 @@ public class Athlete extends User {
         this.target = target;
         this.activityLevel = activityLevel;
         this.workoutDay = workoutDay;
+        this.isWorkoutRequested = isWorkoutRequested;
     }
 
-    
     public String getGender() {
         return gender;
     }
@@ -49,12 +50,19 @@ public class Athlete extends User {
     public WorkoutDay getWorkoutDay() {
         return workoutDay;
     }
+    public boolean getIsWorkoutRequested() {
+        return isWorkoutRequested;
+    }
 
     // Setters
 
 
     public void setAge(int age){
         this.age = age;
+    }
+
+    public void setGender(String gender){
+        this.gender = gender;
     }
 
     public void setWeight(double weight){
@@ -77,8 +85,13 @@ public class Athlete extends User {
         this.workoutDay = workoutDay;
     }
 
-    public double calculateBMI(){
+    public void setIsWorkoutRequested(boolean isWorkoutRequested){
+        this.isWorkoutRequested = isWorkoutRequested;
+    }
+
+    public double calculateBMI() {
         double heightInMeters = height / 100.0;
-        return weight / (heightInMeters * heightInMeters);
+        double bmi = weight / (heightInMeters * heightInMeters);
+        return Math.round(bmi * 100.0) / 100.0;
     }
 }

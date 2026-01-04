@@ -3,30 +3,26 @@ package it.uniroma2.dicii.ezgym.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.uniroma2.dicii.ezgym.domain.model.WorkoutStatus;
 
 public class WorkoutSessionBean {
     
-    private String sessionName;
+    private int sessionId;
     private String dayOfWeek;
-    private WorkoutStatus status;
-    private String focus;
-    private List<ExerciseBean> exercises;
-    private String notes;
+    private List<SessionExerciseBean> exercises;
 
     public WorkoutSessionBean(){
         this.exercises = new ArrayList<>();
     }
 
-    public String getSessionName(){
-        return sessionName;
+    public int getSessionId(){
+        return sessionId;
     }
 
-    public void setSessionName(String sessionName){
-        if(sessionName == null || sessionName.trim().isEmpty()){
-            throw new IllegalArgumentException("Il nome della sessione non può essere vuoto o nullo");
+    public void setSessionId(int sessionId){
+        if(sessionId < 0){
+            throw new IllegalArgumentException("L'id della sessione deve essere positivo");
         }
-        this.sessionName = sessionName;
+        this.sessionId = sessionId;
     }
 
     public String getDayOfWeek(){
@@ -40,41 +36,11 @@ public class WorkoutSessionBean {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public WorkoutStatus getStatus(){
-        return status;
-    }
-
-    public void setStatus(WorkoutStatus status){
-        if(status == null){
-            throw new IllegalArgumentException("Lo stato non può esssre nullo");
-        }
-        this.status = status;
-    }
-
-    public String getFocus(){
-        return focus;
-    }
-
-    public void setFocus(String focus){
-        if(focus == null || focus.trim().isEmpty()){
-            throw new IllegalArgumentException("Il focus non può essere vuoto o nullo");
-        }
-        this.focus = focus;
-    }
-
-    public String getNotes(){
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes != null ? notes : "Nessuna nota aggiuntiva";
-    }
-
-    public List<ExerciseBean> getExercises() {
+    public List<SessionExerciseBean> getExercises() {
         return exercises;
     }
 
-    public void setExercises(List<ExerciseBean> exercises) {
+    public void setExercises(List<SessionExerciseBean> exercises) {
         this.exercises = exercises != null ? new ArrayList<>(exercises) : new ArrayList<>();
     }
 }

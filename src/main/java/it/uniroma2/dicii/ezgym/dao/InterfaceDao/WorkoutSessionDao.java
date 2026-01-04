@@ -6,9 +6,8 @@ import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 
 public interface WorkoutSessionDao {
 
-    boolean insert(WorkoutSession session, String sessionName);
-    WorkoutSession findBy(String sessionName);
+    int insert(WorkoutSession session);
+    WorkoutSession findBy(String dayOfWeek);
     List<WorkoutSession> findAll();
-    void update(String sessionName, WorkoutSession session);
-    void delete(String sessionName); 
+    void delete(int sessionId);
 }

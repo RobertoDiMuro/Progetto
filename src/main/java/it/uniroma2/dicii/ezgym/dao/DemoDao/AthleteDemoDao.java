@@ -7,13 +7,16 @@ import java.util.UUID;
 
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.AthleteDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
-import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
+import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class AthleteDemoDao implements AthleteDao{
 
     private static AthleteDemoDao instance;
-    private final Map<UUID, Athlete> athleteTable = InMemoryDb.getInstance().getTable(Athlete.class);
+    private final Map<UUID, Athlete> athleteTable;
 
+    public AthleteDemoDao() {
+        this.athleteTable = DemoMemory.getInstance().getAthletes();
+    }
 
     public static AthleteDemoDao getInstance(){
         if(instance == null){
@@ -22,13 +25,14 @@ public class AthleteDemoDao implements AthleteDao{
         return instance;
     }
 
+    @Override
+    public void closeRequest(UUID id){
+        //
+    }
+
    @Override
-   public boolean insert(Athlete athlete, UUID id){
-        if(athleteTable.containsKey(id)){
-            return false;
-        }
+   public void insert(Athlete athlete, UUID id){
         athleteTable.put(id, athlete);
-        return true;
    }
 
     @Override

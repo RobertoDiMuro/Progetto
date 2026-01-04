@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1023.5" style="-fx-background-color: transparent;" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1023.5" style="-fx-background-color: transparent;" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.view.GuiSliderBoxView">
    <children>
       <HBox layoutX="259.0" layoutY="11.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="200.0" stylesheets="@../values/LoginStyle.css" />
             <VBox prefHeight="248.0" prefWidth="779.0">
                <children>
-                  <Label text="Mario Rossi" textFill="WHITE">
+                  <Label fx:id="nameLabel" text="Mario Rossi" textFill="WHITE">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -26,7 +26,7 @@
                   </Label>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
                      <children>
-                        <Label text="BMI: 24.5 |" textFill="WHITE">
+                        <Label fx:id="bmiLabel" text="BMI: 24.5 |" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -34,7 +34,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label text="Peso: 74 Kg |" textFill="WHITE">
+                        <Label fx:id="weightLabel" text="Peso: 74 Kg |" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -42,7 +42,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label text="Obiettivo:  Perdere peso" textFill="WHITE">
+                        <Label fx:id="goalLabel" text="Obiettivo:  Perdere peso" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -57,7 +57,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
                      <children>
-                        <Label text="Richiesta: 2 giorni fa" textFill="WHITE">
+                        <Label fx:id="timeLabel" text="Richiesta: 2 giorni fa" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -72,7 +72,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-primary-button" text="Visualizza dati">
+                        <Button fx:id="reviewButton" mnemonicParsing="false" onMouseClicked="#onReviewButtonClick" prefHeight="40.0" prefWidth="250.0" styleClass="homept-primary-button" text="Visualizza dati">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" />
                            </HBox.margin>
@@ -80,7 +80,7 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea scheda">
+                        <Button fx:id="createWorkoutButton" mnemonicParsing="false" onMouseClicked="#onClickCreateWorkout" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea scheda">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" />
                            </HBox.margin>
@@ -88,7 +88,7 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
+                        <Button fx:id="createDietButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" />
                            </HBox.margin>
@@ -107,7 +107,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="red-vbox">
                      <children>
-                        <Label text="Scheda + dieta" textFill="WHITE">
+                        <Label fx:id="requestLabel" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>

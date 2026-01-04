@@ -6,9 +6,9 @@ import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 
 public interface ExerciseDao {
 
-    boolean insert(Exercise exercise, String name);
+    void insert(Exercise exercise, String focus);
     Exercise findBy(String name);
+    Exercise findByFocus(String fcous);
     List<Exercise> findAll();
-    void update(String name, Exercise exercise);
     void delete(String name);
 }

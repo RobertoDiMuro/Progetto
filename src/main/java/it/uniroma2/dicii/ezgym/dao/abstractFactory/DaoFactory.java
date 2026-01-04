@@ -5,37 +5,28 @@ import java.util.Properties;
 
 import it.uniroma2.bootstrap.Mode;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.AthleteDao;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.DailyMealPlanDao;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.DietDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.FoodDao;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.MealDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.dao.InterfaceDao.SessionExerciseDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
 
 public abstract class DaoFactory {
     
-   public abstract AthleteDao createAthleteDao();
+  public abstract AthleteDao createAthleteDao();
 
-   public abstract DietDao createDietDao();
+  public abstract ExerciseDao createExerciseDao();
 
-   public abstract ExerciseDao createExerciseDao();
+  public abstract SessionExerciseDao createSessionExerciseDao();
 
-   public abstract FoodDao createFoodDao();
+  public abstract PersonalTrainerDao createPersonalTrainerDao();
 
-   public abstract MealDao createMealDao();
+  public abstract WorkoutDao createWorkoutDao();
 
-   public abstract PersonalTrainerDao createPersonalTrainerDao();
+  public abstract WorkoutSessionDao createWorkoutSessionDao();
 
-   public abstract WorkoutDao createWorkoutDao();
-
-   public abstract WorkoutSessionDao createWorkoutSessionDao();
-
-   public abstract DailyMealPlanDao createDailyMealPlanDao();
-
-   public abstract UserDao createUserDao();
+  public abstract UserDao createUserDao();
 
 
 
@@ -44,18 +35,18 @@ public abstract class DaoFactory {
    public static synchronized DaoFactory init(Mode mode){
         if(instance == null){
           switch (mode) {
-            // case DATABASE:
-            //     instance = new DaoDbmsFactory();
-            //     break;
-            case DEMO:
-                instance = new DaoDemoFactory();
+            case DATABASE:
+                instance = new DaoDbmsFactory();
                 break;
-            // case FILESYSTEM:
-            //     instance = new DaoFilesystemFactory();
+            // case DEMO:
+            //     instance = new DaoDemoFactory();
             //     break;
-            default:
-                instance = new DaoDemoFactory();
-                break;
+            // // case FILESYSTEM:
+            // //     instance = new DaoFilesystemFactory();
+            // //     break;
+            // default:
+            //     instance = new DaoDemoFactory();
+            //     break;
           }
         }
         return instance;

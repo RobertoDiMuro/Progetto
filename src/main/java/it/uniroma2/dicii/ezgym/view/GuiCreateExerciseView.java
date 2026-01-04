@@ -1,0 +1,105 @@
+package it.uniroma2.dicii.ezgym.view;
+
+import java.util.List;
+
+import it.uniroma2.dicii.ezgym.bean.ExerciseBean;
+import it.uniroma2.dicii.ezgym.controller.ExerciseController;
+import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.domain.model.Exercise;
+import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
+import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
+import it.uniroma2.dicii.ezgym.utils.Navigator;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+
+public class GuiCreateExerciseView {
+    
+    @FXML private TableView<Exercise> exerciseTable;
+
+    @FXML private TableColumn<Exercise, String> nameColumn;
+
+    @FXML private TableColumn<Exercise, String> focusColumn;
+
+    @FXML private TextField focusField;
+
+    @FXML private ImageView goBack;
+
+    @FXML private TextField nameField;
+
+    @FXML private Button saveButton;
+
+    @FXML private Label errorLabel;
+
+    private final ObservableList<Exercise> exercises = FXCollections.observableArrayList();
+    private PersonalTrainer personalTrainer;
+    private final ExerciseDbmsDao exerciseDao = ExerciseDbmsDao.getInstance();
+    private final ExerciseController exerciseController = new ExerciseController();
+
+    public void setPersonalTrainer(PersonalTrainer pt){
+        this.personalTrainer = pt;
+    }
+
+    @FXML
+    private void initialize(){
+        nameColumn.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getName()));
+        focusColumn.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getFocus()));
+
+        exerciseTable.setItems(exercises);
+        saveButton.setOnAction(e -> onSave());
+        goBack.setPickOnBounds(true);
+        goBack.setOnMouseClicked(e -> Navigator.navigateTo("/fxml/Homept.fxml"));
+
+        reload();
+    }
+
+    private void reload() {
+        try {
+            List<Exercise> list = exerciseDao.findAll();
+            exercises.setAll(list);
+        } catch (PersistenceException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void onSave(){
+        errorLabel.setText("");
+
+        String name = nameField.getText();
+        String focus = focusField.getText();
+
+        if(name.isEmpty() || focus.isEmpty()){
+            errorLabel.setText("Compila tutti i campi!");
+            return;
+        }
+
+        ExerciseBean exerciseBean = new ExerciseBean();
+        exerciseBean.setName(name);
+        exerciseBean.setFocus(focus);
+
+        exerciseController.createExercise(exerciseBean);
+
+        onSaveSuccess();
+    }
+
+    private void onSaveSuccess(){
+        nameField.clear();
+        focusField.clear();
+        reload();
+    }
+
+    @FXML
+    private void goBack(){
+        Navigator.navigateTo("/fxml/Homept.fxml", controller -> {
+                    ((GuiHomeptView) controller).setPersonalTrainer(personalTrainer);
+        });
+    }
+
+}

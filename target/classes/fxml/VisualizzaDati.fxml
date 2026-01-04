@@ -1,62 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: gray; -fx-background-radius: 10;" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="350.0" styleClass="home-pt-slider-box" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.view.GuiReviewDataView">
    <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+      <VBox prefHeight="390.0" prefWidth="300.0">
          <children>
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-               <image>
-                  <Image url="@user%20copia.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Dati cliente">
-               <font>
-                  <Font size="36.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
-            <Region prefHeight="50.0" prefWidth="119.0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@cancel.png" />
-               </image>
-            </ImageView>
-         </children>
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </HBox>
-      <VBox prefHeight="150.0" prefWidth="100.0" styleClass="home-pt-slider-box">
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.4" text="Informazioni personali">
-               <font>
-                  <Font size="24.0" />
-               </font>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="300.0" styleClass="home-pt-slider-box">
                <VBox.margin>
-                  <Insets left="5.0" top="5.0" />
+                  <Insets left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
-            </Text>
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Dati Cliente">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <VBox prefHeight="95.0" prefWidth="290.0" styleClass="home-pt-slider-box">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="nameLabel" text="Nome: Mario" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="surnameLabel" text="Cognome: Rossi" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="emailLabel" text="Email: mario.rossi@gmail.com" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="230.0" prefWidth="310.0" styleClass="home-pt-slider-box">
+               <children>
+                  <Label fx:id="genderLabel" text="Genere: Maschio" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="ageLabel" text="Età: 22" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="weightLabel" text="Peso: 74 kg" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="heightLabel" prefHeight="23.0" prefWidth="129.0" text="Altezza: 185 cm" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="goalLabel" text="Obiettivo: Perdere_peso" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="activityLevelLabel" text="Livello di attività: moderatamente_attivo" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="workoutDayLabel" text="Giorni di allenamento: tre_volte" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="bmiLabel" text="BMI: 24.5" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </VBox>
          </children>
       </VBox>
    </children>
-</VBox>
+</StackPane>

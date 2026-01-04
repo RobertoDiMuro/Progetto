@@ -1,57 +1,56 @@
-package it.uniroma2.dicii.ezgym.dao.DemoDao;
+// package it.uniroma2.dicii.ezgym.dao.DemoDao;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Map;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
-import it.uniroma2.dicii.ezgym.domain.model.Workout;
-import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
+// import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
+// import it.uniroma2.dicii.ezgym.domain.model.Workout;
+// import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
-public class WorkoutDemoDao implements WorkoutDao {
+// public class WorkoutDemoDao implements WorkoutDao {
     
-    private static WorkoutDemoDao instance;
-    private final Map<String, Workout> workoutTable = InMemoryDb.getInstance().getTable(Workout.class);
+//     private static WorkoutDemoDao instance;
+//     private final Map<String, Workout> workoutTable;
 
-    public static WorkoutDemoDao getInstance(){
-        if(instance == null){
-            instance = new WorkoutDemoDao();
-        }
-        return instance;
-    }
+//     private WorkoutDemoDao() {
+//         this.workoutTable = DemoMemory.getInstance().getWorkouts();
+//     }
 
-    @Override
-    public boolean insert(Workout workout, String requestByAthleteName){
-        if(workoutTable.containsKey(requestByAthleteName)){
-            return false;
-        }
-        workoutTable.put(requestByAthleteName, workout);
-        return true;
-    }
+//     public static WorkoutDemoDao getInstance(){
+//         if(instance == null){
+//             instance = new WorkoutDemoDao();
+//         }
+//         return instance;
+//     }
 
-    @Override
-    public Workout findBy(String requestByAthleteName){
-        for(Workout workout : workoutTable.values()){
-            if(workout.getRequestByAthleteFullName().equals(requestByAthleteName)){
-                return workout;
-            }
-        }
-        return null;
-    }
+//     @Override
+//     public boolean insert(Workout workout, String requestByAthleteName){
+//         if(workoutTable.containsKey(requestByAthleteName)){
+//             return false;
+//         }
+//         workoutTable.put(requestByAthleteName, workout);
+//         return true;
+//     }
 
-    @Override
-    public List<Workout> findAll(){
-        return new ArrayList<>(workoutTable.values());
-    }
+//     @Override
+//     public Workout findBy(String requestByAthleteName){
+//         for(Workout workout : workoutTable.values()){
+//             if(workout.getRequestByAthleteFullName().equals(requestByAthleteName)){
+//                 return workout;
+//             }
+//         }
+//         return null;
+//     }
 
-    @Override
-    public void update(String requestByAthleteName, Workout workout){
-        workoutTable.put(requestByAthleteName, workout);
-    }
+//     @Override
+//     public List<Workout> findAll(){
+//         return new ArrayList<>(workoutTable.values());
+//     }
 
-    @Override
-    public void delete(String requestByAthleteName){
-        workoutTable.remove(requestByAthleteName);
-    }
+//     @Override
+//     public void delete(String requestByAthleteName){
+//         workoutTable.remove(requestByAthleteName);
+//     }
    
-}
+// }

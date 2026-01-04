@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" styleClass="background-home" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1150.0" styleClass="background-home" stylesheets="@../values/LoginStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ezgym.view.GuiHomeptView">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -82,7 +82,7 @@
                                     <Font size="40.0" />
                                  </font>
                               </Text>
-                              <Label text=" Franco !">
+                              <Label fx:id="nameLabel" text=" Franco !">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
@@ -130,7 +130,7 @@
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Label alignment="CENTER" prefWidth="200.0" text="7">
+                        <Label fx:id="activeRequestLabel" alignment="CENTER" prefWidth="200.0" text="7">
                            <font>
                               <Font size="30.0" />
                            </font>
@@ -153,7 +153,7 @@
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Label alignment="CENTER" prefWidth="200.0" text="20">
+                        <Label fx:id="activeCustomerLabel" alignment="CENTER" prefWidth="200.0" text="20">
                            <font>
                               <Font size="30.0" />
                            </font>
@@ -170,50 +170,16 @@
                      </HBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Schede attive">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER" prefWidth="200.0" text="15">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="250.0" styleClass="home-secondary-box" HBox.hgrow="ALWAYS">
                      <children>
-                        <Text stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.4" text="Diete attive">
+                        <Button mnemonicParsing="false" onMouseClicked="#onClickCreateExerciseBtn" prefHeight="70.0" prefWidth="350.0" styleClass="home-secondary-button" text="Crea esercizi">
                            <font>
-                              <Font size="25.0" />
+                              <Font name="System Bold" size="25.0" />
                            </font>
-                        </Text>
-                        <Label alignment="CENTER" prefWidth="300.0" text="15">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
+                        </Button>
                      </children>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
                   </HBox>
                </children>
             </HBox>
@@ -262,7 +228,7 @@
                                  <content>
                                     <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="547.0" prefWidth="1090.0">
                                        <children>
-                                          <VBox layoutX="39.0" layoutY="64.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                          <VBox fx:id="requestContainer" layoutX="39.0" layoutY="64.0" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                              <children>
                                                 <HBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                    <children>

@@ -6,12 +6,16 @@ import java.util.Map;
 
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
-import it.uniroma2.dicii.ezgym.utils.InMemoryDb;
+import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class WorkoutSessionDemoDao implements WorkoutSessionDao {
     
     private static WorkoutSessionDemoDao instance;
-    private final Map<String, WorkoutSession> sessionTable = InMemoryDb.getInstance().getTable(WorkoutSession.class);
+    private final Map<String, WorkoutSession> sessionTable;
+
+    private WorkoutSessionDemoDao() {
+        this.sessionTable = DemoMemory.getInstance().getSessions();
+    }
 
     public static WorkoutSessionDemoDao getInstance() {
         if (instance == null) {
@@ -21,21 +25,21 @@ public class WorkoutSessionDemoDao implements WorkoutSessionDao {
     }
     
     @Override
-    public boolean insert(WorkoutSession session, String sessionName){
-        if(sessionTable.containsKey(sessionName)){
-            return false;
-        }
-        sessionTable.put(sessionName, session);
-        return true;
+    public int insert(WorkoutSession session){
+        // if(sessionTable.containsKey(sessionName)){
+             return 0;
+        // }
+        // sessionTable.put(sessionName, session);
+        // return true;
     }
 
     @Override
-    public WorkoutSession findBy(String sessionName){
-        for(WorkoutSession workoutSession : sessionTable.values()){
-            if(workoutSession.getSessionName().equals(sessionName)){
-                return workoutSession;
-            }
-        }
+    public WorkoutSession findBy(String day_of_week){
+        // for(WorkoutSession workoutSession : sessionTable.values()){
+        //     if(workoutSession.getSessionName().equals(sessionName)){
+        //         return workoutSession;
+        //     }
+        // }
         return null;
     }
 
@@ -45,12 +49,9 @@ public class WorkoutSessionDemoDao implements WorkoutSessionDao {
     }
 
     @Override
-    public void update(String sessionName, WorkoutSession workoutSession){
-        sessionTable.put(sessionName, workoutSession);
-    }
+    public void delete(int sessionId){
+    //     sessionTable.remove(sessionId);
+     }
 
-    @Override
-    public void delete(String sessionName){
-        sessionTable.remove(sessionName);
-    }
+    
 }

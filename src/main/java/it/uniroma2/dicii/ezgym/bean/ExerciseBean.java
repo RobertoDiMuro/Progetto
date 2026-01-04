@@ -1,15 +1,10 @@
 package it.uniroma2.dicii.ezgym.bean;
 
-import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
 
 public class ExerciseBean {
 
     private String name;
-    private int sets;
-    private int reps;
-    private int restTime;
-    private String notes;
-    private ExerciseType type;
+    private String focus;
 
     public ExerciseBean() {
         // Costruttore vuoto
@@ -24,46 +19,16 @@ public class ExerciseBean {
         }
         this.name = name;
     }
-    public int getSets() {
-        return sets;
+    
+    public String getFocus(){
+        return focus;
     }
-    public void setSets(int sets) {
-        if (sets <= 0){
-            throw new IllegalArgumentException("Il numero di serie deve essere positivo.");
+
+    public void setFocus(String focus){
+        if(focus == null || focus.trim().isEmpty()){
+            throw new IllegalArgumentException("Il focus non può essere vuoto o nullo");
         }
-        this.sets = sets;
+        this.focus = focus;
     }
-    public int getReps() {
-        return reps;
-    }
-    public void setReps(int reps) {
-        if (reps <= 0){
-            throw new IllegalArgumentException("Il numero di ripetizioni deve essere positivo.");
-        }
-        this.reps = reps;
-    }
-    public int getRestTime() {
-        return restTime;
-    }
-    public void setRestTime(int restTime) {
-        if (restTime < 0){
-            throw new IllegalArgumentException("Il tempo di riposo non può essere negativo.");
-        }
-        this.restTime = restTime;
-    }
-    public String getNotes() {
-        return notes;
-    }
-    public void setNotes(String notes) {
-        this.notes = notes != null ? notes : "Nessuna nota aggiuntiva";
-    }
-    public ExerciseType getType() {
-        return type;
-    }
-    public void setType(ExerciseType type) {
-        if( type == null){
-            throw new IllegalArgumentException("Il tipo di esercizio non può essere nullo.");
-        }
-        this.type = type;
-    }
+
 }
