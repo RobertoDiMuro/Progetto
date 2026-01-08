@@ -3,6 +3,8 @@ package it.uniroma2.dicii.ezgym.bean;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import it.uniroma2.dicii.ezgym.domain.model.Role;
+
 public class UserBean {
     
     private UUID id;
@@ -10,6 +12,7 @@ public class UserBean {
     private String surname;
     private String email;
     private String password;
+    private String role;
 
     private static final Pattern EMAIL_PATTERN =
             Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
@@ -18,7 +21,7 @@ public class UserBean {
             Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&._-])[A-Za-z\\d@$!%*?&._-]{8,}$");
 
     public UserBean(){
-        // Costruttore vuoto
+        // 
     }
 
     public UUID getId(){
@@ -91,5 +94,14 @@ public class UserBean {
         return PASSWORD_PATTERN.matcher(password).matches();
     }
 
+    public Role getRole() {
+        return Role.valueOf(role);
+    }
+    public void setRole(Role role){
+        if(role == null){
+            throw new IllegalArgumentException("Il ruolo non può essere nullo");
+        }
+        this.role = role.name();
+    }
 
 }

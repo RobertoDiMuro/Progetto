@@ -3,13 +3,13 @@ package it.uniroma2.dicii.ezgym.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.dbms.SessionExerciseDbmsDao;
-import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
@@ -22,7 +22,7 @@ public class WorkoutController {
         this.dao = DaoFactory.getInstance().createWorkoutDao();
     }
 
-    public WorkoutBean getWorkoutByAthleteName(Athlete athlete) {
+    public WorkoutBean getWorkoutByAthleteName(AthleteBean athlete) {
         if (athlete == null) return null;
 
         Workout workout = dao.findBy(athlete.getName(), athlete.getSurname());

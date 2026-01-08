@@ -1,10 +1,9 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.controller.WorkoutRequestController;
 import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
-import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Target;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
@@ -54,10 +53,10 @@ public class GuiWorkoutRequestView {
 
     @FXML private Label errorLabel;
 
-    private Athlete currAthlete;
+    private AthleteBean currAthlete;
     private final WorkoutRequestController workoutRequestController = new WorkoutRequestController();
 
-    public void setAthlete(Athlete athlete) {
+    public void setAthlete(AthleteBean athlete) {
         this.currAthlete = athlete;
     }
 
@@ -175,19 +174,19 @@ public class GuiWorkoutRequestView {
 
         ActivityLevel level = currLevel.getValue();
 
-        AthleteBean bean = new AthleteBean();
-        bean.setActivityLevel(level);
-        bean.setAge(age);
-        bean.setGender(gender);
-        bean.setHeight(height);
-        bean.setWeight(weight);
-        bean.setTarget(target);
-        bean.setWorkoutDay(days);
-        bean.setIsWorkoutRequested(true);
+    
+        currAthlete.setActivityLevel(level);
+        currAthlete.setAge(age);
+        currAthlete.setGender(gender);
+        currAthlete.setHeight(height);
+        currAthlete.setWeight(weight);
+        currAthlete.setTarget(target);
+        currAthlete.setWorkoutDay(days);
+        currAthlete.setIsWorkoutRequested(true);
 
-        workoutRequestController.setCurrAthlete(currAthlete, bean);
+        workoutRequestController.setCurrAthlete(currAthlete);
 
-        onRequestSuccess(bean);
+        onRequestSuccess(currAthlete);
     }
 
     private void onRequestSuccess(AthleteBean bean){

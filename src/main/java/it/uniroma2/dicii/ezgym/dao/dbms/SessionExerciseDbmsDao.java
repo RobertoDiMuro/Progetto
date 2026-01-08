@@ -30,7 +30,7 @@ public class SessionExerciseDbmsDao implements SessionExerciseDao {
     private static final String CALL_DELETE_EXERCISE_FROM_SESSION = "{CALL delete_exercise_from_session(?,?)}";
 
     @Override
-    public void insert(SessionExercise sessionExercise){
+    public void insert(SessionExercise sessionExercise, int sessionId){
         try{
             Connection conn = DbmsConnector.getInstance().getConnection();
             executeInsert(conn, sessionExercise);

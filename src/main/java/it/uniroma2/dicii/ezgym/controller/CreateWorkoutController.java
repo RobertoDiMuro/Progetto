@@ -6,7 +6,7 @@ import java.util.List;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
-import it.uniroma2.dicii.ezgym.dao.dbms.WorkoutDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
@@ -16,7 +16,8 @@ public class CreateWorkoutController {
     private final WorkoutDao dao;
 
     public CreateWorkoutController() {
-        this.dao = WorkoutDbmsDao.getInstance();
+        DaoFactory factory = DaoFactory.getInstance();
+        this.dao = factory.createWorkoutDao();
     }
 
     public void saveWorkout(WorkoutBean bean) {
@@ -33,7 +34,7 @@ public class CreateWorkoutController {
 
             Workout workout = new Workout(0, bean.getAthleteId(), bean.getRepeteWeeks(), sessions);
 
-            dao.insert(workout);
+            dao.insert(workout, workout.getWorkoutId());
 
             bean.setWorkoutId(workout.getWorkoutId());
 

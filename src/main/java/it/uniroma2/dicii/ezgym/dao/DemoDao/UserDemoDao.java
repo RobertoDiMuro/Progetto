@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
+import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
@@ -23,24 +24,39 @@ public class UserDemoDao implements UserDao{
 
     static {
         Athlete athlete = new Athlete(
-            "",                        
-            0,                      
+            "",
+            0,
             UUID.randomUUID(),
             "Roberto",
             "Di Muro",
             "roby.dimuro@gmail.com",
             PasswordUtils.hashPassword("ovxn2!Bt"),
             Role.ATHLETE,
-            0,                      
-            0,                     
-            null,                      
-            null,                 
+            0,
+            0,
             null,
-            false             
+            null,
+            null,
+            false
         );
-
         getInstance().insert(athlete, athlete.getId());
-}
+        AthleteDemoDao.getInstance().insert(athlete, athlete.getId()); 
+
+        UUID marioId = UUID.randomUUID();
+
+        PersonalTrainer mario = new PersonalTrainer();
+        mario.setId(marioId);
+        mario.setName("Mario");
+        mario.setSurname("Rossi");
+        mario.setEmail("mario.rossi@gmail.com");
+        mario.setPassword(PasswordUtils.hashPassword("Password123!"));
+        mario.setRole(Role.PERSONAL_TRAINER);
+        mario.setActiveUsers(0);
+
+        getInstance().insert(mario, marioId);
+
+        PersonalTrainerDemoDao.getInstance().insert(mario, marioId);
+    }
 
     public static UserDemoDao getInstance() {
         if (instance == null) {
@@ -51,11 +67,18 @@ public class UserDemoDao implements UserDao{
 
     @Override
     public void insert(User user, UUID id){
+        if(user != null){
+            user.setId(id);
+        }
         userTable.put(id, user);
     }
     
     @Override
     public User findById(UUID id){
+        if(id == null){
+            return null;
+        }
+
         for(User user : userTable.values()){
             if(user.getId().equals(id)){
                 return user;
@@ -66,6 +89,10 @@ public class UserDemoDao implements UserDao{
 
     @Override
     public User findByEmail(String email){
+        if(email == null){
+            return null;
+        }
+        
         for(User user : userTable.values()){
             if(user.getEmail().equals(email)){
                 return user;

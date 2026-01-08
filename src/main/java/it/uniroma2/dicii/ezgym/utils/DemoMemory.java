@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
+import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
+import it.uniroma2.dicii.ezgym.domain.model.Target;
 import it.uniroma2.dicii.ezgym.domain.model.User;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
+import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 
 public class DemoMemory {
@@ -17,18 +21,22 @@ public class DemoMemory {
     
     private final Map<UUID, Athlete> athletes;
     private final Map<String, Exercise> exercises;
+    private final Map<Integer, SessionExercise> sessionExercises;
     private final Map<UUID, PersonalTrainer> trainers;
     private final Map<UUID, User> users;
-    private final Map<String, Workout> workouts;
-    private final Map<String, WorkoutSession> sessions;
+    private final Map<Integer, Workout> workouts;
+    private final Map<Integer, WorkoutSession> sessions;
 
     private DemoMemory(){
         this.athletes = new HashMap<>();
         this.exercises = new HashMap<>();
+        this.sessionExercises = new HashMap<>();
         this.trainers = new HashMap<>();
         this.users = new HashMap<>();
         this.workouts = new HashMap<>();
         this.sessions = new HashMap<>();
+
+        seedDemoDataIfEmpty();
     }
 
     public static synchronized DemoMemory getInstance(){
@@ -44,17 +52,47 @@ public class DemoMemory {
     public Map<String, Exercise> getExercises(){
         return exercises;
     }
+    public Map<Integer, SessionExercise> getSessionExercise(){
+        return sessionExercises;
+    }
     public  Map<UUID, PersonalTrainer> getTrainers(){
         return trainers;
     }
     public Map<UUID, User> getUsers(){
         return users;
     }
-    public Map<String, Workout> getWorkouts(){
+    public Map<Integer, Workout> getWorkouts(){
         return workouts;
     }
-    public Map<String, WorkoutSession> getSessions(){
+    public Map<Integer, WorkoutSession> getSessions(){
         return sessions;
     }
+
+    private void seedDemoDataIfEmpty(){
+    if(!athletes.isEmpty()){
+        return;
+    }
+
+    UUID athleteId = UUID.randomUUID();
+
+    Athlete a = new Athlete();
+    a.setId(athleteId);
+    a.setName("Franco");
+    a.setSurname("Verdi");
+    a.setEmail("franco.verdi@gmail.com");
+    a.setPassword(PasswordUtils.hashPassword("Franco123!"));
+    a.setRole(it.uniroma2.dicii.ezgym.domain.model.Role.ATHLETE);
+    a.setGender("Maschio");
+    a.setAge(25);
+    a.setWeight(75.0);
+    a.setHeight(180.0);
+    a.setTarget(Target.Massa_muscolare);
+    a.setActivityLevel(ActivityLevel.Leggermente_attivo);
+    a.setWorkoutDay(WorkoutDay.Tre_volte);
+    a.setIsWorkoutRequested(true);
+
+    
+    athletes.put(athleteId, a);
+}
 
 }

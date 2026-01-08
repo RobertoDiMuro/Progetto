@@ -1,8 +1,8 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
+import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.controller.WorkoutController;
-import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,11 +36,11 @@ public class GuiHomeView {
 
     @FXML private Button workoutPlanBtn;
 
-    private Athlete currAthlete;
+    private AthleteBean currAthlete;
    
    
 
-    public void setAthlete(Athlete athlete){
+    public void setAthlete(AthleteBean athlete){
         this.currAthlete = athlete;
         populateFields();
     }
@@ -60,7 +60,7 @@ public class GuiHomeView {
         
         String weight = (currAthlete.getWeight() > 0) ? String.valueOf(currAthlete.getWeight()) : "";
         String target = (currAthlete.getTarget() != null) ? String.valueOf(currAthlete.getTarget()) : "";
-        String bmi = (weight.isEmpty() || currAthlete.getHeight() <= 0) ? "" : String.valueOf(currAthlete.calculateBMI());
+        String bmi = (weight.isEmpty() || currAthlete.getHeight() <= 0) ? "" : String.valueOf(calculateBMI());
 
         if(weight.isEmpty()){
             weightLabel.setText("");
@@ -106,7 +106,13 @@ public class GuiHomeView {
             view.setWorkout(wb);
         });
         
-    }  
+    }
+
+    private double calculateBMI() {
+        double heightInMeters = currAthlete.getHeight() / 100.0;
+        double bmi = currAthlete.getWeight() / (heightInMeters * heightInMeters);
+        return Math.round(bmi * 100.0) / 100.0;
+    }
 
 
 }

@@ -34,7 +34,7 @@ public class WorkoutDbmsDao implements WorkoutDao{
     private static final String CALL_DELETE_WORKOUT = "{CALL delete_workout(?)}";
 
     @Override
-    public void insert(Workout workout) {
+    public void insert(Workout workout, int workoutId) {
         try {
             Connection conn = DbmsConnector.getInstance().getConnection();
 

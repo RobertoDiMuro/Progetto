@@ -1,56 +1,95 @@
-// package it.uniroma2.dicii.ezgym.dao.DemoDao;
+package it.uniroma2.dicii.ezgym.dao.DemoDao;
 
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.util.Map;
+import java.util.Map;
+import java.util.UUID;
 
-// import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
-// import it.uniroma2.dicii.ezgym.domain.model.Workout;
-// import it.uniroma2.dicii.ezgym.utils.DemoMemory;
+import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
+import it.uniroma2.dicii.ezgym.domain.model.Athlete;
+import it.uniroma2.dicii.ezgym.domain.model.Workout;
+import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
-// public class WorkoutDemoDao implements WorkoutDao {
+public class WorkoutDemoDao implements WorkoutDao {
     
-//     private static WorkoutDemoDao instance;
-//     private final Map<String, Workout> workoutTable;
+    private static WorkoutDemoDao instance;
+    private final Map<Integer, Workout> workoutTable;
+    private final Map<UUID, Athlete> athleteTable;
 
-//     private WorkoutDemoDao() {
-//         this.workoutTable = DemoMemory.getInstance().getWorkouts();
-//     }
+    private WorkoutDemoDao() {
+        this.workoutTable = DemoMemory.getInstance().getWorkouts();
+        this.athleteTable = DemoMemory.getInstance().getAthletes();
+    }
 
-//     public static WorkoutDemoDao getInstance(){
-//         if(instance == null){
-//             instance = new WorkoutDemoDao();
-//         }
-//         return instance;
-//     }
+    public static WorkoutDemoDao getInstance(){
+        if(instance == null){
+            instance = new WorkoutDemoDao();
+        }
+        return instance;
+    }
 
-//     @Override
-//     public boolean insert(Workout workout, String requestByAthleteName){
-//         if(workoutTable.containsKey(requestByAthleteName)){
-//             return false;
-//         }
-//         workoutTable.put(requestByAthleteName, workout);
-//         return true;
-//     }
+    private int nextWorkoutId() {
+        int max = 0;
+        for (Integer id : workoutTable.keySet()) {
+            if (id != null && id > max) {
+                max = id;
+            }
+        }
+        return max + 1;
+    }
 
-//     @Override
-//     public Workout findBy(String requestByAthleteName){
-//         for(Workout workout : workoutTable.values()){
-//             if(workout.getRequestByAthleteFullName().equals(requestByAthleteName)){
-//                 return workout;
-//             }
-//         }
-//         return null;
-//     }
+    @Override
+    public void insert(Workout workout, int workoutId) {
+        if (workout == null) return;
 
-//     @Override
-//     public List<Workout> findAll(){
-//         return new ArrayList<>(workoutTable.values());
-//     }
+        int idToUse = (workoutId > 0) ? workoutId : nextWorkoutId();
 
-//     @Override
-//     public void delete(String requestByAthleteName){
-//         workoutTable.remove(requestByAthleteName);
-//     }
+        workout.setWorkoutId(idToUse);
+        workoutTable.put(idToUse, workout);
+    }
+
+    @Override
+    public Workout findBy(String athleteName, String athleteSurname) {
+        if (athleteName == null || athleteName.isBlank()) {
+            return null;
+        }
+
+        UUID athleteId = null;
+        for (Athlete a : athleteTable.values()) {
+            if (a == null) continue;
+
+            boolean sameName = athleteName.equals(a.getName());
+            boolean surnameOk =
+                    (athleteSurname == null || athleteSurname.isBlank())
+                            || athleteSurname.equals(a.getSurname());
+
+            if (sameName && surnameOk) {
+                athleteId = a.getId();
+                break;
+            }
+        }
+
+        if (athleteId == null) {
+            return null;
+        }
+
+        Workout best = null;
+        int bestId = -1;
+
+        for (Workout w : workoutTable.values()) {
+            if (w == null) continue;
+
+            if (athleteId.equals(w.getAthleteId()) && w.getWorkoutId() > bestId) {
+                bestId = w.getWorkoutId();
+                best = w;
+            }
+        }
+
+        return best;
+    }
    
-// }
+
+    @Override
+    public void delete(int workoutId) {
+        workoutTable.remove(workoutId);
+    }
+   
+}

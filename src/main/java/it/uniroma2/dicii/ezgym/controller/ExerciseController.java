@@ -1,16 +1,21 @@
 package it.uniroma2.dicii.ezgym.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.uniroma2.dicii.ezgym.bean.ExerciseBean;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
-import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
+import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 
 public class ExerciseController {
     
     private final ExerciseDao exerciseDao;
 
     public ExerciseController(){
-        this.exerciseDao = ExerciseDbmsDao.getInstance();
+        DaoFactory factory = DaoFactory.getInstance();
+        this.exerciseDao = factory.createExerciseDao();
     }
 
     public void createExercise(ExerciseBean bean){
@@ -20,6 +25,10 @@ public class ExerciseController {
 
         String name = bean.getName();
         String focus = bean.getFocus();
+
+        if (name == null || focus == null || name.isBlank() || focus.isBlank()) {
+            throw new IllegalArgumentException("Nome e focus sono obbligatori");
+        }
 
         Exercise existing = exerciseDao.findBy(name);
         if(existing != null){
@@ -31,5 +40,22 @@ public class ExerciseController {
             focus);
         
         exerciseDao.insert(exercise, focus);
+    }
+
+    public List<ExerciseBean> getAllExercises() throws PersistenceException {
+        List<Exercise> all = exerciseDao.findAll();
+
+        List<ExerciseBean> beans = new ArrayList<>();
+        for (Exercise ex : all) {
+            beans.add(toBean(ex));
+        }
+        return beans;
+    }
+
+    private ExerciseBean toBean(Exercise ex) {
+        ExerciseBean b = new ExerciseBean();
+        b.setName(ex.getName());
+        b.setFocus(ex.getFocus());
+        return b;
     }
 }

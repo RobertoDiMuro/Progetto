@@ -1,10 +1,11 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import java.io.IOException;
 import java.util.List;
+
+import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
-import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,9 +28,9 @@ public class GuiWorkoutView {
 
     @FXML private ScrollPane workoutScrollPane;
 
-    private Athlete athlete;
+    private AthleteBean athlete;
 
-    public void setAthlete(Athlete currAthlete){
+    public void setAthlete(AthleteBean currAthlete){
         this.athlete = currAthlete;
         nameLabel.setText(athlete.getName() + " " + athlete.getSurname());
     }

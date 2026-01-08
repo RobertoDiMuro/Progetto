@@ -1,7 +1,5 @@
 package it.uniroma2.dicii.ezgym.dao.abstractFactory;
 
-import java.io.InputStream;
-import java.util.Properties;
 
 import it.uniroma2.bootstrap.Mode;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.AthleteDao;
@@ -38,15 +36,15 @@ public abstract class DaoFactory {
             case DATABASE:
                 instance = new DaoDbmsFactory();
                 break;
-            // case DEMO:
-            //     instance = new DaoDemoFactory();
-            //     break;
+            case DEMO:
+                instance = new DaoDemoFactory();
+                break;
             // // case FILESYSTEM:
             // //     instance = new DaoFilesystemFactory();
             // //     break;
-            // default:
-            //     instance = new DaoDemoFactory();
-            //     break;
+            default:
+                instance = new DaoDemoFactory();
+                break;
           }
         }
         return instance;

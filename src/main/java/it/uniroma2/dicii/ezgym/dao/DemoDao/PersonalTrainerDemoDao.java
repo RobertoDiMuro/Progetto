@@ -1,7 +1,5 @@
 package it.uniroma2.dicii.ezgym.dao.DemoDao;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,11 +25,18 @@ public class PersonalTrainerDemoDao implements PersonalTrainerDao {
 
     @Override 
     public void insert(PersonalTrainer personalTrainer, UUID id){
+        if(personalTrainer != null){
+            personalTrainer.setId(id);
+        }
         ptTable.put(id, personalTrainer);
     }
 
     @Override
     public PersonalTrainer findBy(String email){
+        if(email == null){
+            return null;
+        }
+
         for(PersonalTrainer personalTrainer : ptTable.values()){
             if(personalTrainer.getEmail().equals(email)){
                 return personalTrainer;
@@ -40,15 +45,9 @@ public class PersonalTrainerDemoDao implements PersonalTrainerDao {
         return null;
     }
 
-    // @Override
-    // public List<PersonalTrainer> findAll(){
-    //     return new ArrayList<>(ptTable.values());
-    // }
-
     @Override
     public void delete(UUID id){
         ptTable.remove(id);
     }
-
     
 }

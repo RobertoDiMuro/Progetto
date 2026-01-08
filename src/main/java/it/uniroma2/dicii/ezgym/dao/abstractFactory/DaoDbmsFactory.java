@@ -1,6 +1,5 @@
 package it.uniroma2.dicii.ezgym.dao.abstractFactory;
 
-import com.mysql.cj.Session;
 
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.AthleteDao;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
@@ -16,7 +15,6 @@ import it.uniroma2.dicii.ezgym.dao.dbms.SessionExerciseDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.UserDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.WorkoutDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.WorkoutSessionDbmsDao;
-import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 
 public class DaoDbmsFactory extends DaoFactory {
     

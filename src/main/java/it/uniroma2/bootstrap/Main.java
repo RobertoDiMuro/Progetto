@@ -8,12 +8,13 @@ import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
+import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
 import it.uniroma2.dicii.ezgym.utils.PasswordUtils;
 
 public final class Main {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, EmailAlreadyExistsException {
 
         Mode mode = Setup.askMode();
 

@@ -1,16 +1,16 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
+import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.controller.CreateSessionController;
 import it.uniroma2.dicii.ezgym.controller.CreateWorkoutController;
 import it.uniroma2.dicii.ezgym.controller.PtRequestcontroller;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +53,7 @@ public class GuiCreateWorkoutView {
 
     @FXML private ImageView goBack;
 
-    private PersonalTrainer currTrainer;
+    private PersonalTrainerBean currTrainer;
 
     private final PtRequestcontroller ptRequestcontroller = new PtRequestcontroller();
     private final CreateWorkoutController createWorkoutController = new CreateWorkoutController();
@@ -105,7 +105,7 @@ public class GuiCreateWorkoutView {
         if (sixthDayBtn != null) sixthDayBtn.setSelected(false);
     }
 
-    public void init(PersonalTrainer personalTrainer, AthleteBean athlete){
+    public void init(PersonalTrainerBean personalTrainer, AthleteBean athlete){
         this.currTrainer = personalTrainer;
         this.currAthlete = athlete;
 

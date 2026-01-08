@@ -1,12 +1,10 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import java.util.List;
 
 import it.uniroma2.dicii.ezgym.bean.ExerciseBean;
+import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.controller.ExerciseController;
-import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
-import it.uniroma2.dicii.ezgym.domain.model.Exercise;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.beans.property.SimpleStringProperty;
@@ -22,28 +20,23 @@ import javafx.scene.image.ImageView;
 
 public class GuiCreateExerciseView {
     
-    @FXML private TableView<Exercise> exerciseTable;
-
-    @FXML private TableColumn<Exercise, String> nameColumn;
-
-    @FXML private TableColumn<Exercise, String> focusColumn;
+    @FXML private TableView<ExerciseBean> exerciseTable;
+    @FXML private TableColumn<ExerciseBean, String> nameColumn;
+    @FXML private TableColumn<ExerciseBean, String> focusColumn;
 
     @FXML private TextField focusField;
-
     @FXML private ImageView goBack;
-
     @FXML private TextField nameField;
-
     @FXML private Button saveButton;
-
     @FXML private Label errorLabel;
 
-    private final ObservableList<Exercise> exercises = FXCollections.observableArrayList();
-    private PersonalTrainer personalTrainer;
-    private final ExerciseDbmsDao exerciseDao = ExerciseDbmsDao.getInstance();
+    private final ObservableList<ExerciseBean> exercises = FXCollections.observableArrayList();
+
+    private PersonalTrainerBean personalTrainer;
+
     private final ExerciseController exerciseController = new ExerciseController();
 
-    public void setPersonalTrainer(PersonalTrainer pt){
+    public void setPersonalTrainer(PersonalTrainerBean pt){
         this.personalTrainer = pt;
     }
 
@@ -62,7 +55,7 @@ public class GuiCreateExerciseView {
 
     private void reload() {
         try {
-            List<Exercise> list = exerciseDao.findAll();
+            List<ExerciseBean> list = exerciseController.getAllExercises();
             exercises.setAll(list);
         } catch (PersistenceException ex) {
             ex.printStackTrace();
@@ -81,12 +74,15 @@ public class GuiCreateExerciseView {
         }
 
         ExerciseBean exerciseBean = new ExerciseBean();
-        exerciseBean.setName(name);
-        exerciseBean.setFocus(focus);
+        exerciseBean.setName(name.trim());
+        exerciseBean.setFocus(focus.trim());
 
-        exerciseController.createExercise(exerciseBean);
-
-        onSaveSuccess();
+        try {
+            exerciseController.createExercise(exerciseBean);
+            onSaveSuccess();
+        } catch (IllegalArgumentException ex) {
+            errorLabel.setText(ex.getMessage());
+        }
     }
 
     private void onSaveSuccess(){

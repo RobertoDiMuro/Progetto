@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ezgym.controller;
 
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.SessionExerciseDao;
-import it.uniroma2.dicii.ezgym.dao.dbms.SessionExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 
@@ -12,7 +12,8 @@ public class AddExerciseToSessionController {
     private final SessionExerciseDao dao;
     
     public AddExerciseToSessionController(){
-        this.dao = SessionExerciseDbmsDao.getInstance();
+        DaoFactory factory = DaoFactory.getInstance();
+        this.dao = factory.createSessionExerciseDao();
     }
 
     public void addExerciseToSession(SessionExerciseBean bean){
@@ -34,7 +35,7 @@ public class AddExerciseToSessionController {
                     bean.getType(),
                     bean.getNotes());
             
-            dao.insert(sessionExercise);
+            dao.insert(sessionExercise, sessionId);
         }catch(Exception e){
             e.printStackTrace();
             throw new PersistenceException("Errore durante l'inserimento dell'esercizio nella sessione");

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import javafx.fxml.FXML;

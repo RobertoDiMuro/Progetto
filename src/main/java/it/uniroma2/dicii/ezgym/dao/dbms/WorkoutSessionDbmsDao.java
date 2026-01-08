@@ -37,7 +37,7 @@ public class WorkoutSessionDbmsDao implements WorkoutSessionDao {
 
     
     @Override
-    public int insert(WorkoutSession session) {
+    public int insert(WorkoutSession session, int sessionId) {
         try {
             return insertAndReturnId(session);
         } catch (PersistenceException e) {

@@ -6,7 +6,7 @@ import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 
 public interface SessionExerciseDao {
     
-    void insert(SessionExercise sessionExercise);
+    void insert(SessionExercise sessionExercise, int sessioId);
     SessionExercise findBy(int sessionId, String exerciseName);
     List<SessionExercise> findAllBySession(int sessionId);
     void delete(int sessionId, String exerciseName);

@@ -7,7 +7,6 @@ import java.util.UUID;
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.AthleteDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.dao.dbms.AthleteDbmsDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 
@@ -55,6 +54,6 @@ public class PtRequestcontroller {
     }
 
     public void closeRequest(UUID athleteId) {
-        AthleteDbmsDao.getInstance().closeRequest(athleteId);
+        athleteDao.closeRequest(athleteId);
     }
 }

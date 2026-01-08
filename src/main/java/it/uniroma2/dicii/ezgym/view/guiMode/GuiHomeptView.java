@@ -1,13 +1,13 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import java.io.IOException;
 import java.util.List;
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
+import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.controller.PtRequestcontroller;
 import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +25,11 @@ public class GuiHomeptView {
 
     @FXML private VBox requestContainer;
     
-    private PersonalTrainer currTrainer;
+    private PersonalTrainerBean currTrainer;
     private PtRequestcontroller ptRequestcontroller;
     private UserDao userDao = DaoFactory.getInstance().createUserDao();
 
-    public void setPersonalTrainer(PersonalTrainer personalTrainer){
+    public void setPersonalTrainer(PersonalTrainerBean personalTrainer){
         this.currTrainer = personalTrainer;
         nameLabel.setText(currTrainer.getName() + "!");
         activeCustomerLabel.setText(String.valueOf(userDao.countAthletes()));
@@ -63,7 +63,7 @@ public class GuiHomeptView {
 
                 GuiSliderBoxView boxController = loader.getController();
                 boxController.setAthleteBean(bean);
-                boxController.setPersonalTrainer(currTrainer); // <-- questo
+                boxController.setPersonalTrainer(currTrainer); 
 
                 requestContainer.getChildren().add(box);
 

@@ -24,30 +24,45 @@ public class ExerciseDemoDao implements ExerciseDao{
         return instance;
     }
     
+    
+
     @Override
-    public Exercise findByFocus(String focus){
+    public void insert(Exercise exercise, String focus){
+        if(exercise == null){
+            throw new IllegalArgumentException("L'esercizio è nullo");
+        }
+        exerciseTable.put(focus,exercise);
+    }
+
+    @Override
+    public Exercise findByFocus(String focus) {
+        if (focus == null) {
+            return null;
+        }
+        for (Exercise ex : exerciseTable.values()) {
+            if (ex != null && focus.equals(ex.getFocus())) {
+                return ex;
+            }
+        }
         return null;
     }
 
     @Override
-    public void insert(Exercise exercise, String focus){
-        // exerciseTable.put(exercise);
-    }
-
-    @Override
-    public Exercise findBy(String name){
-        // for(Exercise exercise : exerciseTable.values()){
-        //     if(exercise.getName().equals(name)){
-        //         return exercise;
-        //     }
-        // }
+    public Exercise findBy(String name) {
+        if (name == null) {
+            return null;
+        }
+        for (Exercise ex : exerciseTable.values()) {
+            if (ex != null && name.equals(ex.getName())) {
+                return ex;
+            }
+        }
         return null;
     }
 
     @Override 
     public List<Exercise> findAll(){
-        // return new ArrayList<>(exerciseTable.values());
-        return null;
+        return new ArrayList<>(exerciseTable.values());
     }
 
     @Override

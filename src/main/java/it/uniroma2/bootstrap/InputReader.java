@@ -6,23 +6,23 @@ import java.io.InputStreamReader;
 
 public final class InputReader {
 
-    private static final BufferedReader instance = null;
+    private static BufferedReader instance;
 
-    private InputReader(){
+    private InputReader() {
         //
     }
 
-    public static BufferedReader getInstance(){
-        if(instance == null){
-            return new BufferedReader(new InputStreamReader(System.in));
+    public static BufferedReader getInstance() {
+        if (instance == null) {
+            instance = new BufferedReader(new InputStreamReader(System.in));
         }
         return instance;
     }
 
-    public static String readLine(){
-        try{
-            return instance.readLine();
-        }catch(IOException e){
+    public static String readLine() {
+        try {
+            return getInstance().readLine();
+        } catch (IOException e) {
             System.err.println("Errore nella lettura dell'input");
             return null;
         }

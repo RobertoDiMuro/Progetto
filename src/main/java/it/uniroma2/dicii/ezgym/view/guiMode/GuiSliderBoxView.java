@@ -1,9 +1,9 @@
-package it.uniroma2.dicii.ezgym.view;
+package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import java.io.IOException;
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
+import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,9 +35,9 @@ public class GuiSliderBoxView {
     @FXML private Label weightLabel;
 
     private AthleteBean athlete;
-    private PersonalTrainer trainer;
+    private PersonalTrainerBean trainer;
 
-    public void setPersonalTrainer(PersonalTrainer trainer){
+    public void setPersonalTrainer(PersonalTrainerBean trainer){
          this.trainer = trainer; 
     }
 

@@ -25,20 +25,30 @@ public class AthleteDemoDao implements AthleteDao{
         return instance;
     }
 
-    @Override
-    public void closeRequest(UUID id){
-        //
+     @Override
+    public void closeRequest(UUID id) {
+        Athlete athlete = athleteTable.get(id);
+
+        if (athlete != null) {
+            athlete.setIsWorkoutRequested(false);
+        }
     }
 
    @Override
    public void insert(Athlete athlete, UUID id){
+      if (athlete != null) {
+            athlete.setId(id);
+        }
         athleteTable.put(id, athlete);
    }
 
     @Override
     public Athlete findBy(String email) {
+        if (email == null) {
+            return null;
+        }
         for (Athlete athlete : athleteTable.values()) {
-            if (athlete.getEmail().equals(email)) {
+            if (athlete != null && email.equals(athlete.getEmail())) {
                 return athlete;
             }
         }
@@ -46,13 +56,37 @@ public class AthleteDemoDao implements AthleteDao{
     }
 
    @Override
-   public List<Athlete> findAll() {
+    public List<Athlete> findAll() {
         return new ArrayList<>(athleteTable.values());
     }
 
-    @Override
-    public void update(UUID id, Athlete athlete){
-        athleteTable.put(id, athlete);
+     @Override
+    public void update(UUID id, Athlete athlete) {
+        
+        Athlete current = athleteTable.get(id);
+
+        if (current == null) {
+            if (athlete != null) {
+                athlete.setId(id);
+            }
+            athleteTable.put(id, athlete);
+            return;
+        }
+
+        if (athlete == null) {
+            return;
+        }
+
+        current.setId(id);
+
+        current.setGender(athlete.getGender());
+        current.setAge(athlete.getAge());
+        current.setWeight(athlete.getWeight());
+        current.setHeight(athlete.getHeight());
+        current.setTarget(athlete.getTarget());
+        current.setActivityLevel(athlete.getActivityLevel());
+        current.setWorkoutDay(athlete.getWorkoutDay());
+        current.setIsWorkoutRequested(athlete.getIsWorkoutRequested());
     }
 
     @Override
