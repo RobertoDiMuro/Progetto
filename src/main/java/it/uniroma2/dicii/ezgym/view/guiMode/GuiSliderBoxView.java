@@ -34,6 +34,8 @@ public class GuiSliderBoxView {
 
     @FXML private Label weightLabel;
 
+    @FXML private Label errorLabel;
+
     private AthleteBean athlete;
     private PersonalTrainerBean trainer;
 
@@ -95,5 +97,10 @@ public class GuiSliderBoxView {
             GuiCreateWorkoutView v = (GuiCreateWorkoutView) controller;
             v.init(trainer, athlete); 
         });
+    }
+
+    @FXML
+    private void onClickCreateDiet(){
+        errorLabel.setText("Funzionalità non ancora implementata!");
     }
 }

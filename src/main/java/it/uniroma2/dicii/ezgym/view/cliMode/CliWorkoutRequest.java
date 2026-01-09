@@ -167,29 +167,22 @@ public class CliWorkoutRequest extends BaseCli {
             
             String targetStr = reader.readLine().trim();
 
-            if (targetStr.equals("0")) {
-                checkBackToHome(targetStr); 
-            }
+            
+            checkBackToHome(targetStr); 
+            
 
             switch (targetStr) {
-                case "1":
-                        currAthlete.setTarget(Target.Perdere_peso);
-                    break;
-                case "2":
-                        currAthlete.setTarget(Target.Mantenere);
-                    break;
-                case "3":
-                        currAthlete.setTarget(Target.Massa_muscolare);
-                    break;
-                case "4":
-                        currAthlete.setTarget(Target.Tonificare);
-                    break;
-                case "0":
-                        checkBackToHome(targetStr);
-                default:
+                case "1" -> currAthlete.setTarget(Target.Perdere_peso);
+                case "2" -> currAthlete.setTarget(Target.Mantenere);
+                case "3" -> currAthlete.setTarget(Target.Massa_muscolare);
+                case "4" -> currAthlete.setTarget(Target.Tonificare);
+                default -> {
                     System.err.println("Scelta non valida. Inserisci 1, 2, 3 o 4.");
                     continue;
+                }
+                    
             }
+            return;
         }
     }
     
@@ -206,30 +199,21 @@ public class CliWorkoutRequest extends BaseCli {
 
             String activityLevelStr = reader.readLine().trim();
 
-            if (activityLevelStr.equals("0")) {
-                checkBackToHome(activityLevelStr); 
-            }
+           
+            checkBackToHome(activityLevelStr); 
+            
 
             switch (activityLevelStr) {
-                case "1":
-                    currAthlete.setActivityLevel(ActivityLevel.Sedentario);
-                    break;
-                case "2":
-                    currAthlete.setActivityLevel(ActivityLevel.Leggermente_attivo);
-                    break;
-                case "3":
-                    currAthlete.setActivityLevel(ActivityLevel.Moderatamente_attivo);
-                    break;
-                case "4":
-                    currAthlete.setActivityLevel(ActivityLevel.Intenso);
-                    break;
-                case "0":
-                    checkBackToHome(activityLevelStr);
-                default:
+                case "1" -> currAthlete.setActivityLevel(ActivityLevel.Sedentario);
+                case "2" -> currAthlete.setActivityLevel(ActivityLevel.Leggermente_attivo);
+                case "3" -> currAthlete.setActivityLevel(ActivityLevel.Moderatamente_attivo);
+                case "4" -> currAthlete.setActivityLevel(ActivityLevel.Intenso);
+                default -> {
                     System.err.println("Scelta non valida. Inserisci 1, 2, 3 o 4.");
                     continue;
+                }
             }
-            
+            return;
         }
     }
 
@@ -247,32 +231,22 @@ public class CliWorkoutRequest extends BaseCli {
             
             String workoutDayStr = reader.readLine().trim();
 
-            if (workoutDayStr.equals("0")) {
-                checkBackToHome(workoutDayStr); 
-            }
+            
+            checkBackToHome(workoutDayStr); 
+            
 
             switch (workoutDayStr) {
-                case "1":
-                    currAthlete.setWorkoutDay(WorkoutDay.Due_volte);
-                    break;
-                case "2":
-                    currAthlete.setWorkoutDay(WorkoutDay.Tre_volte);
-                    break;
-                case "3":
-                    currAthlete.setWorkoutDay(WorkoutDay.Quattro_volte);
-                    break;
-                case "4":
-                    currAthlete.setWorkoutDay(WorkoutDay.Cinque_volte);
-                    break;
-                case "5":
-                    currAthlete.setWorkoutDay(WorkoutDay.Sei_volte);
-                    break;
-                case "0":
-                    checkBackToHome(workoutDayStr);
-                default:
+                case "1" -> currAthlete.setWorkoutDay(WorkoutDay.Due_volte);
+                case "2" -> currAthlete.setWorkoutDay(WorkoutDay.Tre_volte);
+                case "3" -> currAthlete.setWorkoutDay(WorkoutDay.Quattro_volte);
+                case "4" -> currAthlete.setWorkoutDay(WorkoutDay.Cinque_volte);
+                case "5" -> currAthlete.setWorkoutDay(WorkoutDay.Sei_volte);
+                default -> {
                     System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 5.");
                     continue; 
+                }
             }
+            return;
         }
     }
 }

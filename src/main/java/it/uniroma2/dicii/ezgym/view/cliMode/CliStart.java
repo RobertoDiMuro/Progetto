@@ -3,9 +3,11 @@ package it.uniroma2.dicii.ezgym.view.cliMode;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.bootstrap.Mode;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
+import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
 
 public final class CliStart {
@@ -35,8 +37,18 @@ public final class CliStart {
                 case "1" -> {
                     UserBean user = CliLogin.startLogin();
                     if (user != null) {
-                        CliHome.startHome(user);
-                        return;
+                        Role role = user.getRole();
+                        switch (role) {
+                            case ATHLETE:
+                                CliHome.startHome(user);
+                                break;
+                            case PERSONAL_TRAINER:
+                                CliHomept.startHomePT(user);
+                                break;
+                            default:
+                                CliHome.startHome(user);
+                                break;
+                        }
                     }
                 }
                 case "2" -> {

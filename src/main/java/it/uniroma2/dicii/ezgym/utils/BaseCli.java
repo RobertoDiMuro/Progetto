@@ -4,9 +4,13 @@ import it.uniroma2.dicii.ezgym.exceptions.BackException;
 
 public abstract class BaseCli {
 
-    protected static void checkBackToHome(String input) {
+    public static void checkBackToHome(String input) {
         if ("0".equals(input)) {
             throw new BackException();
         }
+    }
+
+    public static String safe(String s) {
+        return s == null ? "" : s;
     }
 }

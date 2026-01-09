@@ -16,14 +16,26 @@
             <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="200.0" stylesheets="@../values/LoginStyle.css" />
             <VBox prefHeight="248.0" prefWidth="779.0">
                <children>
-                  <Label fx:id="nameLabel" text="Mario Rossi" textFill="WHITE">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="773.0">
+                     <children>
+                        <Label fx:id="nameLabel" text="Mario Rossi" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="errorLabel" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="200.0">
                      <children>
                         <Label fx:id="bmiLabel" text="BMI: 24.5 |" textFill="WHITE">
@@ -88,7 +100,7 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="createDietButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
+                        <Button fx:id="createDietButton" mnemonicParsing="false" onMouseClicked="#onClickCreateDiet" prefHeight="40.0" prefWidth="250.0" styleClass="homept-secondary-button" text="Crea dieta">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" />
                            </HBox.margin>
