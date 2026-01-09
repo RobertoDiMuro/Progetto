@@ -15,11 +15,14 @@ public class AppLauncher {
     }
 
     public static void launch(InterfaceMode interfaceMode, Mode mode) throws IOException, EmailAlreadyExistsException{
-        switch(interfaceMode){
-            case GUI ->  GuiLauncher.launchGui(mode);
-            case CLI -> CliStart.start(mode);
+
+        if(interfaceMode == InterfaceMode.GUI)
+            GuiLauncher.launchGui(mode);
+        else{
+            CliStart.start(mode);
         }
     }
+    
 
    
 }
