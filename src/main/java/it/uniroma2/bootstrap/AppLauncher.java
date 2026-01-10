@@ -3,7 +3,7 @@ package it.uniroma2.bootstrap;
 import java.io.IOException;
 
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
-import it.uniroma2.dicii.ezgym.view.cliMode.CliStart;
+import it.uniroma2.dicii.ezgym.view.climode.CliStart;
 
 
 

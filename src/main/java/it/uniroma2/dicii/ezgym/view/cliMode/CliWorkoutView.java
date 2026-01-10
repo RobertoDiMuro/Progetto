@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.view.cliMode;
+package it.uniroma2.dicii.ezgym.view.climode;
 
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;

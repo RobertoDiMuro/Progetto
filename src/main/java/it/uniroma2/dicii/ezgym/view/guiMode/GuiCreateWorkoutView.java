@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.view.guiMode;
+package it.uniroma2.dicii.ezgym.view.guimode;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.view.cliMode;
+package it.uniroma2.dicii.ezgym.view.climode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
