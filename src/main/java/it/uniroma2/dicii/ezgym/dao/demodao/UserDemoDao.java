@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
@@ -15,10 +16,9 @@ import it.uniroma2.dicii.ezgym.utils.PasswordUtils;
 
 public class UserDemoDao implements UserDao{
 
-    private static UserDemoDao instance = null;
     private final Map<UUID, User> userTable;
 
-    private UserDemoDao() {
+    public UserDemoDao() {
         this.userTable = DemoMemory.getInstance().getUsers();
     }
 
@@ -39,8 +39,9 @@ public class UserDemoDao implements UserDao{
             null,
             false
         );
-        getInstance().insert(athlete, athlete.getId());
-        AthleteDemoDao.getInstance().insert(athlete, athlete.getId()); 
+        UserDao dao = DaoFactory.getInstance().createUserDao();
+        dao.insert(athlete, athlete.getId());
+        DaoFactory.getInstance().createAthleteDao().insert(athlete, athlete.getId()); 
 
         UUID marioId = UUID.randomUUID();
 
@@ -53,17 +54,12 @@ public class UserDemoDao implements UserDao{
         mario.setRole(Role.PERSONAL_TRAINER);
         mario.setActiveUsers(0);
 
-        getInstance().insert(mario, marioId);
+        dao.insert(mario, marioId);
 
-        PersonalTrainerDemoDao.getInstance().insert(mario, marioId);
+        DaoFactory.getInstance().createPersonalTrainerDao().insert(mario, marioId);
     }
 
-    public static UserDemoDao getInstance() {
-        if (instance == null) {
-            instance = new UserDemoDao();
-        }
-        return instance;
-    }
+    
 
     @Override
     public void insert(User user, UUID id){

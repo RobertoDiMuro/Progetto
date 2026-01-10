@@ -10,21 +10,14 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class WorkoutDemoDao implements WorkoutDao {
     
-    private static WorkoutDemoDao instance;
     private final Map<Integer, Workout> workoutTable;
     private final Map<UUID, Athlete> athleteTable;
 
-    private WorkoutDemoDao() {
+    public WorkoutDemoDao() {
         this.workoutTable = DemoMemory.getInstance().getWorkouts();
         this.athleteTable = DemoMemory.getInstance().getAthletes();
     }
 
-    public static WorkoutDemoDao getInstance(){
-        if(instance == null){
-            instance = new WorkoutDemoDao();
-        }
-        return instance;
-    }
 
     private int nextWorkoutId() {
         int max = 0;

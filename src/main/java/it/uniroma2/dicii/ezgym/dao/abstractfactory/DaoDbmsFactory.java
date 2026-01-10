@@ -20,36 +20,36 @@ public class DaoDbmsFactory extends DaoFactory {
     
     @Override
     public AthleteDao createAthleteDao(){
-        return AthleteDbmsDao.getInstance();
+        return new AthleteDbmsDao();
     }
 
     @Override
     public UserDao createUserDao(){
-        return UserDbmsDao.getInstance();
+        return new UserDbmsDao();
     }
 
     @Override
     public PersonalTrainerDao createPersonalTrainerDao(){
-        return PersonalTrainerDbmsDao.getInstance();
+        return new PersonalTrainerDbmsDao();
     }
 
     @Override
     public SessionExerciseDao createSessionExerciseDao(){
-        return SessionExerciseDbmsDao.getInstance();
+        return new SessionExerciseDbmsDao();
     }
 
     @Override
     public ExerciseDao createExerciseDao(){
-        return ExerciseDbmsDao.getInstance();
+        return new ExerciseDbmsDao();
     }
 
     @Override
     public WorkoutSessionDao createWorkoutSessionDao(){
-        return WorkoutSessionDbmsDao.getInstance();
+        return new WorkoutSessionDbmsDao();
     }
 
      @Override
      public WorkoutDao createWorkoutDao(){
-         return WorkoutDbmsDao.getInstance();
+         return new WorkoutDbmsDao();
     }
 }

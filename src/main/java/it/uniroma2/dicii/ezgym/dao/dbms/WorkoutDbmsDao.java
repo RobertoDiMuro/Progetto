@@ -19,14 +19,7 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class WorkoutDbmsDao implements WorkoutDao{
     
-    public static WorkoutDbmsDao instance;
-
-    public static synchronized WorkoutDbmsDao getInstance(){
-        if(instance == null){
-            instance = new WorkoutDbmsDao();
-        }
-        return instance;
-    }
+    
 
     private static final String CALL_INSERT_WK = "{CALL insert_workout(?,?,?)}";
     private static final String CALL_LINK_SESSION = "{CALL insert_wk_plan_session(?,?)}";

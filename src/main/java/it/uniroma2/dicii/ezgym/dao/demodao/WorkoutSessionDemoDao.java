@@ -11,19 +11,12 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class WorkoutSessionDemoDao implements WorkoutSessionDao {
     
-    private static WorkoutSessionDemoDao instance;
     private final Map<Integer, WorkoutSession> sessionTable;
 
-    private WorkoutSessionDemoDao() {
+    public WorkoutSessionDemoDao() {
         this.sessionTable = DemoMemory.getInstance().getSessions();
     }
 
-    public static WorkoutSessionDemoDao getInstance() {
-        if (instance == null) {
-            instance = new WorkoutSessionDemoDao();
-        }
-        return instance;
-    }
     
     private int nextSessionId() {
         int max = 0;

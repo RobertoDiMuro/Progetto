@@ -20,15 +20,7 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class AthleteDbmsDao implements AthleteDao{
     
-    private static AthleteDbmsDao instance;
-
-    public static synchronized AthleteDbmsDao getInstance(){
-        if(instance == null){
-            instance = new AthleteDbmsDao();
-        }
-        return instance;
-    }
-
+    
     private static final String CALL_INSERT_ATHLETE = "{CALL insert_athlete(?,?,?,?,?,?,?,?,?)}";
     private static final String CALL_FIND_ATHLETE_BY_EMAIL = "{CALL find_athlete_by_email(?)}";
     private static final String CALL_FIND_ALL_ATHLETES = "{CALL find_all_athletes()}";
@@ -105,7 +97,7 @@ public class AthleteDbmsDao implements AthleteDao{
         String email = rs.getString("email");
         String password = rs.getString("password");
 
-        UUID id_athlete = UUID.fromString(rs.getString("id_athlete"));
+        UUID athleteId = UUID.fromString(rs.getString("id_athlete"));
         String gender = rs.getString("gender");
         int age = rs.getInt("age");
         double weight = rs.getDouble("weight");
@@ -154,7 +146,7 @@ public class AthleteDbmsDao implements AthleteDao{
         athlete.setSurname(surname);
         athlete.setEmail(email);
         athlete.setPassword(password);
-        athlete.setId(id_athlete);
+        athlete.setId(athleteId);
         athlete.setGender(gender);
         athlete.setAge(age);
         athlete.setWeight(weight);

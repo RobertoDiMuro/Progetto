@@ -10,20 +10,13 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class SessionExerciseDemoDao implements SessionExerciseDao {
 
-     private static SessionExerciseDemoDao instance;
     private final Map<Integer, SessionExercise> sessionExercises;
 
-    private SessionExerciseDemoDao() {
+    public SessionExerciseDemoDao() {
         this.sessionExercises = DemoMemory.getInstance().getSessionExercise();
     }
 
-    public static SessionExerciseDemoDao getInstance(){
-        if(instance == null){
-            instance = new SessionExerciseDemoDao();
-        }
-        return instance;
-    }
-
+    
     private Integer key(int sessionId, String exerciseName) {
         return Objects.hash(sessionId, exerciseName);
     }

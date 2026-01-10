@@ -4,7 +4,7 @@ package it.uniroma2.dicii.ezgym.view.guimode;
 
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.controller.AddExerciseToSessionController;
-import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
@@ -38,7 +38,7 @@ public class GuiAddExerciseView {
 
     private int sessionId;
     private final AddExerciseToSessionController controller = new AddExerciseToSessionController();
-    private final ExerciseDao exerciseDao = ExerciseDbmsDao.getInstance();
+    private final ExerciseDao exerciseDao = DaoFactory.getInstance().createExerciseDao();
 
     public void init(int session_Id){
         this.sessionId = session_Id;

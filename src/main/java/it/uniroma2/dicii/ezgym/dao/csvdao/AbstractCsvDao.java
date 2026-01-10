@@ -33,7 +33,7 @@ public abstract class AbstractCsvDao {
                     throw new PersistenceException("Impossibile creare il file" + created);
                 }
             }
-        }catch(IOException e){
+        }catch(IOException _){
             throw new PersistenceException("Impossibile creare il file" + file);
         }
     }
@@ -47,7 +47,7 @@ public abstract class AbstractCsvDao {
                     out.add(line);
                 }
             }
-        }catch(IOException e){
+        }catch(IOException _){
             throw new PersistenceException("Errore leggendo il file" + file);
         }
         return out;
@@ -58,7 +58,7 @@ public abstract class AbstractCsvDao {
             writer.write(line);
             writer.newLine();
             return true;
-        }catch(IOException e){
+        }catch(IOException _){
             throw new PersistenceException("Errore scrivendo il file" + file);
         }
     }
@@ -69,7 +69,7 @@ public abstract class AbstractCsvDao {
                 writer.write(line);
                 writer.newLine();
             }
-        }catch(IOException e){
+        }catch(IOException _){
             throw new PersistenceException("Errore riscrivendo il file" + file);
         }
     }

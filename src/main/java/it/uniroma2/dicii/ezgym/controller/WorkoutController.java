@@ -9,7 +9,7 @@ import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.dao.dbms.SessionExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.SessionExerciseDao;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
@@ -18,13 +18,13 @@ import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 public class WorkoutController {
 
     private final WorkoutDao workoutDao;
-    private final SessionExerciseDbmsDao sessionExerciseDao;
+    private final SessionExerciseDao sessionExerciseDao;
 
     public WorkoutController() {
-        this(DaoFactory.getInstance().createWorkoutDao(), SessionExerciseDbmsDao.getInstance());
+        this(DaoFactory.getInstance().createWorkoutDao(), DaoFactory.getInstance().createSessionExerciseDao());
     }
 
-    WorkoutController(WorkoutDao workoutDao, SessionExerciseDbmsDao sessionExerciseDao) {
+    WorkoutController(WorkoutDao workoutDao, SessionExerciseDao sessionExerciseDao) {
         this.workoutDao = workoutDao;
         this.sessionExerciseDao = sessionExerciseDao;
     }

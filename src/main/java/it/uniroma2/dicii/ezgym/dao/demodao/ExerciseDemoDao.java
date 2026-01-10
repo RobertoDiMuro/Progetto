@@ -10,20 +10,12 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class ExerciseDemoDao implements ExerciseDao{
 
-    private static ExerciseDemoDao instance;
     private final Map<String, Exercise> exerciseTable;
 
-    private ExerciseDemoDao() {
+    public ExerciseDemoDao() {
         this.exerciseTable = DemoMemory.getInstance().getExercises();
     }
 
-    public static ExerciseDemoDao getInstance(){
-        if(instance == null){
-            instance = new ExerciseDemoDao();
-        }
-        return instance;
-    }
-    
     
 
     @Override

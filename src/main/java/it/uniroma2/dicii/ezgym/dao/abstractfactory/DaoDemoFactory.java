@@ -18,24 +18,24 @@ import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutSessionDao;
 public class DaoDemoFactory extends DaoFactory {
     
     public AthleteDao createAthleteDao(){
-        return AthleteDemoDao.getInstance();
+        return new AthleteDemoDao();
     }
     public ExerciseDao createExerciseDao(){
-        return ExerciseDemoDao.getInstance();
+        return new ExerciseDemoDao();
     }
     public SessionExerciseDao createSessionExerciseDao(){
-        return SessionExerciseDemoDao.getInstance();
+        return new SessionExerciseDemoDao();
     }
     public PersonalTrainerDao createPersonalTrainerDao(){
-        return PersonalTrainerDemoDao.getInstance();
+        return new PersonalTrainerDemoDao();
     }
     public WorkoutDao createWorkoutDao(){
-        return WorkoutDemoDao.getInstance();
+        return new WorkoutDemoDao();
     }
     public WorkoutSessionDao createWorkoutSessionDao(){
-        return WorkoutSessionDemoDao.getInstance();
+        return new WorkoutSessionDemoDao();
     }
     public UserDao createUserDao(){
-        return UserDemoDao.getInstance();
+        return new UserDemoDao();
     }
 }

@@ -9,19 +9,12 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 
 public class PersonalTrainerDemoDao implements PersonalTrainerDao {
 
-    private static PersonalTrainerDemoDao instance;
     private final Map<UUID, PersonalTrainer> ptTable;
 
-    private PersonalTrainerDemoDao() {
+    public PersonalTrainerDemoDao() {
         this.ptTable = DemoMemory.getInstance().getTrainers();
     }
 
-    public static PersonalTrainerDemoDao getInstance(){
-        if(instance == null){
-            instance = new PersonalTrainerDemoDao();
-        }
-        return instance;
-    }
 
     @Override 
     public void insert(PersonalTrainer personalTrainer, UUID id){

@@ -8,7 +8,7 @@ import java.util.Map;
 
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
-import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
 import javafx.beans.property.SimpleStringProperty;
@@ -91,7 +91,7 @@ public class GuiWorkoutDayView {
 
     private String loadFocus(String exerciseName) {
         try {
-            Exercise ex = ExerciseDbmsDao.getInstance().findBy(exerciseName);
+            Exercise ex = DaoFactory.getInstance().createExerciseDao().findBy(exerciseName);
             if (ex != null && ex.getFocus() != null) return ex.getFocus();
         } catch (RuntimeException ignored) { }
         return "";
