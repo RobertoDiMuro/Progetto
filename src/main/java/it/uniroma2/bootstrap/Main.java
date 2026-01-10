@@ -2,7 +2,7 @@ package it.uniroma2.bootstrap;
 
 import java.io.IOException;
 
-import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
 
 public final class Main {

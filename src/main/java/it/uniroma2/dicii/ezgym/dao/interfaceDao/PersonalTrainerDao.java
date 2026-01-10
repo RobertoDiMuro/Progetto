@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.dao.interfaceDao;
+package it.uniroma2.dicii.ezgym.dao.interfacedao;
 
 import java.util.UUID;
 

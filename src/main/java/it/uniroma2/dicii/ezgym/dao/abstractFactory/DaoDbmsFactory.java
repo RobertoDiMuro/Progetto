@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.dao.abstractFactory;
+package it.uniroma2.dicii.ezgym.dao.abstractfactory;
 
 
 import it.uniroma2.dicii.ezgym.dao.dbms.AthleteDbmsDao;
@@ -8,13 +8,13 @@ import it.uniroma2.dicii.ezgym.dao.dbms.SessionExerciseDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.UserDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.WorkoutDbmsDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.WorkoutSessionDbmsDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.AthleteDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.ExerciseDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.PersonalTrainerDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.SessionExerciseDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.UserDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutDao;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutSessionDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.AthleteDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.ExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.SessionExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.UserDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutSessionDao;
 
 public class DaoDbmsFactory extends DaoFactory {
     

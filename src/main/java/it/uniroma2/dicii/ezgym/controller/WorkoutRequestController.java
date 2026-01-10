@@ -1,8 +1,8 @@
 package it.uniroma2.dicii.ezgym.controller;
 
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
-import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.AthleteDao;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.AthleteDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 

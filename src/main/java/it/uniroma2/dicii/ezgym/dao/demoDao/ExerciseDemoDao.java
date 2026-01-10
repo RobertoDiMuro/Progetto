@@ -1,10 +1,10 @@
-package it.uniroma2.dicii.ezgym.dao.demoDao;
+package it.uniroma2.dicii.ezgym.dao.demodao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.ExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 

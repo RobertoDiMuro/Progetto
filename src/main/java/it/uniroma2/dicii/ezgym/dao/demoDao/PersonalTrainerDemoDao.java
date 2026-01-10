@@ -1,9 +1,9 @@
-package it.uniroma2.dicii.ezgym.dao.demoDao;
+package it.uniroma2.dicii.ezgym.dao.demodao;
 
 import java.util.Map;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.PersonalTrainerDao;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 

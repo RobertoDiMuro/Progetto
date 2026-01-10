@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.PersonalTrainerDao;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 import it.uniroma2.dicii.ezgym.utils.DbmsConnector;

@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.dao.csvDao;
+package it.uniroma2.dicii.ezgym.dao.csvdao;
 
 public final class CsvPaths {
 

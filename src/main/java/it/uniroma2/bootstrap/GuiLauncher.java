@@ -1,6 +1,6 @@
 package it.uniroma2.bootstrap;
 
-import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

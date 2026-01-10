@@ -5,8 +5,8 @@ import java.util.List;
 
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
-import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutDao;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;

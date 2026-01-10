@@ -2,8 +2,8 @@ package it.uniroma2.dicii.ezgym.controller;
 
 
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
-import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.SessionExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.SessionExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 

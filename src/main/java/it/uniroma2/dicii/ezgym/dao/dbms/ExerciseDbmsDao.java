@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.ExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 import it.uniroma2.dicii.ezgym.utils.DbmsConnector;

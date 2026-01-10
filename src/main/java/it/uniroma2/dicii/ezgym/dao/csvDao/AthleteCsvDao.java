@@ -1,10 +1,10 @@
-package it.uniroma2.dicii.ezgym.dao.csvDao;
+package it.uniroma2.dicii.ezgym.dao.csvdao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.interfaceDao.AthleteDao;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.AthleteDao;
 import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
