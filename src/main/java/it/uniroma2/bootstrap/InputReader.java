@@ -22,7 +22,7 @@ public final class InputReader {
     public static String readLine() {
         try {
             return getInstance().readLine();
-        } catch (IOException e) {
+        } catch (IOException _) {
             System.err.println("Errore nella lettura dell'input");
             return null;
         }
