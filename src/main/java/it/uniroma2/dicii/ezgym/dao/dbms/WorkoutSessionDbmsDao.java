@@ -29,9 +29,10 @@ public class WorkoutSessionDbmsDao implements WorkoutSessionDao {
         try {
             return insertAndReturnId(session);
         } catch (PersistenceException e) {
-            throw e;
+            throw new PersistenceException("Errore inserimento WorkoutSession (sessionId=" + sessionId + ")", e);
         }
     }
+
 
    
     public int insertAndReturnId(WorkoutSession session) {

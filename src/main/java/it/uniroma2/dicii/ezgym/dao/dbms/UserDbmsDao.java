@@ -84,7 +84,7 @@ public class UserDbmsDao implements UserDao{
         Role role;
         try{
             role = Role.valueOf(rs.getString("role"));
-        }catch(Exception e){
+        }catch(Exception _){
             throw new PersistenceException("Ruolo cercato non valido: " + rs.getString("role"));
         }
 
