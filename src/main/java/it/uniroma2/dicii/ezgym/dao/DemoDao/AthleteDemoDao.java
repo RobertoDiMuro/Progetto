@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.dao.DemoDao;
+package it.uniroma2.dicii.ezgym.dao.demoDao;
 
 import java.util.ArrayList;
 import java.util.List;

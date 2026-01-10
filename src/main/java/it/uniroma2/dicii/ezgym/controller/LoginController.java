@@ -37,7 +37,7 @@ public class LoginController {
         boolean ok;
         try {
             ok = PasswordUtils.checkPassword(password, user.getPassword());
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException _) {
             throw new InvalidCredentialsException("Password errata.");
         }
 
