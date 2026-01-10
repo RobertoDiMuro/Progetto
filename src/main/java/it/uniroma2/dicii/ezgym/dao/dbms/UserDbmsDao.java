@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.domain.model.Role;

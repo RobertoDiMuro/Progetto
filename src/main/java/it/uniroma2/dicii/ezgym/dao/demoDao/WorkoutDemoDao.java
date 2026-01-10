@@ -3,7 +3,7 @@ package it.uniroma2.dicii.ezgym.dao.demoDao;
 import java.util.Map;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;

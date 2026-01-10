@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutSessionDao;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 

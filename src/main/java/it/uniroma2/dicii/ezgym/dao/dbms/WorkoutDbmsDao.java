@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
 import it.uniroma2.dicii.ezgym.domain.model.SessionExercise;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;

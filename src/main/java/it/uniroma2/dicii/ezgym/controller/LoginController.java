@@ -1,8 +1,8 @@
 package it.uniroma2.dicii.ezgym.controller;
 
 import it.uniroma2.dicii.ezgym.bean.UserBean;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
 import it.uniroma2.dicii.ezgym.exceptions.InvalidCredentialsException;

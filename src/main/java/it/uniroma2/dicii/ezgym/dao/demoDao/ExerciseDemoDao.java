@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 

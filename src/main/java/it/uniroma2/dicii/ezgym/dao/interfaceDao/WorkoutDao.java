@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ezgym.dao.InterfaceDao;
+package it.uniroma2.dicii.ezgym.dao.interfaceDao;
 
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
 

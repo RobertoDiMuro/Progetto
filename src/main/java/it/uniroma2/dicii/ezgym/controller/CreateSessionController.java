@@ -3,8 +3,8 @@ package it.uniroma2.dicii.ezgym.controller;
 import java.util.ArrayList;
 
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
 import it.uniroma2.dicii.ezgym.dao.abstractFactory.DaoFactory;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutSessionDao;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 

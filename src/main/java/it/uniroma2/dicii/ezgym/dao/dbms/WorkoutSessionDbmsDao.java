@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.WorkoutSessionDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.WorkoutSessionDao;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutSession;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 import it.uniroma2.dicii.ezgym.utils.DbmsConnector;

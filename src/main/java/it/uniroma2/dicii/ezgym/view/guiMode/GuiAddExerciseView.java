@@ -4,8 +4,8 @@ package it.uniroma2.dicii.ezgym.view.guiMode;
 
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.controller.AddExerciseToSessionController;
-import it.uniroma2.dicii.ezgym.dao.InterfaceDao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.dao.dbms.ExerciseDbmsDao;
+import it.uniroma2.dicii.ezgym.dao.interfaceDao.ExerciseDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 import it.uniroma2.dicii.ezgym.domain.model.ExerciseType;
 import javafx.collections.FXCollections;
