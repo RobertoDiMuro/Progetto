@@ -31,12 +31,27 @@ public class PersonalTrainerCsvDao implements PersonalTrainerDao {
         try {
             File f = new File(filePath);
             File parent = f.getParentFile();
-            if (parent != null && !parent.exists()) parent.mkdirs();
-            if (!f.exists()) f.createNewFile();
+
+            if (parent != null && !parent.exists()) {
+                boolean dirsCreated = parent.mkdirs();
+                if (!dirsCreated && !parent.exists()) {
+                    throw new PersistenceException(
+                            "Impossibile creare la cartella CSV: " + parent.getAbsolutePath()
+                    );
+                }
+            }
+
+            if (!f.exists()) {
+                boolean created = f.createNewFile();
+                if (!created && !f.exists()) {
+                    throw new PersistenceException("Impossibile creare il file CSV: " + filePath);
+                }
+            }
         } catch (IOException e) {
             throw new PersistenceException("Errore durante la creazione del file CSV: " + filePath, e);
         }
     }
+
 
     private void appendLine(String line) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {

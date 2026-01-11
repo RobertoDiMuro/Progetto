@@ -13,39 +13,35 @@ public class DefaultAthleteCsvMapper implements AthleteCsvMapper {
 
     @Override
     public String[] toCsvFields(Athlete athlete, UUID id) {
-        UUID effectiveId = (id != null) ? id : (athlete != null ? athlete.getId() : null);
-        if (effectiveId == null) {
-            throw new IllegalArgumentException("id nullo: passa id a insert() oppure valorizza athlete.setId()");
+        UUID effectiveId = requireId(athlete, id);
+
+        if (athlete == null) {
+            return new String[] {
+                    effectiveId.toString(),
+                    "",
+                    "0",
+                    "0",
+                    "0",
+                    "",
+                    "",
+                    "",
+                    "false"
+            };
         }
-
-        String gender = (athlete == null) ? "" : nn(athlete.getGender());
-        String age = (athlete == null) ? "0" : String.valueOf(athlete.getAge());
-        String weight = (athlete == null) ? "0" : String.valueOf(athlete.getWeight());
-        String height = (athlete == null) ? "0" : String.valueOf(athlete.getHeight());
-
-        String target = "";
-        if (athlete != null && athlete.getTarget() != null) target = athlete.getTarget().name();
-
-        String activity = "";
-        if (athlete != null && athlete.getActivityLevel() != null) activity = athlete.getActivityLevel().name();
-
-        String workoutDay = "";
-        if (athlete != null && athlete.getWorkoutDay() != null) workoutDay = athlete.getWorkoutDay().name();
-
-        String requested = (athlete != null && athlete.getIsWorkoutRequested()) ? "true" : "false";
 
         return new String[] {
                 effectiveId.toString(),
-                gender,
-                age,
-                weight,
-                height,
-                target,
-                activity,
-                workoutDay,
-                requested
+                nn(athlete.getGender()),
+                String.valueOf(athlete.getAge()),
+                String.valueOf(athlete.getWeight()),
+                String.valueOf(athlete.getHeight()),
+                enumName(athlete.getTarget()),
+                enumName(athlete.getActivityLevel()),
+                enumName(athlete.getWorkoutDay()),
+                String.valueOf(athlete.getIsWorkoutRequested())
         };
     }
+
 
     @Override
     public Athlete fromCsvFields(String[] f) {
@@ -113,5 +109,20 @@ public class DefaultAthleteCsvMapper implements AthleteCsvMapper {
         if (v.equals("true") || v.equals("1") || v.equals("yes") || v.equals("y")) return true;
         if (v.equals("false") || v.equals("0") || v.equals("no") || v.equals("n")) return false;
         return def;
+    }
+
+    private static UUID requireId(Athlete athlete, UUID id) {
+        UUID effectiveId = id;
+        if (effectiveId == null && athlete != null) {
+            effectiveId = athlete.getId();
+        }
+        if (effectiveId == null) {
+            throw new IllegalArgumentException("id nullo: passa id a insert() oppure valorizza athlete.setId()");
+        }
+        return effectiveId;
+    }
+
+    private static String enumName(Enum<?> e) {
+        return e == null ? "" : e.name();
     }
 }

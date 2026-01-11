@@ -135,7 +135,7 @@ public class AthleteCsvDao implements AthleteDao {
         User user;
         try {
             user = userCsvDao.findByEmail(normalized);
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException _) {
             user = null;
         }
 
@@ -158,20 +158,22 @@ public class AthleteCsvDao implements AthleteDao {
 
         List<User> users = userCsvDao.findAll();
         for (User u : users) {
-            if (u == null || u.getRole() == null) continue;
-            if (u.getRole() != Role.ATHLETE) continue;
+            if (u != null && u.getRole() == Role.ATHLETE) {
 
-            Athlete a = findAthleteById(u.getId());
-            if (a == null) {
-                a = new Athlete();
-                a.setId(u.getId());
+                Athlete a = findAthleteById(u.getId());
+                if (a == null) {
+                    a = new Athlete();
+                    a.setId(u.getId());
+                }
+
+                applyUserFields(a, u);
+                out.add(a);
             }
-            applyUserFields(a, u);
-            out.add(a);
         }
 
         return out;
     }
+
 
     @Override
     public void update(UUID id, Athlete athlete) {
@@ -219,7 +221,8 @@ public class AthleteCsvDao implements AthleteDao {
 
         try {
             userCsvDao.delete(id);
-        } catch (Exception ignored) {
+        } catch (Exception _) {
+            //
         }
     }
 }
