@@ -57,17 +57,23 @@ public class DefaultAthleteCsvMapper implements AthleteCsvMapper {
 
         String targetStr = get(f, 5);
         if (!targetStr.isEmpty()) {
-            try { a.setTarget(Target.valueOf(targetStr)); } catch (IllegalArgumentException ignored) {  }
+            try { a.setTarget(Target.valueOf(targetStr)); } catch (IllegalArgumentException _) { 
+                //
+             }
         }
 
         String activityStr = get(f, 6);
         if (!activityStr.isEmpty()) {
-            try { a.setActivityLevel(ActivityLevel.valueOf(activityStr)); } catch (IllegalArgumentException ignored) { }
+            try { a.setActivityLevel(ActivityLevel.valueOf(activityStr)); } catch (IllegalArgumentException _) { 
+                //
+            }
         }
 
         String workoutDayStr = get(f, 7);
         if (!workoutDayStr.isEmpty()) {
-            try { a.setWorkoutDay(WorkoutDay.valueOf(workoutDayStr)); } catch (IllegalArgumentException ignored) { }
+            try { a.setWorkoutDay(WorkoutDay.valueOf(workoutDayStr)); } catch (IllegalArgumentException _) { 
+                //
+            }
         }
 
         a.setIsWorkoutRequested(parseBoolean(get(f, 8), false));
@@ -81,7 +87,7 @@ public class DefaultAthleteCsvMapper implements AthleteCsvMapper {
         if (raw.isEmpty()) return null;
         try {
             return UUID.fromString(raw);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException _) {
             return null;
         }
     }
@@ -96,11 +102,11 @@ public class DefaultAthleteCsvMapper implements AthleteCsvMapper {
     }
 
     private static int parseInt(String s, int def) {
-        try { return Integer.parseInt(s); } catch (Exception e) { return def; }
+        try { return Integer.parseInt(s); } catch (Exception _) { return def; }
     }
 
     private static double parseDouble(String s, double def) {
-        try { return Double.parseDouble(s); } catch (Exception e) { return def; }
+        try { return Double.parseDouble(s); } catch (Exception _) { return def; }
     }
 
     private static boolean parseBoolean(String s, boolean def) {
