@@ -41,34 +41,42 @@ public class WorkoutDemoDao implements WorkoutDao {
 
     @Override
     public Workout findBy(String athleteName, String athleteSurname) {
-        if (athleteName == null || athleteName.isBlank()) {
+        if (isBlank(athleteName)) {
             return null;
         }
 
-        UUID athleteId = null;
-        for (Athlete a : athleteTable.values()) {
-            if (a == null) continue;
-
-            boolean sameName = athleteName.equals(a.getName());
-            boolean surnameOk =
-                    (athleteSurname == null || athleteSurname.isBlank())
-                            || athleteSurname.equals(a.getSurname());
-
-            if (sameName && surnameOk) {
-                athleteId = a.getId();
-                break;
-            }
-        }
-
+        UUID athleteId = findAthleteIdByNameAndSurname(athleteName, athleteSurname);
         if (athleteId == null) {
             return null;
         }
 
+        return findLatestWorkoutByAthleteId(athleteId);
+    }
+
+    private UUID findAthleteIdByNameAndSurname(String athleteName, String athleteSurname) {
+        for (Athlete a : athleteTable.values()) {
+            if (a == null) {
+                continue;
+            }
+
+            boolean sameName = athleteName.equals(a.getName());
+            boolean surnameOk = isBlank(athleteSurname) || athleteSurname.equals(a.getSurname());
+
+            if (sameName && surnameOk) {
+                return a.getId();
+            }
+        }
+        return null;
+    }
+
+    private Workout findLatestWorkoutByAthleteId(UUID athleteId) {
         Workout best = null;
         int bestId = -1;
 
         for (Workout w : workoutTable.values()) {
-            if (w == null) continue;
+            if (w == null) {
+                continue;
+            }
 
             if (athleteId.equals(w.getAthleteId()) && w.getWorkoutId() > bestId) {
                 bestId = w.getWorkoutId();
@@ -78,7 +86,10 @@ public class WorkoutDemoDao implements WorkoutDao {
 
         return best;
     }
-   
+
+    private static boolean isBlank(String s) {
+        return s == null || s.isBlank();
+    }
 
     @Override
     public void delete(int workoutId) {

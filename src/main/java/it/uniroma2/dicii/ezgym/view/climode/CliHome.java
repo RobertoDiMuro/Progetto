@@ -34,14 +34,26 @@ public class CliHome {
             String choice = reader.readLine().trim();
             switch (choice) {
                 case "1" -> {
-                    System.out.println("\nAvvio procedura di richiesta scheda di allenamento...");
-                    CliWorkoutRequest.startWorkoutRequest(currAthlete);
+                    try {
+                        System.out.println("\nAvvio procedura di richiesta scheda di allenamento...");
+                        CliWorkoutRequest.startWorkoutRequest(currAthlete);
+                    } catch (UnsupportedOperationException e) {
+                        System.out.println(e.getMessage());
+                    } catch (RuntimeException e) {
+                        System.out.println("Funzionalità non disponibile: " + e.getMessage());
+                    }
                 }
                 case "2" -> {
                     System.out.println("\nFunzionalità non ancora implementata.");
                 }
                 case "3" ->{
-                    CliWorkoutView.startWorkoutView(currAthlete, wokoutBean);
+                    try {
+                        CliWorkoutView.startWorkoutView(currAthlete, wokoutBean);
+                    } catch (UnsupportedOperationException e) {
+                        System.out.println(e.getMessage());
+                    } catch (RuntimeException e) {
+                        System.out.println("Funzionalità non disponibile: " + e.getMessage());
+                    }
                 }
                 case "4" ->{
                     System.out.println("\nFunzionalità non ancora implementata.");

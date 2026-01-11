@@ -17,6 +17,6 @@ public final class Main {
         InterfaceMode interfaceMode = InterfaceSetup.askInterfaceMode();
 
         AppLauncher.launch(interfaceMode, mode);
-
+        
     }
 }

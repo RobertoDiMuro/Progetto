@@ -1,105 +1,112 @@
 package it.uniroma2.dicii.ezgym.dao.csvdao;
-// package it.uniroma2.dicii.ezgym.dao.csvDao;
 
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.util.UUID;
+import it.uniroma2.dicii.ezgym.dao.csvdao.csvinterface.PtCsvMapper;
+import it.uniroma2.dicii.ezgym.dao.csvdao.defaultcsv.DefaultPtCsvMapper;
+import it.uniroma2.dicii.ezgym.dao.interfacedao.PersonalTrainerDao;
+import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
+import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 
-// import it.uniroma2.dicii.ezgym.dao.InterfaceDao.PersonalTrainerDao;
-// import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
-// import it.uniroma2.dicii.ezgym.domain.model.Role;
-// import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
+import java.io.*;
+import java.util.*;
 
-// public class PersonalTrainerCsvDao extends AbstractCsvDao implements PersonalTrainerDao{
-    
-//     private static final String separator = ";";
+public class PersonalTrainerCsvDao implements PersonalTrainerDao {
 
-//     private static PersonalTrainerCsvDao instance;
+    private static final String SEP = ";";
+    private static final String DEFAULT_CSV_PATH = "src/data/csv/personal_trainers.csv";
 
-//      private PersonalTrainerCsvDao(){
-//         super(CsvPaths.PersonalTrainers);
-//     }
+    private final String filePath;
+    private final PtCsvMapper mapper;
 
-//     public static synchronized PersonalTrainerCsvDao getInstance(){
-//         if(instance == null){
-//             instance = new PersonalTrainerCsvDao();
-//         }
-//         return instance;
-//     }
+    public PersonalTrainerCsvDao() {
+        this(DEFAULT_CSV_PATH, new DefaultPtCsvMapper());
+    }
 
-//     @Override
-//     public boolean insert(PersonalTrainer personalTrainer, UUID id){
-//         String line = toCsv(personalTrainer);
-//         if(writeLine(line)){
-//             return true;
-//         }
-//         return false;
-//     }
+    public PersonalTrainerCsvDao(String filePath, PtCsvMapper mapper) {
+        this.filePath = Objects.requireNonNull(filePath, "filePath");
+        this.mapper = Objects.requireNonNull(mapper, "mapper");
+        ensureFileExists();
+    }
 
-//     @Override
-//     public PersonalTrainer findBy(String email){
-//         return findAll().stream().filter(personalTrainer -> personalTrainer.getEmail().equals(email)).findFirst().orElse(null);
-//     }
+    private void ensureFileExists() {
+        try {
+            File f = new File(filePath);
+            File parent = f.getParentFile();
+            if (parent != null && !parent.exists()) parent.mkdirs();
+            if (!f.exists()) f.createNewFile();
+        } catch (IOException e) {
+            throw new PersistenceException("Errore durante la creazione del file CSV: " + filePath, e);
+        }
+    }
 
-//     @Override
-//     public List<PersonalTrainer> findAll(){
-//         List<String> lines = readAllLines();
-//         List<PersonalTrainer> athletes = new ArrayList<>();
+    private void appendLine(String line) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(line);
+            writer.newLine();
+        } catch (IOException e) {
+            throw new PersistenceException("Errore durante l'append sul file CSV", e);
+        }
+    }
 
-//         for(String line : lines){
-//             athletes.add(fromCsv(line));
-//         }
-//         return athletes;
-//     }
+    private List<String> readAllRawLines() {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            throw new PersistenceException("Errore durante la lettura del file CSV", e);
+        }
+        return lines;
+    }
 
-//     @Override
-//    public void delete(UUID id){
-//         List<PersonalTrainer> all = findAll();
-//         boolean removed = all.removeIf(personalTrainer -> personalTrainer.getId().equals(id));
+    private void writeAll(List<String> lines) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (String l : lines) {
+                writer.write(l);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new PersistenceException("Errore durante la scrittura del file CSV", e);
+        }
+    }
 
-//         if(!removed){
-//             return;
-//         }
+    @Override
+    public void insert(PersonalTrainer personalTrainer, UUID id) {
+        String[] fields = mapper.toCsvFields(personalTrainer, id);
+        appendLine(String.join(SEP, fields));
+    }
 
-//         List<String> lines = new ArrayList<>();
-//         for(PersonalTrainer p : all){
-//             lines.add(toCsv(p));
-//         }
+    @Override
+    public PersonalTrainer findBy(String email) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
 
-//         overwriteAllLines(lines);
-//    }
+                String[] arr = line.split(SEP, -1);
+                if (email.equals(mapper.getEmailFromCsv(arr))) {
+                    return mapper.fromCsvFields(arr);
+                }
+            }
+            throw new NoSuchElementException("Nessun PersonalTrainer trovato con email=" + email);
+        } catch (IOException e) {
+            throw new PersistenceException("Errore durante la lettura del file CSV", e);
+        }
+    }
 
-//    private String toCsv(PersonalTrainer personalTrainer){
-//         return personalTrainer.getId().toString() + separator + personalTrainer.getName() + separator + personalTrainer.getSurname() + separator +
-//                personalTrainer.getEmail() + separator + personalTrainer.getPassword() + separator + personalTrainer.getRole() + separator +
-//                personalTrainer.getActiveUsers();
-//    }
+    @Override
+    public void delete(UUID id) {
+        List<String> kept = new ArrayList<>();
 
-//    private PersonalTrainer fromCsv(String line){
-//     String token[] = line.split(separator);
-//     if(token.length != 7){
-//             throw new PersistenceException("Riga utente malformata: " + line);
-     
-//     }
+        for (String line : readAllRawLines()) {
+            String[] arr = line.split(SEP, -1);
+            if (!id.equals(mapper.getIdFromCsv(arr))) {
+                kept.add(line);
+            }
+        }
 
-//     UUID id = UUID.fromString(token[0]);
-//     String name = token[1];
-//     String surname = token[2];
-//     String email = token[3];
-//     String password = token[4];
-//     Role role = Role.valueOf(token[5]);
-//     double activeUsers = Double.parseDouble(token[6]);
-
-//     PersonalTrainer personalTrainer = new PersonalTrainer();
-//     personalTrainer.setId(id);
-//     personalTrainer.setName(name);
-//     personalTrainer.setSurname(surname);
-//     personalTrainer.setEmail(email);
-//     personalTrainer.setPassword(password);
-//     personalTrainer.setRole(role);
-//     personalTrainer.setActiveUsers(activeUsers);
-    
-//     return personalTrainer;
-
-//    }
-// }
+        writeAll(kept);
+    }
+}

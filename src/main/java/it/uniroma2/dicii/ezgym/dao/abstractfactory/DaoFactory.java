@@ -39,9 +39,9 @@ public abstract class DaoFactory {
             case DEMO:
                 instance = new DaoDemoFactory();
                 break;
-            // // case FILESYSTEM:
-            // //     instance = new DaoFilesystemFactory();
-            // //     break;
+            case FILESYSTEM:
+                instance = new DaoCsvFactory();
+                break;
             default:
                 instance = new DaoDemoFactory();
                 break;
