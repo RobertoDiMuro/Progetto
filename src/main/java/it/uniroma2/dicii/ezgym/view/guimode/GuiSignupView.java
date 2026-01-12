@@ -159,30 +159,33 @@ public class GuiSignupView {
             bean.setSurname("");
         }
 
-        if (athlete != null) {
-            if (athlete.getGender() != null && !athlete.getGender().trim().isEmpty()) {
-                bean.setGender(athlete.getGender());
-            }
-            if (athlete.getAge() > 0) {
-                bean.setAge(athlete.getAge());
-            }
-            if (athlete.getWeight() > 0) {
-                bean.setWeight(athlete.getWeight());
-            }
-            if (athlete.getHeight() > 0) {
-                bean.setHeight(athlete.getHeight());
-            }
-            if (athlete.getTarget() != null) {
-                bean.setTarget(athlete.getTarget());
-            }
-            if (athlete.getActivityLevel() != null) {
-                bean.setActivityLevel(athlete.getActivityLevel());
-            }
-            if (athlete.getWorkoutDay() != null) {
-                bean.setWorkoutDay(athlete.getWorkoutDay());
-            }
-            bean.setIsWorkoutRequested(athlete.getIsWorkoutRequested());
+        if(athlete == null){
+            return bean;
         }
+        
+        if (athlete.getGender() != null && !athlete.getGender().trim().isEmpty()) {
+            bean.setGender(athlete.getGender());
+        }
+        if (athlete.getAge() > 0) {
+            bean.setAge(athlete.getAge());
+        }
+        if (athlete.getWeight() > 0) {
+            bean.setWeight(athlete.getWeight());
+        }
+        if (athlete.getHeight() > 0) {
+            bean.setHeight(athlete.getHeight());
+        }
+        if (athlete.getTarget() != null) {
+            bean.setTarget(athlete.getTarget());
+        }
+        if (athlete.getActivityLevel() != null) {
+            bean.setActivityLevel(athlete.getActivityLevel());
+        }
+        if (athlete.getWorkoutDay() != null) {
+            bean.setWorkoutDay(athlete.getWorkoutDay());
+        }
+        bean.setIsWorkoutRequested(athlete.getIsWorkoutRequested());
+        
 
         return bean;
     }

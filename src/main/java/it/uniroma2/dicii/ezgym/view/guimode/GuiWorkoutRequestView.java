@@ -134,14 +134,15 @@ public class GuiWorkoutRequestView {
             return;
         }
 
-        double weight, height;
+        double weight;
+        double height;
         int age;
 
         try{
             weight = Double.parseDouble(weightField.getText());
             height = Double.parseDouble(heightField.getText());
             age = Integer.parseInt(ageField.getText());
-        }catch(NumberFormatException e){
+        }catch(NumberFormatException _){
             errorLabel.setText("Peso, altezza e età devono essere numeri validi!");
             return;
         }
@@ -186,10 +187,10 @@ public class GuiWorkoutRequestView {
 
         workoutRequestController.setCurrAthlete(currAthlete);
 
-        onRequestSuccess(currAthlete);
+        onRequestSuccess();
     }
 
-    private void onRequestSuccess(AthleteBean bean){
+    private void onRequestSuccess(){
         errorLabel.setText("Richiesta della scheda effettuata!");
     }
 

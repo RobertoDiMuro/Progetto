@@ -150,7 +150,7 @@ public class GuiLoginView {
             errorMessageLabel.setText(e.getMessage());
         } catch (IllegalArgumentException e) {
             errorMessageLabel.setText(e.getMessage());
-        } catch (Exception e) {
+        } catch (Exception _) {
             errorMessageLabel.setText("Errore inatteso.");
         }
     }

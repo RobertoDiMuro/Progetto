@@ -93,7 +93,9 @@ public class GuiWorkoutDayView {
         try {
             Exercise ex = DaoFactory.getInstance().createExerciseDao().findBy(exerciseName);
             if (ex != null && ex.getFocus() != null) return ex.getFocus();
-        } catch (RuntimeException ignored) { }
+        } catch (RuntimeException _) { 
+            //
+        }
         return "";
     }
 
