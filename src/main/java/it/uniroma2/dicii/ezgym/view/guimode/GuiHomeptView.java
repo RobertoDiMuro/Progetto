@@ -48,7 +48,7 @@ public class GuiHomeptView {
             activeRequestLabel.setText(String.valueOf(requests.size()));
             populateRequests(requests);
         }catch(Exception e){
-            e.printStackTrace();
+            //
         }
     }
 
@@ -68,7 +68,7 @@ public class GuiHomeptView {
                 requestContainer.getChildren().add(box);
 
             } catch (IOException e) {
-                e.printStackTrace();
+                //
             }
         }
     }

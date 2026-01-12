@@ -77,7 +77,6 @@ public class CreateWorkoutController {
             bean.setWorkoutId(workout.getWorkoutId());
 
         } catch (Exception e) {
-            e.printStackTrace();
             throw new PersistenceException("Errore durante il salvataggio della scheda");
         }
     }

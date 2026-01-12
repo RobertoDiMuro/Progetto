@@ -132,7 +132,6 @@ public class GuiSignupView {
             errorMessageLabel.setText(e.getMessage());
         } catch (Exception e) {
             errorMessageLabel.setText("Errore inatteso.");
-            e.printStackTrace();
         }
     }
 

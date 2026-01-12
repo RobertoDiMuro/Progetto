@@ -87,7 +87,7 @@ public class GuiSliderBoxView {
             stage.showAndWait();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //
         }
     }
 

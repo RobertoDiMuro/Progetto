@@ -55,7 +55,6 @@ public class WorkoutRequestController {
         try{
             athlete = athleteDao.findBy(email);
         }catch(Exception e){
-            e.printStackTrace();
             throw new PersistenceException("Errore durante il recupero dell'atleta.");
         }
 
@@ -76,7 +75,6 @@ public class WorkoutRequestController {
 
             athleteDao.update(athlete.getId(), athlete);
         }catch(Exception e){
-            e.printStackTrace();
             throw new PersistenceException("Errore durante il salvataggio della richiesta di scheda");
         }
     }

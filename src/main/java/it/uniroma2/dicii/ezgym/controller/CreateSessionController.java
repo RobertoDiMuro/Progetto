@@ -40,7 +40,6 @@ public class CreateSessionController {
         } catch (IllegalArgumentException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace();
             throw new PersistenceException("Errore durante la creazione della sessione");
         }
     }
