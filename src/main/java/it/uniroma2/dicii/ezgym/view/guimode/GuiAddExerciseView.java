@@ -40,8 +40,8 @@ public class GuiAddExerciseView {
     private final AddExerciseToSessionController controller = new AddExerciseToSessionController();
     private final ExerciseDao exerciseDao = DaoFactory.getInstance().createExerciseDao();
 
-    public void init(int session_Id){
-        this.sessionId = session_Id;
+    public void init(int id){
+        this.sessionId = id;
     }
 
     @FXML
@@ -83,13 +83,14 @@ public class GuiAddExerciseView {
             return;
         }
 
-        int reps, sets;
+        int reps;
+        int sets;
         double restTime;
         try{
             reps = Integer.parseInt(repsField.getText());
             sets = Integer.parseInt(setsField.getText());
             restTime = Double.parseDouble(restTimeField.getText());
-        }catch(NumberFormatException e){
+        }catch(NumberFormatException _){
             errorLabel.setText("Inserisci valori numerici validi per serie, ripetizioni e tempo di recupero!");
             return;
         }

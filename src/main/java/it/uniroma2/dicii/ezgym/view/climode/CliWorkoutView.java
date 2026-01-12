@@ -13,7 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
-public class CliWorkoutView {
+public class CliWorkoutView extends BaseCli{
 
     private CliWorkoutView() { }
 
@@ -36,12 +36,7 @@ public class CliWorkoutView {
                 return;
             }
 
-            if (workoutBean != null) {
-                workoutBean.setWorkoutId(found.getWorkoutId());
-                workoutBean.setAthleteId(found.getAthleteId());
-                workoutBean.setRepeteWeeks(found.getRepeteWeeks());
-                workoutBean.setSessions(found.getsSessions());
-            }
+            copyIfProvided(workoutBean, found);
 
             System.out.println("Atleta: " + athleteBean.getName() + " " + athleteBean.getSurname());
             System.out.println("Settimane da ripetere: " + found.getRepeteWeeks());
@@ -74,8 +69,8 @@ public class CliWorkoutView {
 
             waitBackToHome(reader);
 
-        } catch (BackException e) {
-            return;
+        } catch (BackException _) {
+            //
         } catch (RuntimeException e) {
             System.err.println("Errore nel recupero della scheda: " + e.getMessage());
             waitBackToHome(reader);
@@ -86,8 +81,17 @@ public class CliWorkoutView {
         System.out.println("\nInserisci 0 per tornare indietro.");
         while (true) {
             String input = reader.readLine();
-            BaseCli.checkBackToHome(input); 
+            checkBackToHome(input); 
             System.out.println("Scelta non valida. Inserisci 0 per tornare indietro.");
+        }
+    }
+
+    private static void copyIfProvided(WorkoutBean target, WorkoutBean source) {
+        if (target != null) {
+            target.setWorkoutId(source.getWorkoutId());
+            target.setAthleteId(source.getAthleteId());
+            target.setRepeteWeeks(source.getRepeteWeeks());
+            target.setSessions(source.getsSessions());
         }
     }
 }

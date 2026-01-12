@@ -6,7 +6,6 @@ import java.util.List;
 
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
-import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.controller.PtRequestcontroller;
 import it.uniroma2.dicii.ezgym.exceptions.BackException;
 import it.uniroma2.dicii.ezgym.utils.BaseCli;
@@ -19,7 +18,7 @@ public class CliRequestView extends BaseCli {
         //
     }
 
-    public static void startRequestView(PersonalTrainerBean pt) throws IOException {
+    public static void startRequestView() throws IOException {
 
         PtRequestcontroller controller = new PtRequestcontroller();
 

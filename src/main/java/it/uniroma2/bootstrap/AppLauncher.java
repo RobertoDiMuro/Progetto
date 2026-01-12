@@ -19,7 +19,7 @@ public class AppLauncher {
         if(interfaceMode == InterfaceMode.GUI)
             GuiLauncher.launchGui(mode);
         else{
-            CliStart.start(mode);
+            CliStart.start();
         }
     }
     

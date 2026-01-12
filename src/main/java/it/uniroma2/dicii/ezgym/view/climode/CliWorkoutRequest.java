@@ -74,14 +74,12 @@ public class CliWorkoutRequest extends BaseCli {
             System.out.println("\nInserisci la tua età:");
             try{
                 String ageStr = reader.readLine().trim();
-                if(ageStr.isEmpty()) continue;
-
-                if(ageStr.equals("0")){
+                if(!ageStr.isEmpty()){
                     checkBackToHome(ageStr);
+                    int age = Integer.parseInt(ageStr);
+                    currAthlete.setAge(age);
+                    return;
                 }
-                int age = Integer.parseInt(ageStr);
-                currAthlete.setAge(age);
-                break;
             }catch(NumberFormatException _){
                 System.err.println("Età non valida. Inserisci un numero intero.");
             }
@@ -94,13 +92,12 @@ public class CliWorkoutRequest extends BaseCli {
             System.out.println("\nInserisci il tuo peso:");
             try{
                 String weightStr = reader.readLine().trim();
-                if(weightStr.isEmpty()) continue;
-                if(weightStr.equals("0")){
+                if(!weightStr.isEmpty()){
                     checkBackToHome(weightStr);
+                    double weight = Double.parseDouble(weightStr);  
+                    currAthlete.setWeight(weight);
+                    return;
                 }
-                double weight = Double.parseDouble(weightStr);  
-                currAthlete.setWeight(weight);
-                break;
             }catch(NumberFormatException _){
                 System.err.println("Peso non valido. Inserisci un numero intero.");
             }
@@ -113,13 +110,12 @@ public class CliWorkoutRequest extends BaseCli {
             System.out.println("\nInserisci la tua altezza:");            
             try{
                 String heightStr = reader.readLine().trim();
-                if(heightStr.isEmpty()) continue;
-                if(heightStr.equals("0")){
+                if(!heightStr.isEmpty()){
                     checkBackToHome(heightStr);
+                    double height = Double.parseDouble(heightStr);
+                    currAthlete.setHeight(height);
+                    return;
                 }
-                double height = Double.parseDouble(heightStr);
-                currAthlete.setHeight(height);
-                break;
             }catch(NumberFormatException _){
                 System.err.println("Altezza non valida. Inserisci un numero intero.");
             }

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 import it.uniroma2.bootstrap.InputReader;
-import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
 
 public class CliHomept {
@@ -17,7 +16,6 @@ public class CliHomept {
 
     public static void startHomePT(UserBean userBean) throws IOException {
        
-        PersonalTrainerBean pt = new PersonalTrainerBean();
         printWelcome(userBean);
 
         while (true) {
@@ -29,7 +27,7 @@ public class CliHomept {
 
             String choice = reader.readLine().trim();
             switch(choice){
-                case "1" -> CliRequestView.startRequestView(pt);
+                case "1" -> CliRequestView.startRequestView();
                 case "2" -> CliCreateExercise.startCreateExercise();
                 case "0" -> {
                     System.out.println("\nA presto!");
