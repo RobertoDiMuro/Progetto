@@ -2,8 +2,8 @@ package it.uniroma2.dicii.ezgym.domain.model;
 
 public enum ActivityLevel {
     SEDENTARIO("Sedentario"),
-    LEGGERMENTEATTIVO("Leggermente attivo"),
-    MODERATAMENTEATTIVO("Moderatamente attivo"),
+    LEGGERMENTE_ATTIVO("Leggermente attivo"),
+    MODERATAMENTE_ATTIVO("Moderatamente attivo"),
     INTENSO("Intenso");
 
     private final String description;

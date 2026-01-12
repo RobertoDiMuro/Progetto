@@ -150,9 +150,9 @@ public class GuiWorkoutRequestView {
 
         Target target;
         if(cutButton.isSelected()){
-            target = Target.PERDEREPESO;
+            target = Target.PERDERE_PESO;
         }else if(bulkButton.isSelected()){
-            target = Target.MASSAMUSCOLARE;
+            target = Target.MANTENERE;
         }else if(mantainButton.isSelected()){
             target = Target.MANTENERE;
         }else{
@@ -161,15 +161,15 @@ public class GuiWorkoutRequestView {
 
         WorkoutDay days;
         if(twoButton.isSelected()){
-            days = WorkoutDay.DUEVOLTE;
+            days = WorkoutDay.DUE_VOLTE;
         }else if(threeButton.isSelected()){
-            days = WorkoutDay.TREVOLTE;
+            days = WorkoutDay.TRE_VOLTE;
         }else if(fourButton.isSelected()){
-            days = WorkoutDay.QUATTROVOLTE;
+            days = WorkoutDay.QUATTRO_VOLTE;
         }else if(fiveButton.isSelected()){
-            days = WorkoutDay.CINQUEVOLTE;
+            days = WorkoutDay.CINQUE_VOLTE;
         }else{
-            days = WorkoutDay.SEIVOLTE;
+            days = WorkoutDay.SEI_VOLTE;
         }
 
         ActivityLevel level = currLevel.getValue();

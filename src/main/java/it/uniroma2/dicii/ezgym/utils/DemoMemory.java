@@ -86,9 +86,9 @@ public class DemoMemory {
     a.setAge(25);
     a.setWeight(75.0);
     a.setHeight(180.0);
-    a.setTarget(Target.MASSAMUSCOLARE);
-    a.setActivityLevel(ActivityLevel.LEGGERMENTEATTIVO);
-    a.setWorkoutDay(WorkoutDay.TREVOLTE);
+    a.setTarget(Target.MASSA_MUSCOLARE);
+    a.setActivityLevel(ActivityLevel.LEGGERMENTE_ATTIVO);
+    a.setWorkoutDay(WorkoutDay.TRE_VOLTE);
     a.setIsWorkoutRequested(true);
 
     
