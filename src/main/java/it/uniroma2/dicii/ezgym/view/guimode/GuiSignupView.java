@@ -39,7 +39,9 @@ public class GuiSignupView {
     boolean isPwVisible1 = false;
     boolean isPwVisible2 = false;
 
-    public GuiSignupView() {}
+    public GuiSignupView() {
+        //
+    }
 
     @FXML
     void initialize() {

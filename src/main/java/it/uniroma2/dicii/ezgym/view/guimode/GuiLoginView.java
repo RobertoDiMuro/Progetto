@@ -35,7 +35,9 @@ public class GuiLoginView {
     private final LoginController loginController = new LoginController();
     private boolean isPasswordVisible = false;
 
-    public GuiLoginView() {}
+    public GuiLoginView() {
+        //
+    }
 
     @FXML
     void initialize() {
@@ -125,34 +127,31 @@ public class GuiLoginView {
                 errorMessageLabel.setText("Ruolo utente non valido.");
                 return;
             }
+            switch (role) {
+                case ATHLETE -> {
+                    Athlete athlete = athleteDao.findBy(normalizedEmail); 
+                    AthleteBean athleteBean = buildAthleteBean(user, athlete, normalizedEmail);
 
-            if (role == Role.ATHLETE) {
-                Athlete athlete = athleteDao.findBy(normalizedEmail); 
-                AthleteBean athleteBean = buildAthleteBean(user, athlete, normalizedEmail);
+                    Navigator.navigateTo("/fxml/Home.fxml", controller -> {
+                        ((GuiHomeView) controller).setAthlete(athleteBean);
+                    });
+                }
+                case PERSONAL_TRAINER -> {
+                    PersonalTrainer pt = ptDao.findBy(normalizedEmail); 
+                    PersonalTrainerBean ptBean = buildPersonalTrainerBean(user, pt, normalizedEmail);
 
-                Navigator.navigateTo("/fxml/Home.fxml", controller -> {
-                    ((GuiHomeView) controller).setAthlete(athleteBean);
-                });
-
-            } else if (role == Role.PERSONAL_TRAINER) {
-                PersonalTrainer pt = ptDao.findBy(normalizedEmail); 
-                PersonalTrainerBean ptBean = buildPersonalTrainerBean(user, pt, normalizedEmail);
-
-                Navigator.navigateTo("/fxml/Homept.fxml", controller -> {
-                    ((GuiHomeptView) controller).setPersonalTrainer(ptBean);
-                });
-
-            } else {
-                errorMessageLabel.setText("Ruolo non gestito.");
+                    Navigator.navigateTo("/fxml/Homept.fxml", controller -> {
+                        ((GuiHomeptView) controller).setPersonalTrainer(ptBean);
+                    });
+                }
+                default -> errorMessageLabel.setText("Ruolo non gestito.");
             }
-
         } catch (InvalidCredentialsException e) {
             errorMessageLabel.setText(e.getMessage());
         } catch (IllegalArgumentException e) {
             errorMessageLabel.setText(e.getMessage());
         } catch (Exception e) {
             errorMessageLabel.setText("Errore inatteso.");
-            e.printStackTrace();
         }
     }
 
@@ -164,30 +163,32 @@ public class GuiLoginView {
         bean.setEmail(normalizedEmail);
         bean.setRole(Role.ATHLETE);
 
-        if (athlete != null) {
-            if (athlete.getGender() != null && !athlete.getGender().trim().isEmpty()) {
-                bean.setGender(athlete.getGender());
-            }
-            if (athlete.getAge() > 0) {
-                bean.setAge(athlete.getAge());
-            }
-            if (athlete.getWeight() > 0) {
-                bean.setWeight(athlete.getWeight());
-            }
-            if (athlete.getHeight() > 0) {
-                bean.setHeight(athlete.getHeight());
-            }
-            if (athlete.getTarget() != null) {
-                bean.setTarget(athlete.getTarget());
-            }
-            if (athlete.getActivityLevel() != null) {
-                bean.setActivityLevel(athlete.getActivityLevel());
-            }
-            if (athlete.getWorkoutDay() != null) {
-                bean.setWorkoutDay(athlete.getWorkoutDay());
-            }
-            bean.setIsWorkoutRequested(athlete.getIsWorkoutRequested());
+        if (athlete == null) {
+            return bean;
         }
+
+        if (athlete.getGender() != null && !athlete.getGender().trim().isEmpty()) {
+            bean.setGender(athlete.getGender());
+        }
+        if (athlete.getAge() > 0) {
+            bean.setAge(athlete.getAge());
+        }
+        if (athlete.getWeight() > 0) {
+            bean.setWeight(athlete.getWeight());
+        }
+        if (athlete.getHeight() > 0) {
+            bean.setHeight(athlete.getHeight());
+        }
+        if (athlete.getTarget() != null) {
+            bean.setTarget(athlete.getTarget());
+        }
+        if (athlete.getActivityLevel() != null) {
+            bean.setActivityLevel(athlete.getActivityLevel());
+        }
+        if (athlete.getWorkoutDay() != null) {
+            bean.setWorkoutDay(athlete.getWorkoutDay());
+        }
+        bean.setIsWorkoutRequested(athlete.getIsWorkoutRequested());
 
         return bean;
     }

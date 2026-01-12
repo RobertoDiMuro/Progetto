@@ -232,7 +232,7 @@ public class GuiCreateWorkoutView {
         int repeteWeeks;
         try {
             repeteWeeks = Integer.parseInt(weeks.trim());
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             errorLabel.setText("Le settimane inserite non sono un numero valido!");
             return;
         }
