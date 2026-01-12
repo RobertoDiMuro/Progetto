@@ -58,6 +58,7 @@ public class GuiCreateExerciseView {
             List<ExerciseBean> list = exerciseController.getAllExercises();
             exercises.setAll(list);
         } catch (PersistenceException _) {
+            //
         }
     }
 
