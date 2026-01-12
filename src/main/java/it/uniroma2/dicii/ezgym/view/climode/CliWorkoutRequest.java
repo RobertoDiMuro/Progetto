@@ -56,7 +56,7 @@ public class CliWorkoutRequest extends BaseCli {
 
                 System.out.println("\nRichiesta della scheda effettuata!");
                 requested = true;
-            }catch(BackException e){
+            }catch(BackException _){
                 System.out.println("\nTornando alla Home...");
                 return;
             }catch(IllegalArgumentException e){
@@ -82,7 +82,7 @@ public class CliWorkoutRequest extends BaseCli {
                 int age = Integer.parseInt(ageStr);
                 currAthlete.setAge(age);
                 break;
-            }catch(NumberFormatException e){
+            }catch(NumberFormatException _){
                 System.err.println("Età non valida. Inserisci un numero intero.");
             }
         }
@@ -101,7 +101,7 @@ public class CliWorkoutRequest extends BaseCli {
                 double weight = Double.parseDouble(weightStr);  
                 currAthlete.setWeight(weight);
                 break;
-            }catch(NumberFormatException e){
+            }catch(NumberFormatException _){
                 System.err.println("Peso non valido. Inserisci un numero intero.");
             }
         }
@@ -120,7 +120,7 @@ public class CliWorkoutRequest extends BaseCli {
                 double height = Double.parseDouble(heightStr);
                 currAthlete.setHeight(height);
                 break;
-            }catch(NumberFormatException e){
+            }catch(NumberFormatException _){
                 System.err.println("Altezza non valida. Inserisci un numero intero.");
             }
         }

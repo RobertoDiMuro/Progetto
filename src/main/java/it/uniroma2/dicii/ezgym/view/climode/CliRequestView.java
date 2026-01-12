@@ -64,14 +64,14 @@ public class CliRequestView extends BaseCli {
 
             AthleteBean selected = requests.get(index - 1);
             try {
-                athleteActionsLoop(pt, selected);
+                athleteActionsLoop(selected);
             } catch (BackException _) {
                 //
             }
         }
     }
 
-    private static void athleteActionsLoop(PersonalTrainerBean pt, AthleteBean athlete) throws IOException {
+    private static void athleteActionsLoop(AthleteBean athlete) throws IOException {
 
         while (true) {
             System.out.println("\n------------------------------------");

@@ -5,7 +5,6 @@ import java.io.IOException;
 
 
 import it.uniroma2.bootstrap.InputReader;
-import it.uniroma2.bootstrap.Mode;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
@@ -14,7 +13,7 @@ public final class CliStart {
 
     private CliStart() { }
 
-    public static void start(Mode mode) throws IOException, EmailAlreadyExistsException {
+    public static void start() throws IOException, EmailAlreadyExistsException {
         BufferedReader reader = InputReader.getInstance();
 
         printWelcome();

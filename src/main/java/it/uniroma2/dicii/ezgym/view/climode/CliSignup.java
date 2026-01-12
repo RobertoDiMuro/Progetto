@@ -23,6 +23,8 @@ public class CliSignup extends BaseCli {
         System.out.println("\n===Registrazione avviata in modalità CLI===");
         System.out.println("\nInserisci 0 per tornare indietro.");
 
+        String retry = "\nRiprova";
+
         SignupController signupController = new SignupController();
         UserBean createdUser = null;
 
@@ -59,15 +61,15 @@ public class CliSignup extends BaseCli {
 
             } catch (EmailAlreadyExistsException e) {
                 System.err.println("\nErrore: " + e.getMessage());
-                System.err.println("Riprova.");
+                System.err.println(retry);
 
             } catch (IllegalArgumentException e) {
                 System.err.println("\nErrore: " + e.getMessage());
-                System.err.println("Riprova.");
+                System.err.println(retry);
 
             } catch (Exception _) {
                 System.err.println("\nErrore inatteso durante la registrazione.");
-                System.err.println("Riprova.");
+                System.err.println(retry);
             }
         }
     }

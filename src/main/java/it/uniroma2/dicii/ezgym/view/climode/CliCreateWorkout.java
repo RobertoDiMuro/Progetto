@@ -86,6 +86,7 @@ public class CliCreateWorkout extends BaseCli {
 
                 String choice = reader.readLine().trim();
                 checkBackToHome(choice);
+                boolean shouldExit = false;
                 switch(choice){
                     case "1" -> {
                         selectedDayIndex = selectDay();
@@ -96,11 +97,11 @@ public class CliCreateWorkout extends BaseCli {
                         addExerciseFlow(exerciseController, addExerciseController, sessions[selectedDayIndex], dayExercises[selectedDayIndex], exerciseCounters, selectedDayIndex);
                     }
                     case "3" ->  printDayExercises(selectedDayIndex, dayExercises[selectedDayIndex]);
-                    case "4" -> {
-                        if (trySaveWorkout(athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller)) {
-                            return;
-                        }
-                    }default -> System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 0.");
+                    case "4" -> shouldExit = trySaveWorkout(athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller);
+                    default -> System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 0.");
+                }
+                if (shouldExit) {
+                    return;
                 }
             }
 
