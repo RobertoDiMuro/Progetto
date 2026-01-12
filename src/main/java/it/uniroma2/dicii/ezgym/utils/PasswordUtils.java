@@ -3,6 +3,10 @@ package it.uniroma2.dicii.ezgym.utils;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordUtils {
+
+    private PasswordUtils(){
+        //
+    }
     
     public static String hashPassword(String plainPassword){
         return BCrypt.hashpw(plainPassword, BCrypt.gensalt(12));

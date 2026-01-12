@@ -23,6 +23,10 @@ public class Navigator {
         navigateTo(fxmlPath, null);
     }
 
+    private Navigator(){
+        //
+    }
+
     public static void navigateTo(String fxmlPath, Consumer<Object> controllerSetup) {
         try {
             Scene scene;
@@ -53,7 +57,7 @@ public class Navigator {
             mainStage.show();
 
         } catch (IOException e) {
-            throw new RuntimeException("Impossibile caricare il file FXML: " + fxmlPath, e);
+            throw new IllegalArgumentException("Impossibile caricare il file FXML: " + fxmlPath, e);
         }
     }
 }
