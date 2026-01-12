@@ -29,19 +29,14 @@ public class CliSignup extends BaseCli {
         while(true){
 
             String name = readTrimmedInput("\nNome:");
-            if(name == null) return null;
 
             String surname = readTrimmedInput("\nCognome:");
-            if(surname == null) return null;
 
             String email = readTrimmedInput("\nEmail: ");
-            if (email == null) return null;
 
             String password = readTrimmedInput("\nPassword: ");
-            if (password == null) return null;
 
            String confirmPw = readTrimmedInput("\nConferma Password: ");
-           if (confirmPw == null) return null;
            
             if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPw.isEmpty()) {
                 System.err.println("\nErrore: tutti i campi sono obbligatori. Riprova.");
