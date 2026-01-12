@@ -43,9 +43,7 @@ public class CliHome {
                         System.out.println("Funzionalità non disponibile: " + e.getMessage());
                     }
                 }
-                case "2" -> {
-                    System.out.println("\nFunzionalità non ancora implementata.");
-                }
+                case "2" -> System.out.println("\nFunzionalità non ancora implementata.");
                 case "3" ->{
                     try {
                         CliWorkoutView.startWorkoutView(currAthlete, wokoutBean);
