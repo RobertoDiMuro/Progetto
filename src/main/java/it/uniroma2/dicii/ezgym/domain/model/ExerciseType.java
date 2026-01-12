@@ -1,12 +1,12 @@
 package it.uniroma2.dicii.ezgym.domain.model;
 
 public enum ExerciseType {
-    Forza("Sviluppo e aumento capacità di forza e potenza"),
-    Cardio("Aumento capacità cardiovascolari e aerobiche"),
-    Pump("Tonificazione muscolare"),
-    Pliometria("Aumento capacità reattivo-elastiche ed esplosività"),
-    Ipertrofia("Crescita muscolare"),
-    Funzionale("Recupero infortuni");
+    FORZA("Sviluppo e aumento capacità di forza e potenza"),
+    CARDIO("Aumento capacità cardiovascolari e aerobiche"),
+    PUMP("Tonificazione muscolare"),
+    PLIOMETRIA("Aumento capacità reattivo-elastiche ed esplosività"),
+    IPERTROFIA("Crescita muscolare"),
+    FUNZIONALE("Recupero infortuni");
 
     private final String description;
     ExerciseType(String description) {
