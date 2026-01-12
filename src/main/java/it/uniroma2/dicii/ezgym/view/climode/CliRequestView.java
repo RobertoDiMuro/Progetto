@@ -52,7 +52,7 @@ public class CliRequestView extends BaseCli {
 
             try {
                 checkBackToHome(input);
-            } catch (BackException e) {
+            } catch (BackException _) {
                 return; 
             }
 
@@ -98,7 +98,7 @@ public class CliRequestView extends BaseCli {
                 }
                 case "2" -> {
                     System.out.println("\nAvvio procedura di creazione scheda di allenamento...");
-                    CliCreateWorkout.startCreateWorkout(pt, athlete);
+                    CliCreateWorkout.startCreateWorkout(athlete);
                 }
                 case "3" -> {
                     System.out.println("Funzionalità non ancora implementata.");

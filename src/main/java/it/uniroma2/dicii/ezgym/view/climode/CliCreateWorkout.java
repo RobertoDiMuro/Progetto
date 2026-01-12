@@ -8,7 +8,6 @@ import java.util.List;
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.bean.ExerciseBean;
-import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.controller.AddExerciseToSessionController;
@@ -38,7 +37,7 @@ public class CliCreateWorkout extends BaseCli {
             "Sesto giorno"
     };
 
-    public static void startCreateWorkout(PersonalTrainerBean pt, AthleteBean athlete) throws IOException {
+    public static void startCreateWorkout(AthleteBean athlete) throws IOException {
         
         PtRequestcontroller ptRequestcontroller = new PtRequestcontroller();
         CreateWorkoutController createWorkoutController = new CreateWorkoutController();

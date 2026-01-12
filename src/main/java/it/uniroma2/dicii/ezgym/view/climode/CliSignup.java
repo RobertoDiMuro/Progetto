@@ -8,9 +8,13 @@ import it.uniroma2.dicii.ezgym.bean.SignupBean;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
 import it.uniroma2.dicii.ezgym.controller.SignupController;
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
+import it.uniroma2.dicii.ezgym.utils.BaseCli;
 
-public class CliSignup {
+public class CliSignup extends BaseCli {
     
+    private static BufferedReader reader = InputReader.getInstance();
+
+
     private CliSignup() {
         //
     }
@@ -19,43 +23,27 @@ public class CliSignup {
         System.out.println("\n===Registrazione avviata in modalità CLI===");
         System.out.println("\nInserisci 0 per tornare indietro.");
 
-        BufferedReader reader = InputReader.getInstance();
         SignupController signupController = new SignupController();
         UserBean createdUser = null;
 
         while(true){
 
-            System.out.print("Nome: ");
-            String name = reader.readLine();
-            if (name == null) return null;
-            name = name.trim();
-            if (name.equals("0")) return null;
+            String name = readTrimmedInput("\nNome:");
+            if(name == null) return null;
 
-            System.out.print("\nCognome: ");
-            String surname = reader.readLine();
-            if (surname == null) return null;
-            surname = surname.trim();
-            if (surname.equals("0")) return null;
+            String surname = readTrimmedInput("\nCognome:");
+            if(surname == null) return null;
 
-            System.out.print("\nEmail: ");
-            String email = reader.readLine();
+            String email = readTrimmedInput("\nEmail: ");
             if (email == null) return null;
-            email = email.trim();
-            if (email.equals("0")) return null;
 
-            System.out.print("\nPassword: ");
-            String password = reader.readLine();
+            String password = readTrimmedInput("\nPassword: ");
             if (password == null) return null;
-            password = password.trim();
-            if (password.equals("0")) return null;
 
-            System.out.print("\nConferma Password: ");
-            String confirm = reader.readLine();
-            if (confirm == null) return null;
-            confirm = confirm.trim();
-            if (confirm.equals("0")) return null;
-
-            if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
+           String confirmPw = readTrimmedInput("\nConferma Password: ");
+           if (confirmPw == null) return null;
+           
+            if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPw.isEmpty()) {
                 System.err.println("\nErrore: tutti i campi sono obbligatori. Riprova.");
                 continue;
             }
@@ -66,7 +54,7 @@ public class CliSignup {
                 bean.setSurname(surname);
                 bean.setEmail(email);
                 bean.setPassword(password);
-                bean.setConfirmPw(confirm, password);
+                bean.setConfirmPw(confirmPw, password);
 
                 createdUser = signupController.signup(bean);
 
@@ -82,11 +70,19 @@ public class CliSignup {
                 System.err.println("\nErrore: " + e.getMessage());
                 System.err.println("Riprova.");
 
-            } catch (Exception e) {
+            } catch (Exception _) {
                 System.err.println("\nErrore inatteso durante la registrazione.");
-                e.printStackTrace();
                 System.err.println("Riprova.");
             }
         }
+    }
+
+    private static String readTrimmedInput(String prompt) throws IOException {
+        System.out.print(prompt);
+        String input = reader.readLine();
+        if (input == null) return null;
+        input = input.trim();
+        BaseCli.checkBackToHome(input);
+        return input;
     }
 }

@@ -12,6 +12,8 @@ import it.uniroma2.dicii.ezgym.utils.BaseCli;
 
 public final class CliLogin extends BaseCli {
 
+    private static BufferedReader reader = InputReader.getInstance();
+
     private CliLogin(){
     }
 
@@ -20,17 +22,16 @@ public final class CliLogin extends BaseCli {
         System.out.println("\n===Login avviato in modalità CLI===");
         System.out.println("\nInserisci 0 per tornare indietro.");
 
-        BufferedReader reader = InputReader.getInstance();
         LoginController loginController = new LoginController();
         UserBean loggedUser = null;
 
         while(true) {
 
             try {
-                String email = readTrimmedInput(reader, "\nInserisci email: ");
+                String email = readTrimmedInput("\nInserisci email: ");
                 if (email == null) return null;
 
-                String password = readTrimmedInput(reader, "\nInserisci Password: ");
+                String password = readTrimmedInput("\nInserisci Password: ");
                 if (password == null) return null;
 
                 if (email.isEmpty() || password.isEmpty()) {
@@ -62,7 +63,7 @@ public final class CliLogin extends BaseCli {
         }
     }
 
-    private static String readTrimmedInput(BufferedReader reader, String prompt) throws IOException {
+    private static String readTrimmedInput(String prompt) throws IOException {
         System.out.print(prompt);
         String input = reader.readLine();
         if (input == null) return null;
