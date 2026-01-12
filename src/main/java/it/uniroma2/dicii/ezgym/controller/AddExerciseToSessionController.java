@@ -36,7 +36,7 @@ public class AddExerciseToSessionController {
                     bean.getNotes());
             
             dao.insert(sessionExercise, sessionId);
-        }catch(Exception e){
+        }catch(Exception _){
             throw new PersistenceException("Errore durante l'inserimento dell'esercizio nella sessione");
         }
     }

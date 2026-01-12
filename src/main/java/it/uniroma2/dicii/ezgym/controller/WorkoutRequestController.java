@@ -54,7 +54,7 @@ public class WorkoutRequestController {
         Athlete athlete;
         try{
             athlete = athleteDao.findBy(email);
-        }catch(Exception e){
+        }catch(Exception _){
             throw new PersistenceException("Errore durante il recupero dell'atleta.");
         }
 
@@ -74,7 +74,7 @@ public class WorkoutRequestController {
             athlete.setWorkoutDay(bean.getWorkoutDay());
 
             athleteDao.update(athlete.getId(), athlete);
-        }catch(Exception e){
+        }catch(Exception _){
             throw new PersistenceException("Errore durante il salvataggio della richiesta di scheda");
         }
     }

@@ -86,7 +86,7 @@ public class GuiSliderBoxView {
             stage.setResizable(false);
             stage.showAndWait();
 
-        } catch (IOException e) {
+        } catch (IOException _) {
             //
         }
     }

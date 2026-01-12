@@ -47,7 +47,7 @@ public class GuiHomeptView {
             List<AthleteBean> requests = ptRequestcontroller.getAthletesRequest();
             activeRequestLabel.setText(String.valueOf(requests.size()));
             populateRequests(requests);
-        }catch(Exception e){
+        }catch(Exception _){
             //
         }
     }
@@ -67,7 +67,7 @@ public class GuiHomeptView {
 
                 requestContainer.getChildren().add(box);
 
-            } catch (IOException e) {
+            } catch (IOException _) {
                 //
             }
         }

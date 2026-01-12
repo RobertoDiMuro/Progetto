@@ -39,7 +39,7 @@ public class CreateSessionController {
 
         } catch (IllegalArgumentException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (Exception _) {
             throw new PersistenceException("Errore durante la creazione della sessione");
         }
     }
