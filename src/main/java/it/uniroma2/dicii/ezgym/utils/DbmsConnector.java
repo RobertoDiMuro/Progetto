@@ -26,7 +26,7 @@ public class DbmsConnector {
                 .getResourceAsStream("database.properties")) {
 
             if (in == null) {
-                throw new RuntimeException("ERRORE: File 'database.properties' non trovato nel classpath!");
+                throw new IllegalArgumentException("ERRORE: File 'database.properties' non trovato nel classpath!");
             }
 
             Properties props = new Properties();
@@ -37,7 +37,7 @@ public class DbmsConnector {
             this.password = props.getProperty("db.pass");
 
             if (connectionUrl == null || user == null || password == null) {
-                throw new RuntimeException("ERRORE: Parametri DB mancanti in database.properties");
+                throw new IllegalArgumentException("ERRORE: Parametri DB mancanti in database.properties");
             }
 
             System.out.println(
@@ -46,7 +46,7 @@ public class DbmsConnector {
             );
 
         } catch (IOException e) {
-            throw new RuntimeException("ERRORE durante il caricamento di database.properties", e);
+            throw new IllegalArgumentException("ERRORE durante il caricamento di database.properties", e);
         }
     }
 
@@ -56,7 +56,7 @@ public class DbmsConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver MySQL registrato correttamente.");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("ERRORE: Driver MySQL non trovato!", e);
+            throw new IllegalArgumentException("ERRORE: Driver MySQL non trovato!", e);
         }
     }
 
@@ -66,7 +66,7 @@ public class DbmsConnector {
             this.connection = DriverManager.getConnection(connectionUrl, user, password);
             System.out.println("Connessione al database stabilita con successo.");
         } catch (SQLException e) {
-            throw new RuntimeException("ERRORE FATALE: impossibile connettersi al database!", e);
+            throw new IllegalArgumentException("ERRORE FATALE: impossibile connettersi al database!", e);
         }
     }
 
@@ -86,7 +86,7 @@ public class DbmsConnector {
                 openConnection();
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Errore durante il controllo dello stato della connessione", e);
+            throw new IllegalArgumentException("Errore durante il controllo dello stato della connessione", e);
         }
         return connection;
     }
