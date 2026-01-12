@@ -6,9 +6,11 @@ import java.io.IOException;
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
 import it.uniroma2.dicii.ezgym.controller.LoginController;
+import it.uniroma2.dicii.ezgym.exceptions.BackException;
 import it.uniroma2.dicii.ezgym.exceptions.InvalidCredentialsException;
+import it.uniroma2.dicii.ezgym.utils.BaseCli;
 
-public final class CliLogin {
+public final class CliLogin extends BaseCli {
 
     private CliLogin(){
     }
@@ -24,24 +26,18 @@ public final class CliLogin {
 
         while(true) {
 
-            System.out.print("\nInserisci email: ");
-            String email = reader.readLine();
-            if (email == null) return null;
-            email = email.trim();
-            if (email.equals("0")) return null;
-
-            System.out.print("\nInserisci Password: ");
-            String password = reader.readLine();
-            if (password == null) return null;
-            password = password.trim();
-            if (password.equals("0")) return null;
-
-            if (email.isEmpty() || password.isEmpty()) {
-                System.err.println("\nEmail e password sono obbligatori. Riprova.");
-                continue;
-            }
-
             try {
+                String email = readTrimmedInput(reader, "\nInserisci email: ");
+                if (email == null) return null;
+
+                String password = readTrimmedInput(reader, "\nInserisci Password: ");
+                if (password == null) return null;
+
+                if (email.isEmpty() || password.isEmpty()) {
+                    System.err.println("\nEmail e password sono obbligatori. Riprova.");
+                    continue;
+                }
+
                 UserBean credentials = new UserBean();
                 credentials.setEmail(email);
                 credentials.setPassword(password);
@@ -52,19 +48,26 @@ public final class CliLogin {
                 System.out.println("Ciao " + loggedUser.getName() + " " + loggedUser.getSurname() + "!");
                 return loggedUser;
 
-            } catch (InvalidCredentialsException e) {
+            } catch (BackException _) {
+                return null;
+
+            } catch (InvalidCredentialsException | IllegalArgumentException e) {
                 System.err.println("\nErrore: " + e.getMessage());
                 System.err.println("Riprova.");
 
-            } catch (IllegalArgumentException e) {
-                System.err.println("\nErrore: " + e.getMessage());
-                System.err.println("Riprova.");
-
-            } catch (Exception e) {
+            } catch (Exception _) {
                 System.err.println("\nErrore inatteso durante il login.");
-                e.printStackTrace();
                 System.err.println("Riprova.");
             }
         }
+    }
+
+    private static String readTrimmedInput(BufferedReader reader, String prompt) throws IOException {
+        System.out.print(prompt);
+        String input = reader.readLine();
+        if (input == null) return null;
+        input = input.trim();
+        BaseCli.checkBackToHome(input);
+        return input;
     }
 }

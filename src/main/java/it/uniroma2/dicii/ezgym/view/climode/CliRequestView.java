@@ -65,7 +65,9 @@ public class CliRequestView extends BaseCli {
             AthleteBean selected = requests.get(index - 1);
             try {
                 athleteActionsLoop(pt, selected);
-            } catch (BackException e) {}
+            } catch (BackException _) {
+                //
+            }
         }
     }
 
@@ -168,7 +170,7 @@ public class CliRequestView extends BaseCli {
     private static int parseIndex(String s) {
         try {
             return Integer.parseInt(s.trim());
-        } catch (Exception e) {
+        } catch (Exception _) {
             return -1;
         }
     }

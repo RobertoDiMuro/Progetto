@@ -98,20 +98,19 @@ public class CliCreateWorkout extends BaseCli {
                     }
                     case "3" ->  printDayExercises(selectedDayIndex, dayExercises[selectedDayIndex]);
                     case "4" -> {
-                        if (trySaveWorkout(pt, athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller)) {
+                        if (trySaveWorkout(athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller)) {
                             return;
                         }
                     }default -> System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 0.");
                 }
             }
 
-        }catch (BackException e) {
+        }catch (BackException _) {
             //
         }
     }
 
     private static boolean trySaveWorkout(
-            PersonalTrainerBean pt,
             AthleteBean athlete,
             int repeteWeeks,
             WorkoutSessionBean[] sessions,

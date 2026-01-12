@@ -31,14 +31,14 @@ public class CreateWorkoutController {
         for (WorkoutSessionBean s : sessions) {
             if (s != null) {
                 if (s.getSessionId() <= 0) {
-                    throw new RuntimeException("Errore: sessione non inizializzata (sessionId <= 0).");
+                    throw new IllegalArgumentException("Errore: sessione non inizializzata (sessionId <= 0).");
                 }
                 sessionBeans.add(s);
             }
         }
 
         if (sessionBeans.isEmpty()) {
-            throw new RuntimeException("Aggiungi almeno una sessione.");
+            throw new IllegalArgumentException("Aggiungi almeno una sessione.");
         }
 
         boolean hasAtLeastOneExercise = false;
