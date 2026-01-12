@@ -64,7 +64,7 @@ public class CliCreateWorkout extends BaseCli {
             System.out.println("Atleta: " + athlete.getName() + " " + athlete.getSurname());
             System.out.println("Inserisci 0 in qualunque momento per tornare indietro.\n");
 
-            int repeteWeeks = repeteWeeksRequest(sessions);
+            int repeteWeeks = repeteWeeksRequest();
 
             ensureSessionCreated(createSessionController, sessions, selectedDayIndex);
 
@@ -99,30 +99,46 @@ public class CliCreateWorkout extends BaseCli {
                     }
                     case "3" ->  printDayExercises(selectedDayIndex, dayExercises[selectedDayIndex]);
                     case "4" -> {
-                        try {
-                            saveWorkout(pt, athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller);
-                            System.out.println("\nScheda creata con successo! Richiesta chiusa.");
-                            return; 
-                        } catch (RuntimeException e) {
-                            System.err.println("\nImpossibile salvare la scheda: " + e.getMessage());
-                            System.out.println("\nInserisci 0 per tornare indietro (o continua per modificare la scheda).");
+                        if (trySaveWorkout(pt, athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller)) {
+                            return;
                         }
                     }default -> System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 0.");
                 }
             }
 
         }catch (BackException e) {
-            return;
+            //
         }
     }
 
-    private static int repeteWeeksRequest(WorkoutSessionBean[] sessions) throws IOException {
+    private static boolean trySaveWorkout(
+            PersonalTrainerBean pt,
+            AthleteBean athlete,
+            int repeteWeeks,
+            WorkoutSessionBean[] sessions,
+            List<SessionExerciseBean>[] dayExercises,
+            CreateWorkoutController createWorkoutController,
+            PtRequestcontroller ptRequestcontroller) {
+
+        try {
+            saveWorkout(athlete, repeteWeeks, sessions, dayExercises, createWorkoutController, ptRequestcontroller);
+            System.out.println("\nScheda creata con successo! Richiesta chiusa.");
+            return true;
+        } catch (RuntimeException e) {
+            System.err.println("\nImpossibile salvare la scheda: " + e.getMessage());
+            System.out.println("\nInserisci 0 per tornare indietro (o continua per modificare la scheda).");
+            return false;
+        }
+    }
+
+
+    private static int repeteWeeksRequest() throws IOException {
         while (true) {
             System.out.print("Per quante settimane deve essere ripetuta la scheda di allenamento? > ");
             String input = reader.readLine().trim();
             try {
                 checkBackToHome(input);
-            } catch (Exception e) {
+            } catch (Exception _) {
                 return 0;
             }
             try {
@@ -132,7 +148,7 @@ public class CliCreateWorkout extends BaseCli {
                     continue;
                 }
                 return weeks;
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 System.err.println("Input non valido. Inserisci un numero intero.");
             }
         }
@@ -181,7 +197,7 @@ public class CliCreateWorkout extends BaseCli {
                 } else {
                     return v;
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 System.err.println("Inserisci un numero valido.");
             }
         }
@@ -197,8 +213,8 @@ public class CliCreateWorkout extends BaseCli {
         List<ExerciseBean> all;
         try {
             all = exerciseController.getAllExercises();
-        } catch (PersistenceException e) {
-            System.err.println("Errore nel caricamento degli esercizi: " + e.getMessage());
+        } catch (PersistenceException _) {
+            System.err.println("Errore nel caricamento degli esercizi: ");
             return;
         }
 
@@ -255,7 +271,7 @@ public class CliCreateWorkout extends BaseCli {
             checkBackToHome(input);
             try {
                 return Integer.parseInt(input);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 System.err.println("Inserisci un numero valido.");
             }
         }
@@ -272,7 +288,7 @@ public class CliCreateWorkout extends BaseCli {
 
             try {
                 return Double.parseDouble(input);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException _) {
                 System.err.println("Inserisci un numero valido (es: 60 oppure 60.5).");
             }
         }
@@ -306,7 +322,7 @@ public class CliCreateWorkout extends BaseCli {
         }
     }
 
-    private static void saveWorkout(PersonalTrainerBean pt, AthleteBean athlete, int repeteWeeks, WorkoutSessionBean[] sessions, List<SessionExerciseBean>[] dayExercises, CreateWorkoutController createWorkoutController, PtRequestcontroller ptRequestcontroller) {
+    private static void saveWorkout(AthleteBean athlete, int repeteWeeks, WorkoutSessionBean[] sessions, List<SessionExerciseBean>[] dayExercises, CreateWorkoutController createWorkoutController, PtRequestcontroller ptRequestcontroller) {
 
     WorkoutBean workoutBean = new WorkoutBean();
     workoutBean.setAthleteId(athlete.getId());
@@ -335,7 +351,7 @@ public class CliCreateWorkout extends BaseCli {
     }
 
     if (!hasAtLeastOneExercise) {
-        throw new RuntimeException("Aggiungi almeno un esercizio prima di salvare la scheda.");
+        throw new IllegalArgumentException("Aggiungi almeno un esercizio prima di salvare la scheda.");
     }
 
     workoutBean.setSessions(sessionBeans);
