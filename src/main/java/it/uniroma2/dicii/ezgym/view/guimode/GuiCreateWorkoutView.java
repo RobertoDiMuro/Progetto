@@ -210,8 +210,8 @@ public class GuiCreateWorkoutView {
             dayExerciseViews[selectedDayIndex].add(root);
             sliderBox.getChildren().add(root);
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException _) {
+            //
         }
     }
 
