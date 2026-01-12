@@ -2,9 +2,11 @@ package it.uniroma2.dicii.ezgym.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
+import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
 import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutDao;
 import it.uniroma2.dicii.ezgym.domain.model.Workout;
@@ -19,6 +21,42 @@ public class CreateWorkoutController {
         DaoFactory factory = DaoFactory.getInstance();
         this.dao = factory.createWorkoutDao();
     }
+
+    public void saveWorkout(UUID athleteId, int repeteWeeks, WorkoutSessionBean[] sessions, List<SessionExerciseBean>[] dayExercises){
+        WorkoutBean workoutBean = new WorkoutBean();
+        workoutBean.setAthleteId(athleteId);
+        workoutBean.setRepeteWeeks(repeteWeeks);
+
+        List<WorkoutSessionBean> sessionBeans = new ArrayList<>();
+        for (WorkoutSessionBean s : sessions) {
+            if (s != null) {
+                if (s.getSessionId() <= 0) {
+                    throw new RuntimeException("Errore: sessione non inizializzata (sessionId <= 0).");
+                }
+                sessionBeans.add(s);
+            }
+        }
+
+        if (sessionBeans.isEmpty()) {
+            throw new RuntimeException("Aggiungi almeno una sessione.");
+        }
+
+        boolean hasAtLeastOneExercise = false;
+        for (List<SessionExerciseBean> list : dayExercises) {
+            if (list != null && !list.isEmpty()) {
+                hasAtLeastOneExercise = true;
+                break;
+            }
+        }
+
+        if (!hasAtLeastOneExercise) {
+            throw new IllegalArgumentException("Aggiungi almeno un esercizio prima di salvare la scheda.");
+        }
+
+        workoutBean.setSessions(sessionBeans);
+        saveWorkout(workoutBean);
+    }
+
 
     public void saveWorkout(WorkoutBean bean) {
         try {

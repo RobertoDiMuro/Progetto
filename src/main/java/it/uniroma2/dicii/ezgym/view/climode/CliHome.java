@@ -53,10 +53,7 @@ public class CliHome {
                         System.out.println("Funzionalità non disponibile: " + e.getMessage());
                     }
                 }
-                case "4" ->{
-                    System.out.println("\nFunzionalità non ancora implementata.");
-                
-                }
+                case "4" -> System.out.println("\nFunzionalità non ancora implementata.");
                 case "0" -> {
                     System.out.println("\nA presto!");
                     System.exit(0);

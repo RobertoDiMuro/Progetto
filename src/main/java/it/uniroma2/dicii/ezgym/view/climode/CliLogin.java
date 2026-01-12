@@ -6,7 +6,6 @@ import java.io.IOException;
 import it.uniroma2.bootstrap.InputReader;
 import it.uniroma2.dicii.ezgym.bean.UserBean;
 import it.uniroma2.dicii.ezgym.controller.LoginController;
-import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
 import it.uniroma2.dicii.ezgym.exceptions.InvalidCredentialsException;
 
 public final class CliLogin {
@@ -14,7 +13,7 @@ public final class CliLogin {
     private CliLogin(){
     }
 
-    public static UserBean startLogin() throws IOException, EmailAlreadyExistsException {
+    public static UserBean startLogin() throws IOException {
 
         System.out.println("\n===Login avviato in modalità CLI===");
         System.out.println("\nInserisci 0 per tornare indietro.");

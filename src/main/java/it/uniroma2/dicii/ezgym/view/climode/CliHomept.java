@@ -29,12 +29,8 @@ public class CliHomept {
 
             String choice = reader.readLine().trim();
             switch(choice){
-                case "1" -> {
-                    CliRequestView.startRequestView(pt);
-                }
-                case "2" -> {
-                    CliCreateExercise.startCreateExercise();
-                }
+                case "1" -> CliRequestView.startRequestView(pt);
+                case "2" -> CliCreateExercise.startCreateExercise();
                 case "0" -> {
                     System.out.println("\nA presto!");
                     System.exit(0);

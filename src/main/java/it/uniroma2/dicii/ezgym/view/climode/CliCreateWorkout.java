@@ -10,7 +10,6 @@ import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.bean.ExerciseBean;
 import it.uniroma2.dicii.ezgym.bean.PersonalTrainerBean;
 import it.uniroma2.dicii.ezgym.bean.SessionExerciseBean;
-import it.uniroma2.dicii.ezgym.bean.WorkoutBean;
 import it.uniroma2.dicii.ezgym.bean.WorkoutSessionBean;
 import it.uniroma2.dicii.ezgym.controller.AddExerciseToSessionController;
 import it.uniroma2.dicii.ezgym.controller.CreateSessionController;
@@ -324,39 +323,8 @@ public class CliCreateWorkout extends BaseCli {
 
     private static void saveWorkout(AthleteBean athlete, int repeteWeeks, WorkoutSessionBean[] sessions, List<SessionExerciseBean>[] dayExercises, CreateWorkoutController createWorkoutController, PtRequestcontroller ptRequestcontroller) {
 
-    WorkoutBean workoutBean = new WorkoutBean();
-    workoutBean.setAthleteId(athlete.getId());
-    workoutBean.setRepeteWeeks(repeteWeeks);
-
-    List<WorkoutSessionBean> sessionBeans = new ArrayList<>();
-    for (WorkoutSessionBean s : sessions) {
-        if (s != null) {
-            if (s.getSessionId() <= 0) {
-                throw new RuntimeException("Errore: sessione non inizializzata (sessionId <= 0).");
-            }
-            sessionBeans.add(s);
-        }
+        createWorkoutController.saveWorkout(athlete.getId(), repeteWeeks, sessions, dayExercises);
+        ptRequestcontroller.closeRequest(athlete.getId());
     }
-
-    if (sessionBeans.isEmpty()) {
-        throw new RuntimeException("Aggiungi almeno una sessione.");
-    }
-
-    boolean hasAtLeastOneExercise = false;
-    for (List<SessionExerciseBean> list : dayExercises) {
-        if (list != null && !list.isEmpty()) {
-            hasAtLeastOneExercise = true;
-            break;
-        }
-    }
-
-    if (!hasAtLeastOneExercise) {
-        throw new IllegalArgumentException("Aggiungi almeno un esercizio prima di salvare la scheda.");
-    }
-
-    workoutBean.setSessions(sessionBeans);
-    createWorkoutController.saveWorkout(workoutBean);
-    ptRequestcontroller.closeRequest(athlete.getId());
-}
 
 }
