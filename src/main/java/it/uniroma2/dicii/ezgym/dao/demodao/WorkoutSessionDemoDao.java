@@ -44,20 +44,21 @@ public class WorkoutSessionDemoDao implements WorkoutSessionDao {
             int idToUse = (sessionId > 0) ? sessionId : nextSessionId();
             try {
                 session.getClass().getMethod("setSessionId", int.class).invoke(session, idToUse);
-            } catch (Exception ignored) {
-        }
+            } catch (Exception _) {
+                //
+            }
 
         sessionTable.put(idToUse, session);
         return idToUse;
     }
 
     @Override
-    public WorkoutSession findBy(String day_of_week){
-        if(day_of_week == null || day_of_week.isBlank()){
+    public WorkoutSession findBy(String dayOfWeek){
+        if(dayOfWeek == null || dayOfWeek.isBlank()){
             return null;
         }
 
-        String target = norm(day_of_week);
+        String target = norm(dayOfWeek);
 
         for(WorkoutSession workoutSession : sessionTable.values()){
             if (workoutSession == null) continue;

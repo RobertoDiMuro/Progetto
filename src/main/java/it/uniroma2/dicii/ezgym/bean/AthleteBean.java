@@ -63,8 +63,8 @@ public class AthleteBean extends UserBean {
         this.height = height;
     }
 
-    public Target getTarget(){
-        return target;
+    public String getTarget(){
+        return target.getDescrizione();
     }
 
     public void setTarget(Target target) {
@@ -74,8 +74,8 @@ public class AthleteBean extends UserBean {
         this.target = target;
     }
 
-    public ActivityLevel getActivityLevel(){
-        return activityLevel;
+    public String getActivityLevel(){
+        return activityLevel.getDescrizione();
     }
 
     public void setActivityLevel(ActivityLevel activityLevel) {
@@ -85,8 +85,8 @@ public class AthleteBean extends UserBean {
         this.activityLevel = activityLevel;
     }
 
-    public WorkoutDay getWorkoutDay(){
-        return workoutDay;
+    public String getWorkoutDay(){
+        return workoutDay.getDescrizione();
     }
 
     public void setWorkoutDay(WorkoutDay workoutDay) {

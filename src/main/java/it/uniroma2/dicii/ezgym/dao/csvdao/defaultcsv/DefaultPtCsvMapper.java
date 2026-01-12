@@ -57,7 +57,7 @@ public class DefaultPtCsvMapper implements PtCsvMapper {
         if (!auStr.isEmpty()) {
             try {
                 activeUsers = Double.parseDouble(auStr);
-            } catch (NumberFormatException ignored) {
+            } catch (NumberFormatException _) {
                 activeUsers = 0.0;
             }
         }

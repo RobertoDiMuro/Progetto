@@ -63,7 +63,7 @@ public class CliHome {
                     System.out.println("\nA presto!");
                     System.exit(0);
                 }
-                default -> System.err.println("Scelta non valida. Inserisci 1, 2 o 0.");
+                default -> System.err.println("Scelta non valida. Inserisci 1, 2, 3, 4 o 0.");
             }
 
         }

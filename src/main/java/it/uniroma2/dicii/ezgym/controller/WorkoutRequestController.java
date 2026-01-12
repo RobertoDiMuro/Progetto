@@ -3,7 +3,10 @@ package it.uniroma2.dicii.ezgym.controller;
 import it.uniroma2.dicii.ezgym.bean.AthleteBean;
 import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.AthleteDao;
+import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
+import it.uniroma2.dicii.ezgym.domain.model.Target;
+import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
 import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 
 public class WorkoutRequestController {
@@ -70,9 +73,9 @@ public class WorkoutRequestController {
             athlete.setGender(gender);
             athlete.setIsWorkoutRequested(true);
 
-            athlete.setActivityLevel(bean.getActivityLevel());
-            athlete.setTarget(bean.getTarget());
-            athlete.setWorkoutDay(bean.getWorkoutDay());
+            athlete.setActivityLevel(ActivityLevel.valueOf(bean.getActivityLevel()));
+            athlete.setTarget(Target.valueOf(bean.getTarget()));
+            athlete.setWorkoutDay(WorkoutDay.valueOf(bean.getWorkoutDay()));
 
             athleteDao.update(athlete.getId(), athlete);
         }catch(Exception e){
