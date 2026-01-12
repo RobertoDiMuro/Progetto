@@ -36,17 +36,19 @@ public class CliCreateExercise extends BaseCli {
             String choice = reader.readLine().trim();
             try {
                 checkBackToHome(choice);
-            } catch (BackException e) {
+            } catch (BackException _) {
                 return;
             }
             switch(choice){
                 case "1" -> {
                     try {
                         createExerciseFlow(reader, exerciseController);
-                    } catch (BackException e) {}
+                    } catch (BackException _) {
+                        //
+                    }
                 }
                 case "2" -> {
-
+                    //
                 }
                 default -> System.err.println("Scelta non valida. Inserisci 1, 2 o 0.");
             }
@@ -75,34 +77,32 @@ public class CliCreateExercise extends BaseCli {
     private static void createExerciseFlow(BufferedReader reader, ExerciseController controller) throws IOException {
         System.out.println("\n=== Creazione esercizio ===");
         System.out.println("Inserisci 0 per tornare indietro.\n");
+
         ExerciseBean newExercise = new ExerciseBean();
 
-        while(true){
-            System.out.println("\nNome esercizio:");
-            try{
-                String name = reader.readLine().trim();
-                if(name.isEmpty()) continue;
-                if(name.equals("0")){
-                    checkBackToHome(name);
-                }
-                newExercise.setName(name);
-            }catch(BackException e){
-                throw e;
+        String name = readRequired(reader, "\nNome esercizio:");
+        newExercise.setName(name);
+
+        String focus = readRequired(reader, "\nFocus:");
+        newExercise.setFocus(focus);
+
+        controller.createExercise(newExercise);
+        System.out.println("\nEsercizio creato con successo!");
+    }
+
+    private static String readRequired(BufferedReader reader, String prompt) throws IOException {
+        while (true) {
+            System.out.println(prompt);
+
+            String input = safe(reader.readLine()).trim();
+
+            checkBackToHome(input);
+
+            if (!input.isEmpty()) {
+                return input;
             }
-            System.out.println("\nFocus:");
-            try{
-                String focus = reader.readLine().trim();
-                if(focus.isEmpty()) continue;
-                if(focus.equals("0")){
-                    BaseCli.checkBackToHome(focus);
-                }
-                newExercise.setFocus(focus);
-            }catch(BackException e){
-                throw e;
-            }
-            controller.createExercise(newExercise);
-            System.out.println("\nEsercizio creato con successo!");
-            return;
+
+            System.out.println("Valore vuoto, riprova.");
         }
     }
 
