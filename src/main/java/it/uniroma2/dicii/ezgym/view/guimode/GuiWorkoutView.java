@@ -68,7 +68,7 @@ public class GuiWorkoutView {
             controller.setSession(session);
 
             return root;
-        } catch (IOException e) {
+        } catch (IOException _) {
             return null;
         }
     }

@@ -149,29 +149,8 @@ public class GuiWorkoutRequestView {
 
         String gender = maleButton.isSelected() ? "Maschio" : "Femmina";
 
-        Target target;
-        if(cutButton.isSelected()){
-            target = Target.PERDERE_PESO;
-        }else if(bulkButton.isSelected()){
-            target = Target.MANTENERE;
-        }else if(mantainButton.isSelected()){
-            target = Target.MANTENERE;
-        }else{
-            target = Target.TONIFICARE;
-        }
-
-        WorkoutDay days;
-        if(twoButton.isSelected()){
-            days = WorkoutDay.DUE_VOLTE;
-        }else if(threeButton.isSelected()){
-            days = WorkoutDay.TRE_VOLTE;
-        }else if(fourButton.isSelected()){
-            days = WorkoutDay.QUATTRO_VOLTE;
-        }else if(fiveButton.isSelected()){
-            days = WorkoutDay.CINQUE_VOLTE;
-        }else{
-            days = WorkoutDay.SEI_VOLTE;
-        }
+        Target target = resolveTarget();
+        WorkoutDay days = resolveWorkoutDay();
 
         ActivityLevel level = currLevel.getValue();
 
@@ -188,6 +167,36 @@ public class GuiWorkoutRequestView {
         workoutRequestController.setCurrAthlete(currAthlete);
 
         onRequestSuccess();
+    }
+
+
+    private Target resolveTarget(){
+        if(cutButton.isSelected()){
+            return Target.PERDERE_PESO;
+        }
+        if(bulkButton.isSelected()){
+            return Target.MANTENERE;
+        }
+        if(mantainButton.isSelected()){
+            return Target.MANTENERE;
+        }
+        return Target.TONIFICARE;
+    }
+
+    private WorkoutDay resolveWorkoutDay(){
+        if(twoButton.isSelected()){
+            return WorkoutDay.DUE_VOLTE;
+        }
+        if(threeButton.isSelected()){
+            return WorkoutDay.TRE_VOLTE;
+        }
+        if(fourButton.isSelected()){
+            return WorkoutDay.QUATTRO_VOLTE;
+        }
+        if(fiveButton.isSelected()){
+            return WorkoutDay.CINQUE_VOLTE;
+        }
+        return WorkoutDay.SEI_VOLTE;
     }
 
     private void onRequestSuccess(){
