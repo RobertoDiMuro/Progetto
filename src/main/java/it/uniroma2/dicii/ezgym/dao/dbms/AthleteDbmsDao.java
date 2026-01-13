@@ -20,7 +20,15 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class AthleteDbmsDao implements AthleteDao{
     
+    private static AthleteDbmsDao instance;
     
+    public static synchronized AthleteDbmsDao getInstance(){
+        if(instance == null){
+            instance = new AthleteDbmsDao();
+        }
+        return instance;
+    }
+
     private static final String CALL_INSERT_ATHLETE = "{CALL insert_athlete(?,?,?,?,?,?,?,?,?)}";
     private static final String CALL_FIND_ATHLETE_BY_EMAIL = "{CALL find_athlete_by_email(?)}";
     private static final String CALL_FIND_ALL_ATHLETES = "{CALL find_all_athletes()}";

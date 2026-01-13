@@ -12,6 +12,14 @@ import it.uniroma2.dicii.ezgym.utils.DemoMemory;
 public class AthleteDemoDao implements AthleteDao{
 
     private final Map<UUID, Athlete> athleteTable;
+    private static AthleteDemoDao instance;
+
+    public static synchronized AthleteDemoDao getInstance(){
+        if(instance == null){
+            instance = new AthleteDemoDao();
+        }
+        return instance;
+    }
 
     public AthleteDemoDao() {
         this.athleteTable = DemoMemory.getInstance().getAthletes();

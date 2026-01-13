@@ -25,6 +25,14 @@ public class AthleteCsvDao implements AthleteDao {
 
     private static final String SEP = ";";
     private static final String DEFAULT_CSV_PATH = "src/data/csv/athlete.csv";
+    private static AthleteCsvDao instance;
+
+    public static synchronized AthleteCsvDao getInstance(){
+        if(instance == null){
+            instance = new AthleteCsvDao();
+        }
+        return instance;
+    }
 
     private final String filePath;
     private final AthleteCsvMapper mapper;

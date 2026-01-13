@@ -14,20 +14,20 @@ import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutSessionDao;
 public class DaoCsvFactory extends DaoFactory{
 
     @Override
-    public UserDao createUserDao(){
-        return new UserCsvDao();
-    }
-
-    @Override 
-    public PersonalTrainerDao createPersonalTrainerDao(){
-        return new PersonalTrainerCsvDao();
+    public UserDao createUserDao() {
+        return UserCsvDao.getInstance();
     }
 
     @Override
-    public AthleteDao createAthleteDao(){
-        return new AthleteCsvDao();
+    public PersonalTrainerDao createPersonalTrainerDao() {
+        return PersonalTrainerCsvDao.getInstance();
     }
 
+    @Override
+    public AthleteDao createAthleteDao() {
+        return AthleteCsvDao.getInstance();
+    }
+    
     @Override
     public ExerciseDao createExerciseDao(){
         return null;

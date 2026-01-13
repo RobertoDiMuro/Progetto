@@ -18,7 +18,14 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class UserDbmsDao implements UserDao{
 
-    
+    private static UserDbmsDao instance;
+
+    public static synchronized UserDbmsDao getInstance(){
+        if(instance == null){
+            instance = new UserDbmsDao();
+        }
+        return instance;
+    }
 
     private static final String CALL_INSERT_USER = "{CALL insert_user(?,?,?,?,?,?)}";
     private static final String CALL_FIND_USER_BY_ID = "{CALL find_user_by_id(?)}";   

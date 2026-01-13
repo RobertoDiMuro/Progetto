@@ -23,6 +23,14 @@ public class UserCsvDao implements UserDao{
     private static final String SEP = ";";
 
     private static final String DEFAULT_CSV_PATH = "src/data/csv/users.csv";
+    private static UserCsvDao instance;
+
+    public static synchronized UserCsvDao getInstance(){
+        if(instance == null){
+            instance = new UserCsvDao();
+        }
+        return instance;
+    }
 
     private final String filePath;
     private final UserCsvMapper mapper;

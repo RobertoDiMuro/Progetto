@@ -19,37 +19,37 @@ import it.uniroma2.dicii.ezgym.dao.interfacedao.WorkoutSessionDao;
 public class DaoDbmsFactory extends DaoFactory {
     
     @Override
-    public AthleteDao createAthleteDao(){
-        return new AthleteDbmsDao();
+    public AthleteDao createAthleteDao() {
+        return AthleteDbmsDao.getInstance();
     }
 
     @Override
     public UserDao createUserDao(){
-        return new UserDbmsDao();
+        return UserDbmsDao.getInstance();
     }
 
     @Override
-    public PersonalTrainerDao createPersonalTrainerDao(){
-        return new PersonalTrainerDbmsDao();
+    public PersonalTrainerDao createPersonalTrainerDao() {
+        return PersonalTrainerDbmsDao.getInstance();
     }
 
     @Override
-    public SessionExerciseDao createSessionExerciseDao(){
-        return new SessionExerciseDbmsDao();
+    public SessionExerciseDao createSessionExerciseDao() {
+        return SessionExerciseDbmsDao.getInstance();
     }
 
     @Override
-    public ExerciseDao createExerciseDao(){
-        return new ExerciseDbmsDao();
+    public ExerciseDao createExerciseDao() {
+        return ExerciseDbmsDao.getInstance();
     }
 
     @Override
-    public WorkoutSessionDao createWorkoutSessionDao(){
-        return new WorkoutSessionDbmsDao();
+    public WorkoutSessionDao createWorkoutSessionDao() {
+        return WorkoutSessionDbmsDao.getInstance();
     }
 
-     @Override
-     public WorkoutDao createWorkoutDao(){
-         return new WorkoutDbmsDao();
+    @Override
+    public WorkoutDao createWorkoutDao() {
+        return WorkoutDbmsDao.getInstance();
     }
 }

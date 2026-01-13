@@ -13,6 +13,15 @@ public class WorkoutDemoDao implements WorkoutDao {
     private final Map<Integer, Workout> workoutTable;
     private final Map<UUID, Athlete> athleteTable;
 
+    private static WorkoutDemoDao instance;
+    
+    public static synchronized WorkoutDemoDao getInstance(){
+        if(instance == null){
+            instance = new WorkoutDemoDao();
+        }
+        return instance;
+    }
+
     public WorkoutDemoDao() {
         this.workoutTable = DemoMemory.getInstance().getWorkouts();
         this.athleteTable = DemoMemory.getInstance().getAthletes();

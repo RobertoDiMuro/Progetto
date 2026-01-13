@@ -14,7 +14,14 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class ExerciseDbmsDao implements ExerciseDao{
     
-    
+    private static ExerciseDbmsDao instance;
+
+    public static synchronized ExerciseDbmsDao getInstance(){
+        if(instance == null){
+            instance = new ExerciseDbmsDao();
+        }
+        return instance;
+    }
 
     private static final String CALL_INSERT_EXERCISE = "{CALL insert_exercise(?,?)}";
     private static final String CALL_FIND_EXERCISE_BY_NAME = "{CALL find_exercise_by_name(?)}";

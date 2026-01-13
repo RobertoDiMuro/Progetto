@@ -13,7 +13,14 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class PersonalTrainerDbmsDao implements PersonalTrainerDao {
 
-    
+    private static PersonalTrainerDbmsDao instance;
+
+    public static synchronized PersonalTrainerDbmsDao getInstance(){
+        if(instance == null){
+            instance = new PersonalTrainerDbmsDao();
+        }
+        return instance;
+    }
 
     private static final String CALL_INSERT_PT = "{CALL insert_pt(?,?)}";
     private static final String CALL_FIND_PT_BY_EMAIL = "{CALL find_pt_by_email(?)}";

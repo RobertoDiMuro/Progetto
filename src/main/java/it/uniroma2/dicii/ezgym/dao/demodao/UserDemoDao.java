@@ -18,6 +18,15 @@ public class UserDemoDao implements UserDao{
 
     private final Map<UUID, User> userTable;
 
+    private static UserDemoDao instance;
+
+    public static synchronized UserDemoDao getInstance(){
+        if(instance == null){
+            instance = new UserDemoDao();
+        }
+        return instance;
+    }
+
     public UserDemoDao() {
         this.userTable = DemoMemory.getInstance().getUsers();
     }

@@ -13,6 +13,14 @@ public class PersonalTrainerCsvDao implements PersonalTrainerDao {
 
     private static final String SEP = ";";
     private static final String DEFAULT_CSV_PATH = "src/data/csv/personal_trainers.csv";
+    private static PersonalTrainerCsvDao instance;
+
+    public static synchronized PersonalTrainerCsvDao getInstance(){
+        if(instance == null){
+            instance = new PersonalTrainerCsvDao();
+        }
+        return instance;
+    }
 
     private final String filePath;
     private final PtCsvMapper mapper;

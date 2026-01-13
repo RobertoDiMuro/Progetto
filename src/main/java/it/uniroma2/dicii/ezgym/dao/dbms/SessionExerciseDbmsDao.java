@@ -15,7 +15,14 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class SessionExerciseDbmsDao implements SessionExerciseDao {
 
-    
+    private static SessionExerciseDbmsDao instance;
+
+    public static synchronized SessionExerciseDbmsDao getInstance(){
+        if(instance == null){
+            instance = new SessionExerciseDbmsDao();
+        }
+        return instance;
+    }
 
     private static final String CALL_INSERT_EXERCISE_IN_SESSION = "{CALL insert_exercise_in_session(?,?,?,?,?,?,?)}";
     private static final String CALL_FIND_SESSION_EXERCISE = "{CALL find_session_exercise(?,?)}";

@@ -16,6 +16,15 @@ import it.uniroma2.dicii.ezgym.utils.DbmsConnector;
 
 public class WorkoutSessionDbmsDao implements WorkoutSessionDao {
 
+    private static WorkoutSessionDbmsDao instance;
+
+    public static synchronized WorkoutSessionDbmsDao getInstance(){
+        if(instance == null){
+            instance = new WorkoutSessionDbmsDao();
+        }
+        return instance;
+    }
+
     private static final String CALL_INSERT_SESSION = "{CALL insert_session(?,?)}";
     private static final String CALL_FIND_SESSION_BY_DAY = "{CALL find_session_by_day(?)}";
     private static final String CALL_FIND_ALL_SESSIONS = "{CALL find_all_sessions()}";
