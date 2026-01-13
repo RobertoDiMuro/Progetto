@@ -5,15 +5,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.UserDao;
-import it.uniroma2.dicii.ezgym.domain.model.Athlete;
-import it.uniroma2.dicii.ezgym.domain.model.AthleteParams;
-import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
 import it.uniroma2.dicii.ezgym.utils.DemoMemory;
-import it.uniroma2.dicii.ezgym.utils.PasswordUtils;
 
 public class UserDemoDao implements UserDao{
 
@@ -30,40 +25,7 @@ public class UserDemoDao implements UserDao{
 
     public UserDemoDao() {
         this.userTable = DemoMemory.getInstance().getUsers();
-    }
-
-    static {
-        AthleteParams params = new AthleteParams(null, 0, 0, 0, null, null, null, false);  
-        Athlete athlete = new Athlete(
-            UUID.randomUUID(),
-            "Roberto",
-            "Di Muro",
-            "roby.dimuro@gmail.com",
-            PasswordUtils.hashPassword("ovxn2!Bt"),
-            Role.ATHLETE,
-            params
-        );
-        UserDao dao = DaoFactory.getInstance().createUserDao();
-        dao.insert(athlete, athlete.getId());
-        DaoFactory.getInstance().createAthleteDao().insert(athlete, athlete.getId()); 
-
-        UUID marioId = UUID.randomUUID();
-
-        PersonalTrainer mario = new PersonalTrainer();
-        mario.setId(marioId);
-        mario.setName("Mario");
-        mario.setSurname("Rossi");
-        mario.setEmail("mario.rossi@gmail.com");
-        mario.setPassword(PasswordUtils.hashPassword("Password123!"));
-        mario.setRole(Role.PERSONAL_TRAINER);
-        mario.setActiveUsers(0);
-
-        dao.insert(mario, marioId);
-
-        DaoFactory.getInstance().createPersonalTrainerDao().insert(mario, marioId);
-    }
-
-    
+    }  
 
     @Override
     public void insert(User user, UUID id){
