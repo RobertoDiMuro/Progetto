@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import it.uniroma2.dicii.ezgym.dao.demodao.ExerciseDemoDao;
 import it.uniroma2.dicii.ezgym.domain.model.Exercise;
 
-public class ExerciseDemoDaoTest {
+class ExerciseDemoDaoTest {
     private ExerciseDemoDao dao;
     private Map<String, Exercise> table; 
 

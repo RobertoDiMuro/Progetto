@@ -18,7 +18,7 @@ import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.Target;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
 
-public class AthleteTest {
+class AthleteTest {
     
     @Test
     void defaultConstructor_shouldCreateObjectWithDefaultValues(){
@@ -64,7 +64,7 @@ public class AthleteTest {
     }
 
     @Test
-    void fullConstructor_shouldSetAthleteFieldsFromParams() throws Exception{
+    void fullConstructor_shouldSetAthleteFieldsFromParams(){
         UUID id = UUID.randomUUID();
 
         Role role = Role.values()[0];
@@ -110,7 +110,7 @@ public class AthleteTest {
         athlete.setWeight(80.0);
         athlete.setHeight(180.0);
 
-        
+        assertEquals(24.69, athlete.calculateBMI(), 0.000001);
     }
 
     
