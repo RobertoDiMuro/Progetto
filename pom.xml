@@ -16,6 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <sonar.organization>robertodimuro</sonar.organization>
+    <sonar.exclusions>src/main/resources/values</sonar.exclusions>
+    
   </properties>
 
   <dependencies>

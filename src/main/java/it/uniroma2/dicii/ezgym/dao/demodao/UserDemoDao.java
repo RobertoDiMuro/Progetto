@@ -33,7 +33,7 @@ public class UserDemoDao implements UserDao{
     }
 
     static {
-        AthleteParams params = new AthleteParams(null, 0, 0, 0, null, null, null, false);
+        AthleteParams params = new AthleteParams(null, 0, 0, 0, null, null, null, false);  
         Athlete athlete = new Athlete(
             UUID.randomUUID(),
             "Roberto",
