@@ -32,8 +32,6 @@ public class DemoMemory {
         this.users = new HashMap<>();
         this.workouts = new HashMap<>();
         this.sessions = new HashMap<>();
-
-        seedDemoDataIfEmpty();
     }
 
     public static synchronized DemoMemory getInstance(){
@@ -65,13 +63,5 @@ public class DemoMemory {
         return sessions;
     }
 
-    private void seedDemoDataIfEmpty(){
-    if(!athletes.isEmpty()){
-        return;
-    }
-        
-
-
-}
 
 }
