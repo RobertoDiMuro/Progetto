@@ -10,7 +10,9 @@ public abstract class User {
     private String password;
     private Role role;
 
-    protected User() {}
+    protected User() {
+        //
+    }
     
     protected User(UUID id, String name, String surname, String email, String password, Role role) {
         this.id = id;
