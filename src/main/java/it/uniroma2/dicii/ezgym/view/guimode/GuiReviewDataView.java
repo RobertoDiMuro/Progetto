@@ -47,9 +47,9 @@ public class GuiReviewDataView {
         ageLabel.setText("Età: " + athlete.getAge() + " anni");
         weightLabel.setText("Peso: " + athlete.getWeight() + " kg");
         heightLabel.setText("Altezza: " + athlete.getHeight() + " cm");
-        goalLabel.setText("Obiettivo: " + athlete.getTarget());
-        activityLevelLabel.setText("Livello di attività: " + athlete.getActivityLevel());
-        workoutDayLabel.setText("Giorni di allenamento: " + athlete.getWorkoutDay());
+        goalLabel.setText("Obiettivo: " + athlete.getTarget().getLabel());
+        activityLevelLabel.setText("Livello di attività: " + athlete.getActivityLevel().getLabel());
+        workoutDayLabel.setText("Giorni di allenamento: " + athlete.getWorkoutDay().getLabel());
 
         double heightInMeters = athlete.getHeight()/100.0;
         double bmi = athlete.getWeight() / (heightInMeters * heightInMeters);

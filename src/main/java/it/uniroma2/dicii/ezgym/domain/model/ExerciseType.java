@@ -1,20 +1,40 @@
 package it.uniroma2.dicii.ezgym.domain.model;
 
 public enum ExerciseType {
-    FORZA("Sviluppo e aumento capacità di forza e potenza"),
-    CARDIO("Aumento capacità cardiovascolari e aerobiche"),
-    PUMP("Tonificazione muscolare"),
-    PLIOMETRIA("Aumento capacità reattivo-elastiche ed esplosività"),
-    IPERTROFIA("Crescita muscolare"),
-    FUNZIONALE("Recupero infortuni");
+    FORZA("Forza"),
+    CARDIO("Cardio"),
+    PUMP("Pump"),
+    PLIOMETRIA("Pliometria"),
+    IPERTROFIA("Ipertrofia"),
+    FUNZIONALE("Funzionale");
 
-    private final String description;
-    ExerciseType(String description) {
-        this.description = description;
-    }
-    public String getDescription() {
-        return description;
+    private final String label;
+
+    ExerciseType(String label) {
+        this.label = label;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
+    public static ExerciseType fromString(String raw){
+        if (raw == null) {
+            throw new IllegalArgumentException("Tipo esercizio nullo");
+        }
+
+        String s = raw.trim();
+        if (s.isEmpty()) {
+            throw new IllegalArgumentException("Tipo esercizio vuoto");
+        }
+
+        for (ExerciseType t : values()) {
+            if (t.name().equalsIgnoreCase(s) || t.label.equalsIgnoreCase(s)) {
+                return t;
+            }
+        }
+
+        throw new IllegalArgumentException("Tipo esercizio non valido: " + raw);
+    }
 
 }

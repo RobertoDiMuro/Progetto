@@ -11,9 +11,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
+import javafx.util.StringConverter;
 
 public class GuiWorkoutRequestView {
      
@@ -63,6 +65,34 @@ public class GuiWorkoutRequestView {
     @FXML
     private void initialize(){
        currLevel.getItems().setAll(ActivityLevel.values());
+
+        currLevel.setConverter(new StringConverter<ActivityLevel>() {
+            @Override
+            public String toString(ActivityLevel type) {
+                return type == null ? "" : type.getLabel();
+            }
+
+            @Override
+            public ActivityLevel fromString(String string) {
+                return ActivityLevel.fromString(string);
+            }
+        });
+
+        currLevel.setCellFactory(cb -> new ListCell<ActivityLevel>() {
+            @Override
+            protected void updateItem(ActivityLevel item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.getLabel());
+            }
+        });
+
+        currLevel.setButtonCell(new ListCell<ActivityLevel>() {
+            @Override
+            protected void updateItem(ActivityLevel item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.getLabel());
+            }
+        });
 
        configureGenderButton();
        configureTargetButton();
@@ -175,7 +205,7 @@ public class GuiWorkoutRequestView {
             return Target.PERDERE_PESO;
         }
         if(bulkButton.isSelected()){
-            return Target.MANTENERE;
+            return Target.MASSA_MUSCOLARE;
         }
         if(mantainButton.isSelected()){
             return Target.MANTENERE;

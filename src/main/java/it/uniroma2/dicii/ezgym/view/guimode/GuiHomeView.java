@@ -59,7 +59,7 @@ public class GuiHomeView {
         welcomeLabel.setText("Ciao, " + currAthlete.getName() + "!");
         
         String weight = (currAthlete.getWeight() > 0) ? String.valueOf(currAthlete.getWeight()) : "";
-        String target = (currAthlete.getTarget() != null) ? String.valueOf(currAthlete.getTarget()) : "";
+        String target = (currAthlete.getTarget() != null) ? currAthlete.getTarget().getLabel() : "";
         String bmi = (weight.isEmpty() || currAthlete.getHeight() <= 0) ? "" : String.valueOf(calculateBMI());
 
         if(weight.isEmpty()){
@@ -81,9 +81,9 @@ public class GuiHomeView {
         }
        
         
-        activeWeeksLabel.setText("0");
-        completedWorkoutsLabel.setText("0");
-        dailyCaloriesLabel.setText("0");
+        activeWeeksLabel.setText("-");
+        completedWorkoutsLabel.setText("-");
+        dailyCaloriesLabel.setText("-");
 
         notImplementLabel.setText("");
     }

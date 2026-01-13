@@ -154,7 +154,7 @@
                                           <Insets left="10.0" />
                                        </HBox.margin>
                                     </Text>
-                                    <Label fx:id="completedWorkoutsLabel" text="9">
+                                    <Label fx:id="completedWorkoutsLabel" text="-">
                                        <font>
                                           <Font size="30.0" />
                                        </font>
@@ -177,12 +177,12 @@
                                           <Insets left="10.0" />
                                        </HBox.margin>
                                     </Text>
-                                    <Label fx:id="dailyCaloriesLabel" text="2200">
+                                    <Label fx:id="dailyCaloriesLabel" text="-">
                                        <font>
                                           <Font size="30.0" />
                                        </font>
                                        <HBox.margin>
-                                          <Insets left="20.0" />
+                                          <Insets left="40.0" />
                                        </HBox.margin>
                                     </Label>
                                  </children>
