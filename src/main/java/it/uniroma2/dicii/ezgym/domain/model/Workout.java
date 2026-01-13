@@ -10,6 +10,10 @@ public class Workout {
     private UUID athleteId;
     private int repeteWeeks;
     private List<WorkoutSession> sessions;
+
+    public Workout(){
+        //
+    }
     
 
     public Workout( int workoutId, UUID athleteId, int repeteWeeks ,List<WorkoutSession> sessions) {

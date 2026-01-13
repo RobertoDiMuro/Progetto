@@ -10,6 +10,10 @@ public class SessionExercise {
     private ExerciseType type;
     private String notes;
 
+    public SessionExercise(){
+        //
+    }
+
     public SessionExercise(int sessionId, String exerciseName, int sets, int reps, double restTime, ExerciseType type, String notes) {
         this.sessionId = sessionId;
         this.exerciseName = exerciseName;

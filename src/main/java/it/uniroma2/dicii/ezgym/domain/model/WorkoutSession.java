@@ -9,6 +9,10 @@ public class WorkoutSession {
     private String dayOfWeek;
     private List<SessionExercise> exercises;
 
+    public WorkoutSession(){
+        //
+    }
+
     public WorkoutSession(int sessionId, String dayOfWeek, List<SessionExercise> exercises) {
         this.sessionId = sessionId;
         this.dayOfWeek = dayOfWeek;

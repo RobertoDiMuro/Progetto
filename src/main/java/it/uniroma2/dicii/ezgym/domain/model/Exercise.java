@@ -5,6 +5,9 @@ public class Exercise {
     private String name;
     private String focus;
 
+    public Exercise(){
+        //
+    }
 
     public Exercise(String name, String focus) {
         this.name = name;

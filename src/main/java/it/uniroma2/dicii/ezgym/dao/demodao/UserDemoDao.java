@@ -8,6 +8,7 @@ import java.util.UUID;
 import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
+import it.uniroma2.dicii.ezgym.domain.model.AthleteParams;
 import it.uniroma2.dicii.ezgym.domain.model.PersonalTrainer;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
@@ -32,21 +33,15 @@ public class UserDemoDao implements UserDao{
     }
 
     static {
+        AthleteParams params = new AthleteParams(null, 0, 0, 0, null, null, null, false);
         Athlete athlete = new Athlete(
-            "",
-            0,
             UUID.randomUUID(),
             "Roberto",
             "Di Muro",
             "roby.dimuro@gmail.com",
             PasswordUtils.hashPassword("ovxn2!Bt"),
             Role.ATHLETE,
-            0,
-            0,
-            null,
-            null,
-            null,
-            false
+            params
         );
         UserDao dao = DaoFactory.getInstance().createUserDao();
         dao.insert(athlete, athlete.getId());

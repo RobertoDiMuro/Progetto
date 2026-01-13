@@ -8,6 +8,7 @@ import it.uniroma2.dicii.ezgym.dao.abstractfactory.DaoFactory;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.AthleteDao;
 import it.uniroma2.dicii.ezgym.dao.interfacedao.UserDao;
 import it.uniroma2.dicii.ezgym.domain.model.Athlete;
+import it.uniroma2.dicii.ezgym.domain.model.AthleteParams;
 import it.uniroma2.dicii.ezgym.domain.model.Role;
 import it.uniroma2.dicii.ezgym.domain.model.User;
 import it.uniroma2.dicii.ezgym.exceptions.EmailAlreadyExistsException;
@@ -36,21 +37,15 @@ public class SignupController {
         UUID id = UUID.randomUUID();
         String hashedPassword = PasswordUtils.hashPassword(bean.getPassword());
 
+        AthleteParams params = new AthleteParams(null, 0, 0, 0, null, null, null, false);
         Athlete athlete = new Athlete(
-                null,
-                0,
                 id,
                 bean.getName(),
                 bean.getSurname(),
                 email,
                 hashedPassword,
                 Role.ATHLETE,
-                0,
-                0,
-                null,
-                null,
-                null,
-                false
+                params
         );
 
         userDao.insert(athlete, id);
