@@ -9,6 +9,7 @@ La registrazione è consentita **solo per Atleti**: i **Personal Trainer** vengo
 ## Requisiti
 - Java (versione compatibile con il progetto)
 - Maven
+- Importare il dump del database
 
 ---
 
