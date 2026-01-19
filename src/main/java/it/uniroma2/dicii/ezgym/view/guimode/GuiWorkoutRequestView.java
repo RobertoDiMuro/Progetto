@@ -6,6 +6,7 @@ import it.uniroma2.dicii.ezgym.controller.WorkoutRequestController;
 import it.uniroma2.dicii.ezgym.domain.model.ActivityLevel;
 import it.uniroma2.dicii.ezgym.domain.model.Target;
 import it.uniroma2.dicii.ezgym.domain.model.WorkoutDay;
+import it.uniroma2.dicii.ezgym.exceptions.PersistenceException;
 import it.uniroma2.dicii.ezgym.utils.Navigator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -194,9 +195,17 @@ public class GuiWorkoutRequestView {
         currAthlete.setWorkoutDay(days);
         currAthlete.setIsWorkoutRequested(true);
 
-        workoutRequestController.setCurrAthlete(currAthlete);
+       try {
+            workoutRequestController.setCurrAthlete(currAthlete);
+            onRequestSuccess();
+        } catch (IllegalArgumentException ex) {
+            errorLabel.setText(ex.getMessage());
+        } catch (PersistenceException ex) {
+            errorLabel.setText(ex.getMessage());
+        } catch (Exception ex) {
+            errorLabel.setText("Errore inatteso. Riprova.");
+        }
 
-        onRequestSuccess();
     }
 
 
