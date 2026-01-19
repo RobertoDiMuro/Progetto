@@ -202,7 +202,7 @@ public class GuiWorkoutRequestView {
             errorLabel.setText(ex.getMessage());
         } catch (PersistenceException ex) {
             errorLabel.setText(ex.getMessage());
-        } catch (Exception ex) {
+        } catch (Exception _) {
             errorLabel.setText("Errore inatteso. Riprova.");
         }
 
