@@ -179,33 +179,30 @@ public class GuiWorkoutRequestView {
         }
 
         String gender = maleButton.isSelected() ? "Maschio" : "Femmina";
-
         Target target = resolveTarget();
         WorkoutDay days = resolveWorkoutDay();
-
         ActivityLevel level = currLevel.getValue();
 
-    
-        currAthlete.setActivityLevel(level);
-        currAthlete.setAge(age);
-        currAthlete.setGender(gender);
-        currAthlete.setHeight(height);
-        currAthlete.setWeight(weight);
-        currAthlete.setTarget(target);
-        currAthlete.setWorkoutDay(days);
-        currAthlete.setIsWorkoutRequested(true);
+        try{
+            currAthlete.setActivityLevel(level);
+            currAthlete.setAge(age);
+            currAthlete.setGender(gender);
+            currAthlete.setHeight(height);
+            currAthlete.setWeight(weight);
+            currAthlete.setTarget(target);
+            currAthlete.setWorkoutDay(days);
+            currAthlete.setIsWorkoutRequested(true);
 
-       try {
             workoutRequestController.setCurrAthlete(currAthlete);
             onRequestSuccess();
-        } catch (IllegalArgumentException ex) {
+
+        }catch (IllegalArgumentException ex) {
             errorLabel.setText(ex.getMessage());
         } catch (PersistenceException ex) {
             errorLabel.setText(ex.getMessage());
         } catch (Exception _) {
             errorLabel.setText("Errore inatteso. Riprova.");
         }
-
     }
 
 

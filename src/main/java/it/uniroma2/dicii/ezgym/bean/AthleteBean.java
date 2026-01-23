@@ -35,8 +35,8 @@ public class AthleteBean extends UserBean {
     }
 
     public void setAge(int age) {
-        if (age <= 0) {
-            throw new IllegalArgumentException("L'età deve essere positiva.");
+        if (age <= 0 || age > 120) {
+            throw new IllegalArgumentException("L'età non è valida, inserire un numero compreso tra 1 e 120.");
         }
         this.age = age;
     }
@@ -46,8 +46,8 @@ public class AthleteBean extends UserBean {
     }
 
     public void setWeight(double weight) {
-        if (weight <= 0) {
-            throw new IllegalArgumentException("Il peso deve essere positivo.");
+        if (weight <= 0 || weight > 500) {
+            throw new IllegalArgumentException("Peso non valido, inserire un numero compreso tra 1 e 500.");
         }
         this.weight = weight;
     }
@@ -57,8 +57,8 @@ public class AthleteBean extends UserBean {
     }
 
      public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("L'altezza deve essere positiva.");
+        if (height <= 0 || height > 300) {
+            throw new IllegalArgumentException("L'altzza non è valida, insrire un numero tra 1 e 300.");
         }
         this.height = height;
     }

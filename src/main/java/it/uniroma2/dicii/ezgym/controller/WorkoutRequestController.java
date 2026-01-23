@@ -16,30 +16,13 @@ public class WorkoutRequestController {
 
     public void setCurrAthlete(AthleteBean bean){
         if(bean == null){
-            throw new IllegalArgumentException("AthleteBean cannot be null");
+            throw new IllegalArgumentException("AthleteBean non può essere nullo");
         }
 
         String email = bean.getEmail();
         if(email == null || email.isBlank()){
             throw new IllegalArgumentException("Email non valida.");
         }
-
-        Integer age = bean.getAge();
-        if(age == null || age < 1 || age > 120){
-            throw new IllegalArgumentException("Età non valida. Inserisci un valore tra 1 e 120.");
-        }
-
-        Double weight = bean.getWeight();
-        if(weight == null || weight < 20 || weight > 500){
-            throw new IllegalArgumentException("Peso non valido. Inserisci un valore tra 20 e 500 kg.");
-        }
-
-        Double height = bean.getHeight();
-        if(height == null || height < 50 || height > 300){
-            throw new IllegalArgumentException("Altezza non valida. Inserisci un valore tra 50 e 300 cm.");
-        }
-
-        String gender = normalizeGender(bean.getGender());
 
         if(bean.getTarget() == null){
             throw new IllegalArgumentException("Target non valido.");
@@ -63,10 +46,10 @@ public class WorkoutRequestController {
         }
 
         try{
-            athlete.setAge(age);
-            athlete.setWeight(weight);
-            athlete.setHeight(height);
-            athlete.setGender(gender);
+            athlete.setAge(bean.getAge());
+            athlete.setWeight(bean.getWeight());
+            athlete.setHeight(bean.getHeight());
+            athlete.setGender(bean.getGender());
             athlete.setIsWorkoutRequested(true);
 
             athlete.setActivityLevel(bean.getActivityLevel());
@@ -74,22 +57,11 @@ public class WorkoutRequestController {
             athlete.setWorkoutDay(bean.getWorkoutDay());
 
             athleteDao.update(athlete.getId(), athlete);
+        }catch(IllegalArgumentException e){
+            throw e;
         }catch(Exception _){
             throw new PersistenceException("Errore durante il salvataggio della richiesta di scheda");
         }
     }
 
-    private static String normalizeGender(String gender){
-        if(gender == null || gender.isBlank()){
-            throw new IllegalArgumentException("Genere non valido. Inserisci Maschio o Femmina.");
-        }
-        String g = gender.trim();
-        if(g.equalsIgnoreCase("Maschio") || g.equalsIgnoreCase("M")){
-            return "Maschio";
-        }
-        if(g.equalsIgnoreCase("Femmina") || g.equalsIgnoreCase("F")){
-            return "Femmina";
-        }
-        throw new IllegalArgumentException("Genere non valido. Inserisci Maschio o Femmina.");
-    }
 }
